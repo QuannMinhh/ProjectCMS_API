@@ -34,13 +34,13 @@ namespace ProjectCMS.Data
                 .HaveConversion<NullableDateOnlyConverter>()
                 .HaveColumnType("date");
         }
-        DbSet<Category> _categories { get; set; }
-        DbSet<Comment> _comments { get; set; }
-        DbSet<Department> _departments { get; set; }
-        DbSet<Event> _events { get; set; }
-        DbSet<Idea> _idea { get; set; }
-        DbSet<Interactions> _interactions { get; set; }
-        DbSet<User> _users { get; set; }
+        public DbSet<Category> _categories { get; set; }
+        public DbSet<Comment> _comments { get; set; }
+        public DbSet<Department> _departments { get; set; }
+        public DbSet<Event> _events { get; set; }
+        public DbSet<Idea> _idea { get; set; }
+        public DbSet<Interactions> _interactions { get; set; }
+        public DbSet<User> _users { get; set; }
     }
 
     /// <summary>
