@@ -142,14 +142,15 @@ namespace ProjectCMS.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CateId = table.Column<int>(type: "int", nullable: false)
+                    CateId = table.Column<int>(type: "int", nullable: false),
+                    CategoryCateId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__events", x => x.EvId);
                     table.ForeignKey(
-                        name: "FK__events__categories_CateId",
-                        column: x => x.CateId,
+                        name: "FK__events__categories_CategoryCateId",
+                        column: x => x.CategoryCateId,
                         principalTable: "_categories",
                         principalColumn: "CateId",
                         onDelete: ReferentialAction.Cascade);
@@ -174,15 +175,14 @@ namespace ProjectCMS.Migrations
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TokenCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TokenExpires = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DepartmentID = table.Column<int>(type: "int", nullable: false),
-                    DepId = table.Column<int>(type: "int", nullable: false)
+                    DepartmentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK__users__departments_DepId",
-                        column: x => x.DepId,
+                        name: "FK__users__departments_DepartmentID",
+                        column: x => x.DepartmentID,
                         principalTable: "_departments",
                         principalColumn: "DepId",
                         onDelete: ReferentialAction.Cascade);
@@ -305,15 +305,15 @@ namespace ProjectCMS.Migrations
                     Vote = table.Column<int>(type: "int", nullable: false),
                     Viewed = table.Column<int>(type: "int", nullable: false),
                     SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    eId = table.Column<int>(type: "int", nullable: false),
-                    EvId = table.Column<int>(type: "int", nullable: false)
+                    EvId = table.Column<int>(type: "int", nullable: false),
+                    EventEvId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__idea", x => x.IdeaId);
                     table.ForeignKey(
-                        name: "FK__idea__events_EvId",
-                        column: x => x.EvId,
+                        name: "FK__idea__events_EventEvId",
+                        column: x => x.EventEvId,
                         principalTable: "_events",
                         principalColumn: "EvId",
                         onDelete: ReferentialAction.Cascade);
@@ -385,14 +385,14 @@ namespace ProjectCMS.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__events_CateId",
+                name: "IX__events_CategoryCateId",
                 table: "_events",
-                column: "CateId");
+                column: "CategoryCateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__idea_EvId",
+                name: "IX__idea_EventEvId",
                 table: "_idea",
-                column: "EvId");
+                column: "EventEvId");
 
             migrationBuilder.CreateIndex(
                 name: "IX__interactions_IdeaId",
@@ -400,9 +400,9 @@ namespace ProjectCMS.Migrations
                 column: "IdeaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__users_DepId",
+                name: "IX__users_DepartmentID",
                 table: "_users",
-                column: "DepId");
+                column: "DepartmentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

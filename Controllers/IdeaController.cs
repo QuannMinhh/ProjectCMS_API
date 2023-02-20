@@ -33,7 +33,7 @@ namespace ProjectCMS.Controllers
                 {
                     Title = idea.Title,
                     Content = idea.Content,
-                    eId = idea.eId
+                    //EvId = idea.eId
                 };
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
