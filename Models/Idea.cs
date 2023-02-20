@@ -12,9 +12,8 @@ namespace ProjectCMS.Models
         public int Vote { get; set; }
         public int Viewed { get; set; }
         public DateTime SubmitedDate { get; set;}
-        public int eId { get; set; }
 
-        [ForeignKey("Event")]
-        public Event Events { get; set; }
+        [ForeignKey("EvId")]
+        public int eId { get; set; }
     }
 }

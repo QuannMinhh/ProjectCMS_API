@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectCMS.Migrations
 {
-    public partial class ProjectCMSAPI : Migration
+    public partial class ProjectCMS_API : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -306,14 +306,14 @@ namespace ProjectCMS.Migrations
                     Viewed = table.Column<int>(type: "int", nullable: false),
                     SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     eId = table.Column<int>(type: "int", nullable: false),
-                    Event = table.Column<int>(type: "int", nullable: false)
+                    EvId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__idea", x => x.IdeaId);
                     table.ForeignKey(
-                        name: "FK__idea__events_Event",
-                        column: x => x.Event,
+                        name: "FK__idea__events_EvId",
+                        column: x => x.EvId,
                         principalTable: "_events",
                         principalColumn: "EvId",
                         onDelete: ReferentialAction.Cascade);
@@ -390,9 +390,9 @@ namespace ProjectCMS.Migrations
                 column: "CateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__idea_Event",
+                name: "IX__idea_EvId",
                 table: "_idea",
-                column: "Event");
+                column: "EvId");
 
             migrationBuilder.CreateIndex(
                 name: "IX__interactions_IdeaId",
