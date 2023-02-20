@@ -19,8 +19,6 @@ namespace ProjectCMS.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Comment>()
-                .HasKey(m => new { m.UserId, m.IdeaId, m.AddedDate });
             builder.Entity<Interactions>()
                 .HasKey(m => new { m.UserId, m.IdeaId });
             base.OnModelCreating(builder);

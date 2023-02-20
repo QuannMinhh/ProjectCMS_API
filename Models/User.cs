@@ -22,6 +22,7 @@ namespace ProjectCMS.Models
         public DateTime TokenExpires { get; set; }
 
         public int DepID { get; set; }
+
         [ForeignKey("DepId")]
         public Department Department { get; set; }
 
