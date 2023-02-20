@@ -447,9 +447,6 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("CateId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryCateId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("First_Closure")
                         .HasColumnType("datetime2");
 
@@ -462,7 +459,7 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("EvId");
 
-                    b.HasIndex("CategoryCateId");
+                    b.HasIndex("CateId");
 
                     b.ToTable("_events");
                 });
@@ -482,9 +479,6 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("EvId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EventEvId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("SubmitedDate")
                         .HasColumnType("datetime2");
 
@@ -500,7 +494,7 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("IdeaId");
 
-                    b.HasIndex("EventEvId");
+                    b.HasIndex("EvId");
 
                     b.ToTable("_idea");
                 });
@@ -664,7 +658,7 @@ namespace ProjectCMS.Migrations
                 {
                     b.HasOne("ProjectCMS.Models.Category", "Category")
                         .WithMany("Events")
-                        .HasForeignKey("CategoryCateId")
+                        .HasForeignKey("CateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -675,7 +669,7 @@ namespace ProjectCMS.Migrations
                 {
                     b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
-                        .HasForeignKey("EventEvId")
+                        .HasForeignKey("EvId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
