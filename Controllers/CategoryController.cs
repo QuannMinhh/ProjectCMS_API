@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
 {
@@ -24,10 +25,38 @@ namespace ProjectCMS.Controllers
             return Ok(categories);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> CreateCategory()
-        //{
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(CategoryViewModel category)
+        {
+            if (ModelState.IsValid)
+            {
+                Category newCate = new Category();
+                newCate.Name = category.Name;
+                newCate.AddedDate = category.AddedDate;
+                newCate.Content = category.Content;
 
-        //}
+                _dbContext._categories.Add(newCate);
+                _dbContext.SaveChanges();
+                return Ok(await _dbContext._categories.ToListAsync());
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var category = await _dbContext._categories.FindAsync(id);
+            if(category.Events == null)
+            {
+                _dbContext._categories.Remove(category);
+                _dbContext.SaveChanges();
+                return Ok("Delete successfully ^__^ ");
+            }
+            if(category.Events != null)
+            {
+                return BadRequest("Cannot delete ! This category has events.");
+            }
+            return NotFound("Can't find category");
+        }
     }
 }
