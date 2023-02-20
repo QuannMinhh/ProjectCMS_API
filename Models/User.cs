@@ -21,11 +21,8 @@ namespace ProjectCMS.Models
         public DateTime TokenCreate { get; set; }
         public DateTime TokenExpires { get; set; }
 
-        public int DepartmentID { get; set; }
-
         [ForeignKey("DepId")]
-        public Department Department { get; set; }
-
+        public int DepartmentID { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Interactions> Iteractions { get; set; }
     }

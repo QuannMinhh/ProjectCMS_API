@@ -9,20 +9,15 @@ namespace ProjectCMS.Models
         [Key]    
         public int CommentId { get; set; }
 
+        [ForeignKey("UserId")]
         [DisplayName("User")]
         public int UserId { get; set; }
-
+        [ForeignKey("IdeaId")]
         [DisplayName("Idea")]  
         public int IdeaId { get; set; }
   
         public DateTime AddedDate { get; set; }
 
         public string Content { get; set; }
-
-        [ForeignKey("IdeaId")]
-        public Idea Idea { get; set; }
-
-        [ForeignKey("UserId")]
-        public User User { get; set; }
     }
 }

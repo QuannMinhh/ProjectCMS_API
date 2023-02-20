@@ -476,7 +476,7 @@ namespace ProjectCMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Event")
+                    b.Property<int>("EvId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SubmitedDate")
@@ -497,7 +497,7 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("IdeaId");
 
-                    b.HasIndex("Event");
+                    b.HasIndex("EvId");
 
                     b.ToTable("_idea");
                 });
@@ -677,13 +677,13 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
-                    b.HasOne("ProjectCMS.Models.Event", "Events")
+                    b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
-                        .HasForeignKey("Event")
+                        .HasForeignKey("EvId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Events");
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Interactions", b =>

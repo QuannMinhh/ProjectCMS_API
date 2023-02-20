@@ -12,8 +12,8 @@ using ProjectCMS.Data;
 namespace ProjectCMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220065158_ProjectCMSAPI")]
-    partial class ProjectCMSAPI
+    [Migration("20230220092425_ProjectCMS_API")]
+    partial class ProjectCMS_API
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -478,7 +478,7 @@ namespace ProjectCMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Event")
+                    b.Property<int>("EvId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SubmitedDate")
@@ -499,7 +499,7 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("IdeaId");
 
-                    b.HasIndex("Event");
+                    b.HasIndex("EvId");
 
                     b.ToTable("_idea");
                 });
@@ -679,13 +679,13 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
-                    b.HasOne("ProjectCMS.Models.Event", "Events")
+                    b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
-                        .HasForeignKey("Event")
+                        .HasForeignKey("EvId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Events");
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Interactions", b =>
