@@ -11,7 +11,9 @@ const context =  [
   "/Identity",
   "/connect",
   "/ApplyDatabaseMigrations",
-  "/_framework"
+    "/_framework",
+    "api/idea",
+    "api/category"
 ];
 
 module.exports = function(app) {
