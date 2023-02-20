@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 
@@ -17,9 +18,16 @@ namespace ProjectCMS.Controllers
         }
 
         [HttpGet]
-        public async IActionResult GetCategory() 
+        public async Task<IActionResult> GetCategory() 
         {
-            List<Category> categories = _dbContext._categories.ToList();
+            List<Category> categories = await _dbContext._categories.ToListAsync();
+            return Ok(categories);
         }
+
+        //[HttpPost]
+        //public async Task<IActionResult> CreateCategory()
+        //{
+
+        //}
     }
 }
