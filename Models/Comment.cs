@@ -5,7 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ProjectCMS.Models
 {
     public class Comment
-    {    
+    {
+        [Key]    
+        public int CommentId { get; set; }
 
         [DisplayName("User")]
         public int UserId { get; set; }
