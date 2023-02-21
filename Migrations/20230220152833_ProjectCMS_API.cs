@@ -174,15 +174,14 @@ namespace ProjectCMS.Migrations
                     RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TokenCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TokenExpires = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DepartmentID = table.Column<int>(type: "int", nullable: false),
-                    DepId = table.Column<int>(type: "int", nullable: false)
+                    DepartmentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__users", x => x.UserId);
                     table.ForeignKey(
-                        name: "FK__users__departments_DepId",
-                        column: x => x.DepId,
+                        name: "FK__users__departments_DepartmentID",
+                        column: x => x.DepartmentID,
                         principalTable: "_departments",
                         principalColumn: "DepId",
                         onDelete: ReferentialAction.Cascade);
@@ -305,7 +304,6 @@ namespace ProjectCMS.Migrations
                     Vote = table.Column<int>(type: "int", nullable: false),
                     Viewed = table.Column<int>(type: "int", nullable: false),
                     SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    eId = table.Column<int>(type: "int", nullable: false),
                     EvId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -400,9 +398,9 @@ namespace ProjectCMS.Migrations
                 column: "IdeaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__users_DepId",
+                name: "IX__users_DepartmentID",
                 table: "_users",
-                column: "DepId");
+                column: "DepartmentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

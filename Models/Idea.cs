@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectCMS.Models
@@ -14,6 +15,12 @@ namespace ProjectCMS.Models
         public DateTime SubmitedDate { get; set;}
 
         [ForeignKey("EvId")]
-        public int eId { get; set; }
+        public Event Event { get; set; } 
+        public int EvId { get; set; }
+        
+        
+
+        public ICollection<Interactions> Interactions { get; set; }
+        public ICollection<Comment> Comments { get; set; }  
     }
 }
