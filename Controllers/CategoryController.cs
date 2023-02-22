@@ -32,7 +32,6 @@ namespace ProjectCMS.Controllers
             {
                 Category newCate = new Category();
                 newCate.Name = category.Name;
-                newCate.AddedDate = category.AddedDate;
                 newCate.Content = category.Content;
 
                 _dbContext._categories.Add(newCate);
