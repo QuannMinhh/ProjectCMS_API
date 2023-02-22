@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Duende.IdentityServer.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
@@ -18,10 +19,61 @@ namespace ProjectCMS.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetIdeas()
+        public async Task<IActionResult> GetIdeas(string? searchString)
         {
-            List<Idea> ideas = await _dbContext._idea.ToListAsync();
-            return Ok(ideas);
+                var ideas =  from i in _dbContext._idea select i;
+                if (!searchString.IsNullOrEmpty())
+                {
+                    ideas = ideas.Where(s => s.Title.Contains(searchString));
+                    if (ideas.Any())
+                    {
+                        return Ok(await ideas.ToListAsync());
+                    }
+                    return NotFound("Cannot find any idea like " + searchString);
+                }
+
+                if (ideas.Any())
+                {
+                    return Ok(await ideas.ToListAsync());
+                }
+                return NotFound();
+
+        }
+
+        [HttpGet("{sort}")]
+        public async Task<IActionResult> Sort(string sortType)
+        {
+            try
+            {
+                var ideas = from i in _dbContext._idea select i;
+                if (sortType != null)
+                {
+                    switch (sortType)
+                    {
+                        case "mpi":
+                            ideas = ideas.OrderByDescending(s => s.Vote);
+                            break;
+                        case "mvi":
+                            ideas = ideas.OrderByDescending(s => s.Viewed);
+                            break;
+                        case "lid":
+                            ideas = ideas.OrderByDescending(s => s.SubmitedDate);
+                            break;
+                    }
+                }
+
+                if(ideas.Any())
+                {
+                    return Ok(await ideas.ToListAsync());
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error retrieving data from the database");
+            }          
         }
 
         [HttpPost]
@@ -33,7 +85,7 @@ namespace ProjectCMS.Controllers
                 {
                     Title = idea.Title,
                     Content = idea.Content,
-                    //EvId = idea.eId
+                    EvId = idea.eId
                 };
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
@@ -59,6 +111,5 @@ namespace ProjectCMS.Controllers
 
             return NotFound();
         }
-
     }
 }

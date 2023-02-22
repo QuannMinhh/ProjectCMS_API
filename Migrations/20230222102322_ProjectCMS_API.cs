@@ -38,6 +38,21 @@ namespace ProjectCMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "_events",
+                columns: table => new
+                {
+                    EvId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__events", x => x.EvId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -131,28 +146,6 @@ namespace ProjectCMS.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PersistedGrants", x => x.Key);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "_events",
-                columns: table => new
-                {
-                    EvId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CateId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__events", x => x.EvId);
-                    table.ForeignKey(
-                        name: "FK__events__categories_CateId",
-                        column: x => x.CateId,
-                        principalTable: "_categories",
-                        principalColumn: "CateId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -299,21 +292,35 @@ namespace ProjectCMS.Migrations
                 {
                     IdeaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Vote = table.Column<int>(type: "int", nullable: false),
                     Viewed = table.Column<int>(type: "int", nullable: false),
                     SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EvId = table.Column<int>(type: "int", nullable: false)
+                    EvId = table.Column<int>(type: "int", nullable: false),
+                    CateId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__idea", x => x.IdeaId);
                     table.ForeignKey(
+                        name: "FK__idea__categories_CateId",
+                        column: x => x.CateId,
+                        principalTable: "_categories",
+                        principalColumn: "CateId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK__idea__events_EvId",
                         column: x => x.EvId,
                         principalTable: "_events",
                         principalColumn: "EvId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK__idea__users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "_users",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -341,14 +348,15 @@ namespace ProjectCMS.Migrations
                         name: "FK__comments__users_UserId",
                         column: x => x.UserId,
                         principalTable: "_users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "_interactions",
                 columns: table => new
                 {
+                    InteracId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     IdeaId = table.Column<int>(type: "int", nullable: false),
                     Voted = table.Column<bool>(type: "bit", nullable: false),
@@ -357,7 +365,7 @@ namespace ProjectCMS.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__interactions", x => new { x.UserId, x.IdeaId });
+                    table.PrimaryKey("PK__interactions", x => x.InteracId);
                     table.ForeignKey(
                         name: "FK__interactions__idea_IdeaId",
                         column: x => x.IdeaId,
@@ -368,8 +376,7 @@ namespace ProjectCMS.Migrations
                         name: "FK__interactions__users_UserId",
                         column: x => x.UserId,
                         principalTable: "_users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -383,8 +390,8 @@ namespace ProjectCMS.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX__events_CateId",
-                table: "_events",
+                name: "IX__idea_CateId",
+                table: "_idea",
                 column: "CateId");
 
             migrationBuilder.CreateIndex(
@@ -393,9 +400,19 @@ namespace ProjectCMS.Migrations
                 column: "EvId");
 
             migrationBuilder.CreateIndex(
+                name: "IX__idea_UserId",
+                table: "_idea",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX__interactions_IdeaId",
                 table: "_interactions",
                 column: "IdeaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX__interactions_UserId",
+                table: "_interactions",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX__users_DepartmentID",
@@ -514,22 +531,22 @@ namespace ProjectCMS.Migrations
                 name: "_idea");
 
             migrationBuilder.DropTable(
-                name: "_users");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "_categories");
+
+            migrationBuilder.DropTable(
                 name: "_events");
 
             migrationBuilder.DropTable(
-                name: "_departments");
+                name: "_users");
 
             migrationBuilder.DropTable(
-                name: "_categories");
+                name: "_departments");
         }
     }
 }

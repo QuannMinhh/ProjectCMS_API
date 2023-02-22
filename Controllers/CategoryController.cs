@@ -46,13 +46,13 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var category = await _dbContext._categories.FindAsync(id);
-            if(category.Events == null)
+            if(category.Ideas == null)
             {
                 _dbContext._categories.Remove(category);
                 _dbContext.SaveChanges();
-                return Ok("Delete successfully ^__^ ");
+                return Ok("Successfully deleted ~.~ ");
             }
-            if(category.Events != null)
+            if(category.Ideas != null)
             {
                 return BadRequest("Cannot delete ! This category has events.");
             }
