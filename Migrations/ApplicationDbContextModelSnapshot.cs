@@ -444,9 +444,6 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EvId"), 1L, 1);
 
-                    b.Property<int>("CateId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("First_Closure")
                         .HasColumnType("datetime2");
 
@@ -459,8 +456,6 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("EvId");
 
-                    b.HasIndex("CateId");
-
                     b.ToTable("_events");
                 });
 
@@ -471,6 +466,9 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdeaId"), 1L, 1);
+
+                    b.Property<int>("CateId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Content")
                         .IsRequired()
@@ -486,6 +484,9 @@ namespace ProjectCMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Viewed")
                         .HasColumnType("int");
 
@@ -494,17 +495,27 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("IdeaId");
 
+                    b.HasIndex("CateId");
+
                     b.HasIndex("EvId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("_idea");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Interactions", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("InteracId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InteracId"), 1L, 1);
+
                     b.Property<int>("IdeaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Viewed")
@@ -516,9 +527,11 @@ namespace ProjectCMS.Migrations
                     b.Property<bool>("Voted")
                         .HasColumnType("bit");
 
-                    b.HasKey("UserId", "IdeaId");
+                    b.HasKey("InteracId");
 
                     b.HasIndex("IdeaId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("_interactions");
                 });
@@ -641,39 +654,47 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Comment", b =>
                 {
-                    b.HasOne("ProjectCMS.Models.Idea", null)
+                    b.HasOne("ProjectCMS.Models.Idea", "Idea")
                         .WithMany("Comments")
                         .HasForeignKey("IdeaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProjectCMS.Models.User", null)
+                    b.HasOne("ProjectCMS.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProjectCMS.Models.Event", b =>
-                {
-                    b.HasOne("ProjectCMS.Models.Category", "Category")
-                        .WithMany("Events")
-                        .HasForeignKey("CateId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("Idea");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
+                    b.HasOne("ProjectCMS.Models.Category", "Category")
+                        .WithMany("Ideas")
+                        .HasForeignKey("CateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
                         .HasForeignKey("EvId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProjectCMS.Models.User", "User")
+                        .WithMany("Ideas")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
                     b.Navigation("Event");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Interactions", b =>
@@ -687,7 +708,6 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.User", "User")
                         .WithMany("Iteractions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Idea");
@@ -706,7 +726,7 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Category", b =>
                 {
-                    b.Navigation("Events");
+                    b.Navigation("Ideas");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Department", b =>
@@ -729,6 +749,8 @@ namespace ProjectCMS.Migrations
             modelBuilder.Entity("ProjectCMS.Models.User", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Ideas");
 
                     b.Navigation("Iteractions");
                 });
