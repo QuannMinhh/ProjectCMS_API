@@ -444,6 +444,10 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EvId"), 1L, 1);
 
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("First_Closure")
                         .HasColumnType("datetime2");
 
@@ -467,6 +471,9 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdeaId"), 1L, 1);
 
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("CateId")
                         .HasColumnType("int");
 
@@ -477,10 +484,7 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("EvId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("SubmitedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

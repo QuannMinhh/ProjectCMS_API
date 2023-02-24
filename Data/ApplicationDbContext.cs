@@ -29,9 +29,7 @@ namespace ProjectCMS.Data
                 .HasOne(x => x.User)
                 .WithMany(x => x.Comments)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-            //builder.Entity<Interactions>()
-            //    .HasKey(m => new { m.UserId, m.IdeaId });
+                .OnDelete(DeleteBehavior.ClientSetNull);        
             builder.Entity<Idea>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Ideas)
