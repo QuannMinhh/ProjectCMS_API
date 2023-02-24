@@ -44,6 +44,7 @@ namespace ProjectCMS.Migrations
                     EvId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -292,14 +293,14 @@ namespace ProjectCMS.Migrations
                 {
                     IdeaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Vote = table.Column<int>(type: "int", nullable: false),
                     Viewed = table.Column<int>(type: "int", nullable: false),
-                    SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EvId = table.Column<int>(type: "int", nullable: false),
-                    CateId = table.Column<int>(type: "int", nullable: false)
+                    CateId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
