@@ -62,7 +62,7 @@ namespace ProjectCMS.Controllers
 
 
         // Delete comment
-        [HttpDelete("{id}")]
+        [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult>  DeleteComment([FromRoute] int id)
         {
