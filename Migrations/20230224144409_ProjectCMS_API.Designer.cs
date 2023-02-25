@@ -12,7 +12,7 @@ using ProjectCMS.Data;
 namespace ProjectCMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230222102322_ProjectCMS_API")]
+    [Migration("20230224144409_ProjectCMS_API")]
     partial class ProjectCMS_API
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -369,11 +369,11 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Category", b =>
                 {
-                    b.Property<int>("CateId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CateId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
@@ -386,7 +386,7 @@ namespace ProjectCMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CateId");
+                    b.HasKey("Id");
 
                     b.ToTable("_categories");
                 });
@@ -440,11 +440,15 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Event", b =>
                 {
-                    b.Property<int>("EvId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EvId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("First_Closure")
                         .HasColumnType("datetime2");
@@ -456,18 +460,21 @@ namespace ProjectCMS.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EvId");
+                    b.HasKey("Id");
 
                     b.ToTable("_events");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
-                    b.Property<int>("IdeaId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdeaId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("CateId")
                         .HasColumnType("int");
@@ -479,10 +486,7 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("EvId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("SubmitedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -495,7 +499,7 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("Vote")
                         .HasColumnType("int");
 
-                    b.HasKey("IdeaId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CateId");
 

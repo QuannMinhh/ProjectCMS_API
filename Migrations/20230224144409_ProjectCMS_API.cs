@@ -13,7 +13,7 @@ namespace ProjectCMS.Migrations
                 name: "_categories",
                 columns: table => new
                 {
-                    CateId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -21,7 +21,7 @@ namespace ProjectCMS.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__categories", x => x.CateId);
+                    table.PrimaryKey("PK__categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,15 +41,16 @@ namespace ProjectCMS.Migrations
                 name: "_events",
                 columns: table => new
                 {
-                    EvId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__events", x => x.EvId);
+                    table.PrimaryKey("PK__events", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -290,31 +291,31 @@ namespace ProjectCMS.Migrations
                 name: "_idea",
                 columns: table => new
                 {
-                    IdeaId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Vote = table.Column<int>(type: "int", nullable: false),
                     Viewed = table.Column<int>(type: "int", nullable: false),
-                    SubmitedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EvId = table.Column<int>(type: "int", nullable: false),
-                    CateId = table.Column<int>(type: "int", nullable: false)
+                    CateId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__idea", x => x.IdeaId);
+                    table.PrimaryKey("PK__idea", x => x.Id);
                     table.ForeignKey(
                         name: "FK__idea__categories_CateId",
                         column: x => x.CateId,
                         principalTable: "_categories",
-                        principalColumn: "CateId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK__idea__events_EvId",
                         column: x => x.EvId,
                         principalTable: "_events",
-                        principalColumn: "EvId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK__idea__users_UserId",
@@ -342,7 +343,7 @@ namespace ProjectCMS.Migrations
                         name: "FK__comments__idea_IdeaId",
                         column: x => x.IdeaId,
                         principalTable: "_idea",
-                        principalColumn: "IdeaId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK__comments__users_UserId",
@@ -370,7 +371,7 @@ namespace ProjectCMS.Migrations
                         name: "FK__interactions__idea_IdeaId",
                         column: x => x.IdeaId,
                         principalTable: "_idea",
-                        principalColumn: "IdeaId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK__interactions__users_UserId",

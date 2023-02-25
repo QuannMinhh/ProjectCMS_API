@@ -7,16 +7,12 @@ namespace ProjectCMS.Models
     public class Idea
     {
         [Key]
-        public int IdeaId { get; set; }
-
-        public User User { get; set; }
-        public int UserId { get; set; }
-        
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Content { get; set; }
+        public DateTime AddedDate { get; set; }
         public int Vote { get; set; }
-        public int Viewed { get; set; }
-        public DateTime SubmitedDate { get; set;}
+        public int Viewed { get; set; }        
 
         [ForeignKey("EvId")]
         public Event Event { get; set; } 
@@ -26,6 +22,8 @@ namespace ProjectCMS.Models
         public Category Category { get; set; }
         public int CateId { get; set; }
 
+        public User User { get; set; }
+        public int UserId { get; set; }
         public ICollection<Interactions> Interactions { get; set; }
         public ICollection<Comment> Comments { get; set; }  
     }
