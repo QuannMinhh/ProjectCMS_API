@@ -61,14 +61,14 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> DeleteCategory([FromRoute]  int id)
         {
             var category = await _dbContext._categories.FindAsync(id);
-            if(category.Ideas == null)
+            if (category != null)
             {
-                _dbContext._categories.Remove(category);
-                await _dbContext.SaveChangesAsync();
-                return Ok("Successfully deleted ~.~ ");
-            }
-            if(category.Ideas != null)
-            {
+                if (category.Ideas == null)
+                {
+                    _dbContext._categories.Remove(category);
+                    await _dbContext.SaveChangesAsync();
+                    return Ok("Successfully deleted ~.~ ");
+                }
                 return BadRequest("Cannot delete ! This category has ideas.");
             }
             return NotFound("Can't find category !");
