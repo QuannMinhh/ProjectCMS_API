@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
+using System.Xml.Linq;
 
 namespace ProjectCMS.Controllers
 {
@@ -18,13 +19,15 @@ namespace ProjectCMS.Controllers
             _dbContext = dbcontext;
         }
 
+        // Get all comments
         [HttpGet]
-        public async Task<IActionResult> GetComments()
+        public async Task<IActionResult> GetAllComments()
         {
             List<Comment> comments = await _dbContext._comments.ToListAsync();
             return Ok(comments);
         }
 
+        // Add a comment
         [HttpPost]
         public async Task<IActionResult> AddComment(CommentViewModel comment)
         {
@@ -37,24 +40,75 @@ namespace ProjectCMS.Controllers
                     IdeaId = comment.IdeaId,
                 };
 
-                _dbContext._comments.Add(newComment);
-                _dbContext.SaveChanges();
-                return Ok(newComment);
+                await _dbContext._comments.AddAsync(newComment);
+                await _dbContext.SaveChangesAsync();
+                return Ok(newComment.Content);
             }
             return BadRequest();
         }
 
+        // Get comment by id
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetComment([FromRoute] int id)
+        {
+            var comment = _dbContext._comments.FindAsync(id);
+            if(comment != null)
+            {
+                return Ok(await _dbContext._comments.FindAsync(id)); 
+            }
+            return BadRequest("Not found comment !"); 
+        }
+
+
+        // Delete comment
         [HttpDelete("{id}")]
-        public async Task<IActionResult>  DeleteComment(int id)
+        [Route("{id:int}")]
+        public async Task<IActionResult>  DeleteComment([FromRoute] int id)
         {
             var comment = await _dbContext._comments.FindAsync(id);
             if (comment != null)
             {
                 _dbContext._comments.Remove(comment);
                 _dbContext.SaveChanges();
-                return Ok("Delete successfully!");
+                return Ok("Successfully deleted!");
             }
             return NotFound("Comment does not exist");
+        }
+
+
+        // Edit comment
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<IActionResult> EditComment(CommentViewModel newComment, [FromRoute] int id)
+        {
+            var comment = await _dbContext._comments.FindAsync(id);
+            if (comment != null)
+            {
+                comment.AddedDate = DateTime.Now;
+                comment.IdeaId = newComment.IdeaId;
+                comment.UserId = newComment.UserId;
+                comment.Content = newComment.Content;
+                _dbContext.SaveChanges();
+                return Ok("Successfully deleted!");
+            }
+            return NotFound("Comment does not exist");
+        }
+
+
+        // Sort comment by added date 
+        [HttpGet("{sort}")]
+        public async Task<IActionResult> SortComments()
+        {
+            try
+            {
+                return Ok(await _dbContext._comments.OrderByDescending(x => x.AddedDate).ToListAsync());
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                  "Error retrieving data from the database");
+            }
         }
     }
 }
