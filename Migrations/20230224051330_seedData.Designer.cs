@@ -12,8 +12,8 @@ using ProjectCMS.Data;
 namespace ProjectCMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230220152833_ProjectCMS_API")]
-    partial class ProjectCMS_API
+    [Migration("20230224051330_seedData")]
+    partial class seedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -436,6 +436,23 @@ namespace ProjectCMS.Migrations
                     b.HasKey("DepId");
 
                     b.ToTable("_departments");
+
+                    b.HasData(
+                        new
+                        {
+                            DepId = 1,
+                            Name = "Business"
+                        },
+                        new
+                        {
+                            DepId = 2,
+                            Name = "Information technology"
+                        },
+                        new
+                        {
+                            DepId = 3,
+                            Name = "Design"
+                        });
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Event", b =>
@@ -449,14 +466,13 @@ namespace ProjectCMS.Migrations
                     b.Property<int>("CateId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("First_Closure")
+                    b.Property<DateTime?>("First_Closure")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Last_Closure")
+                    b.Property<DateTime?>("Last_Closure")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EvId");
@@ -533,21 +549,19 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
-                    b.Property<DateTime>("AddedDate")
+                    b.Property<DateTime?>("AddedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DepartmentID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DoB")
+                    b.Property<DateTime?>("DoB")
                         .HasColumnType("date");
 
                     b.Property<string>("Email")
@@ -555,28 +569,24 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RefreshToken")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Role")
+                    b.Property<int?>("Role")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TokenCreate")
+                    b.Property<DateTime?>("TokenCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("TokenExpires")
+                    b.Property<DateTime?>("TokenExpires")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")

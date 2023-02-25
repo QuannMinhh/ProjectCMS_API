@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectCMS.Migrations
 {
-    public partial class ProjectCMS_API : Migration
+    public partial class seedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -139,9 +139,9 @@ namespace ProjectCMS.Migrations
                 {
                     EvId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    First_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    First_Closure = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Last_Closure = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CateId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -163,17 +163,17 @@ namespace ProjectCMS.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DoB = table.Column<DateTime>(type: "date", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TokenCreate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TokenExpires = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DoB = table.Column<DateTime>(type: "date", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Avatar = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Role = table.Column<int>(type: "int", nullable: true),
+                    RefreshToken = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TokenCreate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    TokenExpires = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DepartmentID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -371,6 +371,21 @@ namespace ProjectCMS.Migrations
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "_departments",
+                columns: new[] { "DepId", "Name" },
+                values: new object[] { 1, "Business" });
+
+            migrationBuilder.InsertData(
+                table: "_departments",
+                columns: new[] { "DepId", "Name" },
+                values: new object[] { 2, "Information technology" });
+
+            migrationBuilder.InsertData(
+                table: "_departments",
+                columns: new[] { "DepId", "Name" },
+                values: new object[] { 3, "Design" });
 
             migrationBuilder.CreateIndex(
                 name: "IX__comments_IdeaId",
