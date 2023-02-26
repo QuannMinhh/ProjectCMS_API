@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
@@ -16,7 +15,7 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
-        [HttpGet, Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> GetEvent()
         {
             List<Event> events = await _dbContext._events.ToListAsync();
@@ -41,19 +40,33 @@ namespace ProjectCMS.Controllers
         }
         [HttpDelete]
         [Route("id:int")]
-        public async Task<IActionResult> DeleteIdea([FromRoute] int id)
+        public async Task<IActionResult> DeleteEvent([FromRoute] int id)
         {
-            var idea = await _dbContext._idea.FindAsync(id);
-            if (idea != null)
+            var evt = await _dbContext._events.FindAsync(id);
+            if (evt != null)
             {
-                _dbContext._idea.Remove(idea);
+                _dbContext._events.Remove(evt);
                 await _dbContext.SaveChangesAsync();
                 return Ok();
             }
 
             return NotFound();
         }
-
+        [HttpPut("id:int")]
+        public async Task<IActionResult> UpdateEvent(Event rqEvt)
+        {
+            var evt = await _dbContext._events.FindAsync(rqEvt.EvId);
+            if(evt == null)
+            {
+                return BadRequest();
+            }
+            evt.Name = rqEvt.Name;
+            evt.CateId = rqEvt.CateId;
+            evt.First_Closure = rqEvt.First_Closure;
+            evt.Last_Closure= rqEvt.Last_Closure;
+            _dbContext.SaveChanges();
+            return Ok(await _dbContext._events.ToListAsync());
+        }
 
     }
 }

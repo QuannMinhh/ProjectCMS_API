@@ -1,11 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using ProjectCMS.Data;
-using ProjectCMS.Models;
-using System.Text;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -35,6 +27,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 
+builder.Services.AddCors(
+    option =>
+    {
+        option.AddPolicy("AllowAll", builder =>
+        {
+            builder.AllowAnyOrigin();
+            builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
+        });
+    }
+    );
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
@@ -55,6 +59,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseIdentityServer();
 app.UseAuthorization();

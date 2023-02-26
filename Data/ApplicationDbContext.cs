@@ -18,11 +18,28 @@ namespace ProjectCMS.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             builder.Entity<Interactions>()
-                .HasKey(m => new { m.UserId, m.IdeaId });     
-      
+                .HasOne(x => x.User)
+                .WithMany(x => x.Iteractions)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            builder.Entity<Comment>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Comments)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            //builder.Entity<Interactions>()
+            //    .HasKey(m => new { m.UserId, m.IdeaId });
+            builder.Entity<Idea>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Ideas)
+                .HasForeignKey(x => x.UserId);
+            //.OnDelete(DeleteBehavior.ClientNoAction);
             base.OnModelCreating(builder);
             SeedDepartment(builder);
+            SeedUser(builder);
+            SeedCate(builder);
 
         }
         protected override void ConfigureConventions(ModelConfigurationBuilder builder)
@@ -69,6 +86,19 @@ namespace ProjectCMS.Data
                 }
                 );
                 
+        }
+        private void SeedCate(ModelBuilder builder)
+        {
+            builder.Entity<Category>().HasData
+                (
+                new Category
+                {
+                    CateId = 1,
+                    Name = "Information technology",
+                    Content = "This is content of this category",
+                    AddedDate = DateTime.Now                   
+                }
+                );
         }
 
         public DbSet<Category> _categories { get; set; }
