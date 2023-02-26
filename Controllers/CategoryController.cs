@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
@@ -25,7 +25,7 @@ namespace ProjectCMS.Controllers
             return Ok(categories);
         }
 
-        [HttpPost]
+        [HttpPost,Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateCategory(CategoryViewModel category)
         {
             if (ModelState.IsValid)
@@ -34,7 +34,6 @@ namespace ProjectCMS.Controllers
                 newCate.Name = category.Name;
                 newCate.AddedDate = category.AddedDate;
                 newCate.Content = category.Content;
-
                 _dbContext._categories.Add(newCate);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._categories.ToListAsync());

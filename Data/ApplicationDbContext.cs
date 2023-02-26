@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Options;
 using ProjectCMS.Models;
-using System.Reflection.Emit;
 
 namespace ProjectCMS.Data
 {
@@ -38,6 +37,9 @@ namespace ProjectCMS.Data
                 .HasForeignKey(x => x.UserId);
             //.OnDelete(DeleteBehavior.ClientNoAction);
             base.OnModelCreating(builder);
+            SeedDepartment(builder);
+            SeedUser(builder);
+            SeedCate(builder);
 
         }
         protected override void ConfigureConventions(ModelConfigurationBuilder builder)
@@ -50,6 +52,55 @@ namespace ProjectCMS.Data
                 .HaveConversion<NullableDateOnlyConverter>()
                 .HaveColumnType("date");
         }
+        private void SeedDepartment(ModelBuilder builder)
+        {
+            builder.Entity<Department>().HasData
+                (
+                new Department
+                {
+                    DepId = 1,
+                    Name = "Business"
+                },
+                new Department
+                {
+                    DepId = 2,
+                    Name = "Information technology"
+                },
+                new Department
+                {
+                    DepId = 3,
+                    Name = "Design"
+                }
+                );
+        }
+        private void SeedUser (ModelBuilder builder)
+        {
+            builder.Entity<User>().HasData
+                (
+                new User
+                {
+                    UserId = 1,
+                    UserName = "admin1",
+                    Email = "hoanghip108@gmail.com",
+                    DepartmentID = 2,
+                }
+                );
+                
+        }
+        private void SeedCate(ModelBuilder builder)
+        {
+            builder.Entity<Category>().HasData
+                (
+                new Category
+                {
+                    CateId = 1,
+                    Name = "Information technology",
+                    Content = "This is content of this category",
+                    AddedDate = DateTime.Now                   
+                }
+                );
+        }
+
         public DbSet<Category> _categories { get; set; }
         public DbSet<Comment> _comments { get; set; }
         public DbSet<Department> _departments { get; set; }
