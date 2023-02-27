@@ -15,5 +15,8 @@ namespace ProjectCMS.ViewModels
         public DateTime SubmitedDate { get; set; } = DateTime.Now;
         [Required]
         public int eId { get; set; }
+        [Required]
+        public int cId { get; set; }
+
     }
 }

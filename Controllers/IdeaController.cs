@@ -24,7 +24,7 @@ namespace ProjectCMS.Controllers
                 var ideas =  from i in _dbContext._idea select i;
                 if (!searchString.IsNullOrEmpty())
                 {
-                    ideas = ideas.Where(s => s.Title.Contains(searchString));
+                    ideas = ideas.Where(s => s.Name.Contains(searchString));
                     if (ideas.Any())
                     {
                         return Ok(await ideas.ToListAsync());
@@ -57,7 +57,7 @@ namespace ProjectCMS.Controllers
                             ideas = ideas.OrderByDescending(s => s.Viewed);
                             break;
                         case "lid":
-                            ideas = ideas.OrderByDescending(s => s.SubmitedDate);
+                            ideas = ideas.OrderByDescending(s => s.AddedDate);
                             break;
                     }
                 }
@@ -79,13 +79,18 @@ namespace ProjectCMS.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateIdea(IdeaViewModel idea)
         {
+
             if (ModelState.IsValid)
             {
                 Idea newIdea = new()
                 {
-                    Title = idea.Title,
+                    Name = idea.Title,
                     Content = idea.Content,
-                    EvId = idea.eId
+                    Vote= idea.Vote,
+                    Viewed = idea.Viewed,
+                    AddedDate= idea.SubmitedDate,
+                    EvId = idea.eId,
+                    CateId = idea.cId
                 };
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
