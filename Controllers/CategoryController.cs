@@ -51,8 +51,9 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetCategory([FromRoute] int id)
         {
-            return Ok(await _dbContext._categories.FindAsync(id));
-        }
+             return Ok(await _dbContext._categories.FindAsync(id));
+           
+;        }
 
 
         // Delete category
@@ -61,17 +62,18 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> DeleteCategory([FromRoute]  int id)
         {
             var category = await _dbContext._categories.FindAsync(id);
+            var ideas = await _dbContext._idea.Where(x => x.CateId == id).ToListAsync();
             if (category != null)
             {
-                if (category.Ideas == null)
+                if (!ideas.Any())
                 {
                     _dbContext._categories.Remove(category);
                     await _dbContext.SaveChangesAsync();
-                    return Ok("Successfully deleted ~.~ ");
+                    return Ok(await _dbContext._categories.ToListAsync());
                 }
                 return BadRequest("Cannot delete ! This category has ideas.");
             }
-            return NotFound("Can't find category !");
+            return NotFound("Category does not exist !");
         }
 
 
@@ -83,16 +85,20 @@ namespace ProjectCMS.Controllers
             var category = await _dbContext._categories.FindAsync(id);
             if (category != null)
             {
-                category.Content = newCate.Content;
-                category.AddedDate = newCate.AddedDate;
-                category.Name = newCate.Name;
-                await _dbContext.SaveChangesAsync();
-                return Ok("Successfully Edited. " + category.Name);
+                if(ModelState.IsValid)
+                {
+                    category.Content = newCate.Content;
+                    category.AddedDate = newCate.AddedDate;
+                    category.Name = newCate.Name;
+                    await _dbContext.SaveChangesAsync();
+                    return Ok(await _dbContext._categories.ToListAsync());
+                }
+                return BadRequest();
             }
             return BadRequest("Can't find category !");
         }
 
-
+   
 
 
 
