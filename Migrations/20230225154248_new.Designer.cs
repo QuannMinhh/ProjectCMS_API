@@ -12,8 +12,8 @@ using ProjectCMS.Data;
 namespace ProjectCMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230224144409_ProjectCMS_API")]
-    partial class ProjectCMS_API
+    [Migration("20230225154248_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
