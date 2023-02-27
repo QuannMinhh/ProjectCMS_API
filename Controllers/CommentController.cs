@@ -38,11 +38,12 @@ namespace ProjectCMS.Controllers
                     Content = comment.Content,
                     UserId = comment.UserId,
                     IdeaId = comment.IdeaId,
+                    AddedDate = comment.AddedDate
                 };
 
                 await _dbContext._comments.AddAsync(newComment);
                 await _dbContext.SaveChangesAsync();
-                return Ok(newComment.Content);
+                return Ok(await _dbContext._comments.ToListAsync());
             }
             return BadRequest();
         }
@@ -52,7 +53,7 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetComment([FromRoute] int id)
         {
-            var comment = _dbContext._comments.FindAsync(id);
+            var comment = await _dbContext._comments.FindAsync(id);
             if(comment != null)
             {
                 return Ok(await _dbContext._comments.FindAsync(id)); 
@@ -70,10 +71,10 @@ namespace ProjectCMS.Controllers
             if (comment != null)
             {
                 _dbContext._comments.Remove(comment);
-                _dbContext.SaveChanges();
-                return Ok("Successfully deleted!");
+                await _dbContext.SaveChangesAsync();
+                return Ok(await _dbContext._comments.ToListAsync());
             }
-            return NotFound("Comment does not exist");
+            return NotFound("Comment does not exsit !");
         }
 
 
@@ -85,14 +86,18 @@ namespace ProjectCMS.Controllers
             var comment = await _dbContext._comments.FindAsync(id);
             if (comment != null)
             {
-                comment.AddedDate = DateTime.Now;
-                comment.IdeaId = newComment.IdeaId;
-                comment.UserId = newComment.UserId;
-                comment.Content = newComment.Content;
-                _dbContext.SaveChanges();
-                return Ok("Successfully deleted!");
+                if(ModelState.IsValid)
+                {
+                    comment.AddedDate = DateTime.Now;
+                    comment.IdeaId = newComment.IdeaId;
+                    comment.UserId = newComment.UserId;
+                    comment.Content = newComment.Content;
+                    await _dbContext.SaveChangesAsync();
+                    return Ok(await _dbContext._comments.ToListAsync());
+                }
+                return BadRequest();
             }
-            return NotFound("Comment does not exist");
+            return NotFound("Comment does not exist !");
         }
 
 
@@ -106,8 +111,7 @@ namespace ProjectCMS.Controllers
             }
             catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                  "Error retrieving data from the database");
+                return StatusCode(StatusCodes.Status500InternalServerError,"Error retrieving data from the database");
             }
         }
     }
