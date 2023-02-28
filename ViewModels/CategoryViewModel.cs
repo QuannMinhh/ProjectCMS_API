@@ -1,5 +1,5 @@
 ﻿using ProjectCMS.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectCMS.ViewModels
 {

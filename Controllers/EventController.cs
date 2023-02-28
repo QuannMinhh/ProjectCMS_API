@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
-
 namespace ProjectCMS.Controllers
 {
     [Route("api/[controller]")]
@@ -27,11 +26,14 @@ namespace ProjectCMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event newEvt = new Event();
-                newEvt.Name = evt.Name;
-                newEvt.First_Closure= evt.First_Closure;
-                newEvt.Last_Closure= evt.Last_Closure;
-                
+                Event newEvt = new Event
+                {
+                    Name = evt.Name,
+                    Content= evt.Content,
+                    First_Closure = evt.First_Closure,
+                    Last_Closure = evt.First_Closure.AddDays(7),
+                    CateId = evt.CateId
+                };
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
@@ -62,7 +64,8 @@ namespace ProjectCMS.Controllers
             }
             evt.Name = rqEvt.Name;
             evt.First_Closure = rqEvt.First_Closure;
-            evt.Last_Closure= rqEvt.Last_Closure;
+            evt.Last_Closure = evt.First_Closure.AddDays(7);
+            evt.CateId= rqEvt.CateId;
             _dbContext.SaveChanges();
             return Ok(await _dbContext._events.ToListAsync());
         }

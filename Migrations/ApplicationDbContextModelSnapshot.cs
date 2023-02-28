@@ -682,7 +682,6 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
                         .HasForeignKey("EvId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ProjectCMS.Models.User", "User")
