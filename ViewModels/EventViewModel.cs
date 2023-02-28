@@ -11,6 +11,10 @@ namespace ProjectCMS.ViewModels
         [Required]
         public DateTime First_Closure { get; set; }
         [Required]
+<<<<<<< HEAD
         public int CateId { get; set; }
+=======
+        public DateTime Last_Closure { get; set; }
+>>>>>>> Back-End2
     }
 }

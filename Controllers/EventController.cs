@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.ViewModels;
+
 namespace ProjectCMS.Controllers
 {
     [Route("api/[controller]")]
@@ -22,18 +24,14 @@ namespace ProjectCMS.Controllers
             return Ok(events);
         }
         [HttpPost]
-        public async Task<ActionResult> CreateEvent(Event evt)
+        public async Task<ActionResult> CreateEvent(EventViewModel evt)
         {
             if (ModelState.IsValid)
             {
-                Event newEvt = new Event
-                {
-                    Name = evt.Name,
-                    Content= evt.Content,
-                    First_Closure = evt.First_Closure,
-                    Last_Closure = evt.First_Closure.AddDays(7),
-                    CateId = evt.CateId
-                };
+                Event newEvt = new Event();
+                newEvt.Name = evt.Name;
+                newEvt.First_Closure= evt.First_Closure;
+                newEvt.Last_Closure = evt.First_Closure.AddDays(7);               
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
@@ -54,6 +52,13 @@ namespace ProjectCMS.Controllers
 
             return NotFound();
         }
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetEvent([FromRoute] int id)
+        {
+            return Ok(await _dbContext._events.FindAsync(id));
+
+        }
         [HttpPut("id:int")]
         public async Task<IActionResult> UpdateEvent(Event rqEvt)
         {
@@ -64,8 +69,7 @@ namespace ProjectCMS.Controllers
             }
             evt.Name = rqEvt.Name;
             evt.First_Closure = rqEvt.First_Closure;
-            evt.Last_Closure = evt.First_Closure.AddDays(7);
-            evt.CateId= rqEvt.CateId;
+            evt.Last_Closure= rqEvt.Last_Closure;
             _dbContext.SaveChanges();
             return Ok(await _dbContext._events.ToListAsync());
         }
