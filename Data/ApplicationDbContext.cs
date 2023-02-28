@@ -18,22 +18,25 @@ namespace ProjectCMS.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
             builder.Entity<Interactions>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Iteractions)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .OnDelete(DeleteBehavior.ClientNoAction);
             builder.Entity<Comment>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Comments)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull);        
+                .OnDelete(DeleteBehavior.ClientNoAction);
             builder.Entity<Idea>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Ideas)
                 .HasForeignKey(x => x.UserId);
-            //.OnDelete(DeleteBehavior.ClientNoAction);
+            builder.Entity<Idea>()
+                .HasOne(x => x.Event)
+                .WithMany(x => x.Ideas)
+                .HasForeignKey(x => x.EvId)
+                .OnDelete(DeleteBehavior.ClientNoAction);
             base.OnModelCreating(builder);
 
         }

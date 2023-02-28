@@ -43,7 +43,7 @@ namespace ProjectCMS.Controllers
                             Vote = false
                         };
                         await _dbContext._interactions.AddAsync(newInterac);
-                        await _dbContext.SaveChangesAsync();
+                        _dbContext.SaveChanges();
 
                         return Ok(newInterac);
                     }
