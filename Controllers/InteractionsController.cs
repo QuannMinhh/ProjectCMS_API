@@ -17,9 +17,9 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
-        // GET: api/<InteractionsController>
+        
         [HttpPost]
-        public async Task<IActionResult> GetInterac(GetInteracModel interactions)
+        public async Task<IActionResult> GetInterac(InteractionsViewModel interactions)
         {
             if(ModelState.IsValid)
             {
@@ -53,47 +53,23 @@ namespace ProjectCMS.Controllers
             return BadRequest();            
         }
 
-        // POST api/<InteractionsController>
-        //[HttpPost]
-        //public async Task<IActionResult> CreateInterac([FromBody] InteractionsViewModel interactions)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        var interac = (from i in _dbContext._interactions select i)
-        //            .Where(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId);
-        //        if (interac.Any())
-        //        {
-        //             return Ok("Interaction Exit!"); ;
-        //        }
-        //        else
-        //        {
-        //            Interactions newInterac = new()
-        //            {
-        //                IdeaId = interactions.IdeaId,
-        //                UserId = interactions.UserId,
-        //                Voted = interactions.Voted,
-        //                Viewed = interactions.Viewed,
-        //                Vote = interactions.Vote
-        //            };
-        //            await _dbContext._interactions.AddAsync(newInterac);
-        //            await _dbContext.SaveChangesAsync();
-
-        //            return Ok(newInterac.InteracId);
-        //        }
-
-        //    }
-        //    return BadRequest();
-        //}
-
-        // PUT api/<InteractionsController>/5
+        
         [HttpPut]
-        public async Task<IActionResult> EditInterac(int id, bool like)
+        public async Task<IActionResult> EditInterac(int id,  EditInteractionModel rq)
         {
             var interac = await _dbContext._interactions.FindAsync(id);
             if (interac != null)
             {
-                              
+                var idea = await _dbContext._idea.FindAsync(rq.IdeaId);
+               if(interac.Voted == false)
+                {
+                    interac.Voted = true;
+                    if (rq.Vote == true)
+                    {
+                        interac.Vote = rq.Vote;
+                        idea.Vote += 1;
+                    }
+                }               
             }
 
             return NotFound(new

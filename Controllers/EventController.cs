@@ -20,7 +20,7 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> GetEvent()
         {
             List<Event> events = await _dbContext._events.ToListAsync();
-            List<Category> cates = await _dbContext._categories.ToListAsync();
+            //List<Category> cates = await _dbContext._categories.ToListAsync();
             return Ok(events);
         }
         [HttpPost]
@@ -30,8 +30,10 @@ namespace ProjectCMS.Controllers
             {
                 Event newEvt = new Event();
                 newEvt.Name = evt.Name;
+                newEvt.Content = evt.Content;
                 newEvt.First_Closure= evt.First_Closure;
-                newEvt.Last_Closure = evt.First_Closure.AddDays(7);               
+                newEvt.Last_Closure = evt.First_Closure.AddDays(7);
+                newEvt.CateId = evt.CateId;
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
