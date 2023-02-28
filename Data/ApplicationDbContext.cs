@@ -22,12 +22,12 @@ namespace ProjectCMS.Data
                 .HasOne(x => x.User)
                 .WithMany(x => x.Iteractions)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientNoAction);
+                .OnDelete(DeleteBehavior.ClientSetNull);
             builder.Entity<Comment>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Comments)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientNoAction);
+                .OnDelete(DeleteBehavior.ClientSetNull);
             builder.Entity<Idea>()
                 .HasOne(x => x.User)
                 .WithMany(x => x.Ideas)
@@ -36,7 +36,7 @@ namespace ProjectCMS.Data
                 .HasOne(x => x.Event)
                 .WithMany(x => x.Ideas)
                 .HasForeignKey(x => x.EvId)
-                .OnDelete(DeleteBehavior.ClientNoAction);
+                .OnDelete(DeleteBehavior.ClientSetNull);
             base.OnModelCreating(builder);
 
         }
