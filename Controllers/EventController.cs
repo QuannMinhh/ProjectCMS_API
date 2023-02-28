@@ -31,7 +31,7 @@ namespace ProjectCMS.Controllers
                 Event newEvt = new Event();
                 newEvt.Name = evt.Name;
                 newEvt.First_Closure= evt.First_Closure;
-                newEvt.Last_Closure= evt.Last_Closure;                
+                newEvt.Last_Closure = evt.First_Closure.AddDays(7);               
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
