@@ -18,7 +18,7 @@ namespace ProjectCMS.Controllers
             _dbContext = dbContext;
         }
         // GET: api/<InteractionsController>
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetInterac(GetInteracModel interactions)
         {
             if(ModelState.IsValid)
@@ -43,14 +43,14 @@ namespace ProjectCMS.Controllers
                             Vote = false
                         };
                         await _dbContext._interactions.AddAsync(newInterac);
-                        await _dbContext.SaveChangesAsync();
+                        _dbContext.SaveChanges();
 
                         return Ok(newInterac);
                     }
-                    return BadRequest("The request could not be fulfilled");
+                    return BadRequest();
                 }
             }
-            return BadRequest("Cannot get information of user with this idea!!!");            
+            return BadRequest();            
         }
 
         // POST api/<InteractionsController>
@@ -88,32 +88,19 @@ namespace ProjectCMS.Controllers
 
         // PUT api/<InteractionsController>/5
         [HttpPut]
-        public async Task<IActionResult> EditInterac(int id, [FromBody] InteractionsViewModel interactions)
+        public async Task<IActionResult> EditInterac(int id, bool like)
         {
-            var interac = (from i in _dbContext._interactions select i)
-                        .Where(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId);
+            var interac = await _dbContext._interactions.FindAsync(id);
             if (interac != null)
             {
-                if (ModelState.IsValid)
-                {
-                  await _dbContext.SaveChangesAsync();
-
-                    return Ok();
-                }
-                return BadRequest();
-               
+                              
             }
 
-            return NotFound("Cannot modify your interaction");
-            
-        }
-
-        private void ToString(IEnumerable<Idea> idea)
-        {
-            foreach(var x in idea)
+            return NotFound(new
             {
-                System.Console.WriteLine(x);
-            }
+                message = "Cannot find your interaction"
+            });
+            
         }
     }
 }
