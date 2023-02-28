@@ -9,7 +9,7 @@ namespace ProjectCMS.ViewModels
         public DateTime AddedDate { get; set; } = DateTime.Now;
 
         [Required]
-        [MinLength(1, ErrorMessage= "Content must have at least one character"), MaxLength(30, ErrorMessage = "Content must be less than 30 characters")]
+        [MinLength(1, ErrorMessage= "Content must have at least one character"), MaxLength(50, ErrorMessage = "Content must be less than 50 characters")]
         public string Content { get; set; }
     }
 }
