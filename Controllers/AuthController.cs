@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 
 namespace ProjectCMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -33,18 +33,26 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> Register(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            
-            user.UserName= usr.userName;
-            user.Email = usr.Email;
-            user.Role = usr.Role;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;       
+            User user = new User
+            {
+                UserName = usr.userName,
+                Email = usr.Email,
+                Role = usr.Role,
+                Phone = usr.Phone,
+                Address = usr.Address,
+                DoB = usr.DoB,
+                AddedDate = usr.AddedDate,
+                Avatar = usr.Avatar,
+                DepartmentID = usr.DepartmentID,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
             _dbContext._users.Add(user);
             _dbContext.SaveChanges();
             return Ok(user);
         }
         [HttpPost("Login")]
-        public async Task<IActionResult> Login(UserDTO rq)
+        public async Task<IActionResult> Login(UserLogin rq)
         {
             List<User> users = await _dbContext._users.ToListAsync();
             
@@ -66,6 +74,7 @@ namespace ProjectCMS.Controllers
             List<Claim> claims = new()
             {
                 new Claim(ClaimTypes.Name,user.UserName),
+                new Claim(ClaimTypes.Role,user.Role),
             };
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
