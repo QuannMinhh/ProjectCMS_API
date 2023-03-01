@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectCMS.Data;
 
@@ -11,9 +12,10 @@ using ProjectCMS.Data;
 namespace ProjectCMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230225154248_new")]
+    partial class @new
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -570,9 +572,11 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Phone")
@@ -580,15 +584,16 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RefreshToken")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("TokenCreate")
+                    b.Property<DateTime>("TokenCreate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("TokenExpires")
+                    b.Property<DateTime>("TokenExpires")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
@@ -682,6 +687,7 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
                         .HasForeignKey("EvId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ProjectCMS.Models.User", "User")
