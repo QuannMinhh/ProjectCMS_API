@@ -69,9 +69,11 @@ namespace ProjectCMS.Controllers
             {
                 return BadRequest();
             }
-            evt.Name = rqEvt.Name;
-            evt.First_Closure = rqEvt.First_Closure;
-            evt.Last_Closure= rqEvt.Last_Closure;
+            evt.Name = evt.Name;
+            evt.Content = evt.Content;
+            evt.First_Closure = evt.First_Closure;
+            evt.Last_Closure = evt.First_Closure.AddDays(7);
+            evt.CateId = evt.CateId;
             _dbContext.SaveChanges();
             return Ok(await _dbContext._events.ToListAsync());
         }
