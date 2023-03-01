@@ -69,7 +69,48 @@ namespace ProjectCMS.Controllers
                         interac.Vote = rq.Vote;
                         idea.Vote += 1;
                     }
-                }               
+                    else
+                    {
+                        interac.Vote = rq.Vote;
+                        idea.Vote -= 1;
+                    }
+                }
+               if(interac.Voted == true)
+                {
+                    if(rq.Vote != interac.Vote)
+                    {
+                        if(rq.Vote == true)
+                        {
+                            interac.Vote = false;
+                            idea.Vote -= 2;
+                        }
+                        if (rq.Vote == false)
+                        {
+                            interac.Vote = true;
+                            idea.Vote += 2;
+                        }
+                    }
+                    if(rq.Vote == interac.Vote)
+                    {
+                        if (rq.Vote == true)
+                        {
+                            interac.Voted = false;
+                            interac.Vote = false;
+                            idea.Vote -= 1;
+                        }
+                        if (rq.Vote == false)
+                        {
+                            interac.Voted = false;
+                            interac.Vote = true;
+                            idea.Vote += 1;
+                        }
+                    }
+                }
+                await _dbContext.SaveChangesAsync();
+                return Ok(new
+                {
+                    message = "Edit ok!" 
+                });
             }
 
             return NotFound(new
