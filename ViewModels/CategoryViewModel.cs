@@ -14,7 +14,7 @@ namespace ProjectCMS.ViewModels
         [MinLength(15, ErrorMessage = "Content length must be more than 15 characters"), MaxLength(50, ErrorMessage = "Name length must be less than 50 characters ")]
         public string Content { get; set; }
 
-        public DateTime AddedDate { get; set; } = DateTime.Now;
+      //  public DateTime AddedDate { get; set; } = DateTime.Now;
      
     }
 }
