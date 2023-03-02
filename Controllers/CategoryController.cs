@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
+using System.Text.Json;
 
 namespace ProjectCMS.Controllers
 {
@@ -36,24 +36,25 @@ namespace ProjectCMS.Controllers
                 Category newCate = new Category();
                 newCate.Name = category.Name;
                 newCate.Content = category.Content;
-                newCate.AddedDate = category.AddedDate;
+                newCate.AddedDate = DateTime.Now;
 
                 await _dbContext._categories.AddAsync(newCate);
                 await  _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._categories.ToListAsync());
             }
-            return BadRequest();
+            return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
         }
 
+        
+        // JsonDocument.Parse("{\"property1\":\"value1\",\"property2\":2}")
 
         // Get a category by id
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetCategory([FromRoute] int id)
         {
-             return Ok(await _dbContext._categories.FindAsync(id));
-           
-;        }
+             return Ok(await _dbContext._categories.FindAsync(id));   
+;       }
 
 
         // Delete category
@@ -71,9 +72,9 @@ namespace ProjectCMS.Controllers
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._categories.ToListAsync());
                 }
-                return BadRequest("Cannot delete ! This category has ideas.");
+                return BadRequest(JsonDocument.Parse("{\"Message\":\"Cannot delete! This category has ideas.\"}"));
             }
-            return NotFound("Category does not exist !");
+            return NotFound(JsonDocument.Parse("{\"Message\":\"Category does not exist.\"}"));
         }
 
 
@@ -88,14 +89,13 @@ namespace ProjectCMS.Controllers
                 if(ModelState.IsValid)
                 {
                     category.Content = newCate.Content;
-                    category.AddedDate = newCate.AddedDate;
                     category.Name = newCate.Name;
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._categories.ToListAsync());
                 }
-                return BadRequest();
+                return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
             }
-            return BadRequest("Can't find category !");
+            return BadRequest(JsonDocument.Parse("{\"Message\":\"Category does not exist.\"}"));
         }
 
    

@@ -37,6 +37,9 @@ namespace ProjectCMS.Data
                 .WithMany(x => x.Ideas)
                 .HasForeignKey(x => x.EvId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+            builder.Entity<User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
             base.OnModelCreating(builder);
 
         }

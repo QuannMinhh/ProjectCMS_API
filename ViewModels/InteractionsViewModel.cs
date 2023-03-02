@@ -9,8 +9,11 @@ namespace ProjectCMS.ViewModels
 
         public int IdeaId { get; set; }
 
-        public bool Voted { get; set; } = false;
-        public bool Viewed { get; set; } = true;
-        public bool Vote { get; set; } = false;
+    }
+
+    public class EditInteractionModel
+    {
+        public int InteractionId { get; set; }
+        public bool Vote { get; set; }
     }
 }

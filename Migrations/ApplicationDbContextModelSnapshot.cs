@@ -444,9 +444,6 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CateId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -462,8 +459,6 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CateId");
 
                     b.ToTable("_events");
                 });
@@ -575,11 +570,9 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Phone")
@@ -589,9 +582,8 @@ namespace ProjectCMS.Migrations
                     b.Property<string>("RefreshToken")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("TokenCreate")
                         .HasColumnType("datetime2");
@@ -672,23 +664,11 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientNoAction)
                         .IsRequired();
 
                     b.Navigation("Idea");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ProjectCMS.Models.Event", b =>
-                {
-                    b.HasOne("ProjectCMS.Models.Category", "Category")
-                        .WithMany("Events")
-                        .HasForeignKey("CateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
@@ -702,7 +682,6 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.Event", "Event")
                         .WithMany("Ideas")
                         .HasForeignKey("EvId")
-                        .OnDelete(DeleteBehavior.ClientNoAction)
                         .IsRequired();
 
                     b.HasOne("ProjectCMS.Models.User", "User")
@@ -729,7 +708,6 @@ namespace ProjectCMS.Migrations
                     b.HasOne("ProjectCMS.Models.User", "User")
                         .WithMany("Iteractions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.ClientNoAction)
                         .IsRequired();
 
                     b.Navigation("Idea");
@@ -748,8 +726,6 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Category", b =>
                 {
-                    b.Navigation("Events");
-
                     b.Navigation("Ideas");
                 });
 

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
+using System.Text.Json;
 using System.Xml.Linq;
 
 namespace ProjectCMS.Controllers
@@ -38,14 +39,14 @@ namespace ProjectCMS.Controllers
                     Content = comment.Content,
                     UserId = comment.UserId,
                     IdeaId = comment.IdeaId,
-                    AddedDate = comment.AddedDate
+                    AddedDate = DateTime.Now
                 };
 
                 await _dbContext._comments.AddAsync(newComment);
                 await _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._comments.ToListAsync());
             }
-            return BadRequest();
+            return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
         }
 
         // Get comment by id
@@ -58,7 +59,7 @@ namespace ProjectCMS.Controllers
             {
                 return Ok(await _dbContext._comments.FindAsync(id)); 
             }
-            return BadRequest("Not found comment !"); 
+            return BadRequest(JsonDocument.Parse("{\"Message\":\"Comment does not exist\"}")); 
         }
 
 
@@ -74,7 +75,7 @@ namespace ProjectCMS.Controllers
                 await _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._comments.ToListAsync());
             }
-            return NotFound("Comment does not exsit !");
+            return NotFound(JsonDocument.Parse("{\"Message\":\"Comment does not exist.\"}"));
         }
 
 
@@ -88,16 +89,15 @@ namespace ProjectCMS.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    comment.AddedDate = DateTime.Now;
                     comment.IdeaId = newComment.IdeaId;
                     comment.UserId = newComment.UserId;
                     comment.Content = newComment.Content;
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._comments.ToListAsync());
                 }
-                return BadRequest();
+                return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
             }
-            return NotFound("Comment does not exist !");
+            return NotFound(JsonDocument.Parse("{\"Message\":\"Comment does not exist.\"}"));
         }
 
 
