@@ -29,8 +29,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateAudience = false,
     };
 });
-builder.Services.AddAuthentication()
-    .AddIdentityServerJwt();
 
 builder.Services.AddCors(
     option =>
