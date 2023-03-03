@@ -30,7 +30,7 @@ namespace ProjectCMS.Controllers
 
         // Add a comment
         [HttpPost]
-        public async Task<IActionResult> AddComment(CommentViewModel comment)
+        public async Task<IActionResult> CreateComment(CommentViewModel comment)
         {
             if (ModelState.IsValid)
             {
@@ -89,8 +89,6 @@ namespace ProjectCMS.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    comment.IdeaId = newComment.IdeaId;
-                    comment.UserId = newComment.UserId;
                     comment.Content = newComment.Content;
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._comments.ToListAsync());
@@ -107,7 +105,12 @@ namespace ProjectCMS.Controllers
         {
             try
             {
-                return Ok(await _dbContext._comments.OrderByDescending(x => x.AddedDate).ToListAsync());
+                var comments = await _dbContext._comments.ToListAsync();    
+                if (comments.Any())
+                {
+                    return Ok(await _dbContext._comments.OrderByDescending(x => x.AddedDate).ToListAsync());
+                }
+                return NotFound(JsonDocument.Parse("{\"Message\":\"Cannot find any comment.\"}"));
             }
             catch (Exception)
             {
