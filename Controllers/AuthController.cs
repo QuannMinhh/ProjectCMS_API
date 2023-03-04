@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
@@ -76,6 +77,7 @@ namespace ProjectCMS.Controllers
             {
                 new Claim(ClaimTypes.Name,user.UserName),
                 new Claim(ClaimTypes.Role,user.Role),
+                new Claim("Id", Guid.NewGuid().ToString()),
             };
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
@@ -86,7 +88,8 @@ namespace ProjectCMS.Controllers
                     signingCredentials:cred
                 );
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwt;
+            var json = JsonConvert.DeserializeObject(jwt);
+            return json;
         }
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
         {
