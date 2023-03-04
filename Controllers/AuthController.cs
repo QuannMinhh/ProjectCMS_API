@@ -1,15 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using ProjectCMS.Data;
-using ProjectCMS.Models;
-using ProjectCMS.ViewModels;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-
-namespace ProjectCMS.Controllers
+﻿namespace ProjectCMS.Controllers
 {
     [Route("api/auth")]
     [ApiController]
@@ -68,7 +57,7 @@ namespace ProjectCMS.Controllers
                     }                   
                 }
             }
-            return BadRequest("wrong username or password");
+            return BadRequest(new { message = "wrong username or password" });
         }
         private string tokenMethod(User user)
         {
@@ -76,8 +65,10 @@ namespace ProjectCMS.Controllers
             {
                 new Claim(ClaimTypes.Name,user.UserName),
                 new Claim(ClaimTypes.Role,user.Role),
-                new Claim("Id", Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
+
+
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken
