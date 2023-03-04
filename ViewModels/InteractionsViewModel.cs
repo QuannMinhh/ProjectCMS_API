@@ -14,8 +14,6 @@ namespace ProjectCMS.ViewModels
     public class EditInteractionModel
     {
         public int InteractionId { get; set; }
-        public int IdeaId { get; set; }
-
         public bool Vote { get; set; }
     }
 }

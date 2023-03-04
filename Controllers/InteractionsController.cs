@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,29 +25,43 @@ namespace ProjectCMS.Controllers
         {
             if(ModelState.IsValid)
             {
-                Interactions interac = (from i in _dbContext._interactions select i)
-                    .Where(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId)
-                    .ToArray()[0];
-                if (interac != null)
+                var interac = (from i in _dbContext._interactions select i)
+                    .Where(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId);
+
+                if (interac.Any())
                 {
-                    return Ok(interac);
+                    return Ok(await interac.ToListAsync());
                 }
                 else
                 {
                     if (ModelState.IsValid)
                     {
+                        var idea = await _dbContext._idea.FindAsync(interactions.IdeaId);
+                        if (idea != null)
+                        {
+                            idea.Viewed += 1;
+                            await _dbContext.SaveChangesAsync();
+                        }
+
                         Interactions newInterac = new()
                         {
                             IdeaId = interactions.IdeaId,
                             UserId = interactions.UserId,
                             Voted = false,
                             Viewed = true,
-                            Vote = false
-                        };
-                        await _dbContext._interactions.AddAsync(newInterac);
-                        _dbContext.SaveChanges();
+                            Vote = false,
+                            Idea = null
 
-                        return Ok(newInterac);
+                        };                      
+                        await _dbContext._interactions.AddAsync(newInterac);
+                        await _dbContext.SaveChangesAsync();
+                        var options = new JsonSerializerOptions
+                        {
+                            ReferenceHandler = ReferenceHandler.Preserve,               
+                            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+                        };
+                        var json = JsonSerializer.Serialize(newInterac, options);
+                        return Ok(json);
                     }
                     return BadRequest();
                 }
@@ -55,57 +71,64 @@ namespace ProjectCMS.Controllers
 
         
         [HttpPut]
-        public async Task<IActionResult> EditInterac(int id,  EditInteractionModel rq)
+        public async Task<IActionResult> EditInterac(EditInteractionModel rq)
         {
-            var interac = await _dbContext._interactions.FindAsync(id);
+            var interac = await _dbContext._interactions.FindAsync(rq.InteractionId);
             if (interac != null)
             {
-                var idea = await _dbContext._idea.FindAsync(rq.IdeaId);
+                var idea = await _dbContext._idea.FindAsync(interac.IdeaId);
+                int vote = idea.Vote;
+                bool voted = interac.Voted;
+                bool status = false;
                if(interac.Voted == false)
                 {
-                    interac.Voted = true;
+                    voted = true;
                     if (rq.Vote == true)
                     {
-                        interac.Vote = rq.Vote;
-                        idea.Vote += 1;
+                        status = true;
+                        vote += 1;
                     }
                     else
                     {
-                        interac.Vote = rq.Vote;
-                        idea.Vote -= 1;
+
+                        vote -= 1;
                     }
                 }
                if(interac.Voted == true)
                 {
-                    if(rq.Vote != interac.Vote)
+                    if(interac.Vote == true)
                     {
                         if(rq.Vote == true)
                         {
-                            interac.Vote = false;
-                            idea.Vote -= 2;
+                            vote -= 1;
+                            voted = false;
                         }
-                        if (rq.Vote == false)
+                        if(rq.Vote == false)
                         {
-                            interac.Vote = true;
-                            idea.Vote += 2;
+                            vote -= 2;
+                            voted = true;
                         }
                     }
-                    if(rq.Vote == interac.Vote)
+                    if(interac.Vote == false)
                     {
                         if (rq.Vote == true)
                         {
-                            interac.Voted = false;
-                            interac.Vote = false;
-                            idea.Vote -= 1;
+                            vote += 2;
+                            voted = true;
+                            status = true;
                         }
                         if (rq.Vote == false)
                         {
-                            interac.Voted = false;
-                            interac.Vote = true;
-                            idea.Vote += 1;
+                            vote += 1;
+                            voted = false;
                         }
                     }
                 }
+
+                interac.Voted = voted;
+                interac.Vote = status;
+                idea.Vote = vote;
+
                 await _dbContext.SaveChangesAsync();
                 return Ok(new
                 {

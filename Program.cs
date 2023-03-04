@@ -49,6 +49,7 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true
     };
 });
+
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 builder.Services.AddAuthorization();
