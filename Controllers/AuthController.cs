@@ -22,6 +22,7 @@ namespace ProjectCMS.Controllers
             _dbContext = dbContext;
             _configuration = configuration;
         }
+
         [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
