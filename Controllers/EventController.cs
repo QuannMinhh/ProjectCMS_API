@@ -19,9 +19,21 @@ namespace ProjectCMS.Controllers
         [HttpGet]
         public async Task<IActionResult> GetEvent()
         {
-            List<Event> events = await _dbContext._events.ToListAsync();
+            //List<Event> events = await _dbContext._events.ToListAsync();
             //List<Category> cates = await _dbContext._categories.ToListAsync();
-            return Ok(events);
+            var listEvent = await _dbContext._events
+                .Join(_dbContext._categories, _event => _event.CateId, _category => _category.Id, (_event, _category) => new EventCateViewModel
+                {
+                    Id = _event.Id,
+                    Name = _event.Name,
+                    Content = _event.Content,
+                    First_Closure = _event.First_Closure,
+                    Last_Closure = _event.Last_Closure,
+                    CateName = _category.Name,
+
+                }
+                ).ToListAsync();
+            return Ok(listEvent);
         }
         [HttpPost]
         public async Task<ActionResult> CreateEvent(EventViewModel evt)
