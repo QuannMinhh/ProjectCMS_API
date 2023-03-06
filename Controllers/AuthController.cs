@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
@@ -22,6 +23,7 @@ namespace ProjectCMS.Controllers
             _dbContext = dbContext;
             _configuration = configuration;
         }
+
         [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
@@ -63,7 +65,7 @@ namespace ProjectCMS.Controllers
                     if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
                     {
                         string token = tokenMethod(user);
-                        return Ok(token);
+                        return Ok(new { token = token });
                     }                   
                 }
             }
