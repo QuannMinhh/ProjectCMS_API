@@ -65,7 +65,7 @@ namespace ProjectCMS.Controllers
                     if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
                     {
                         string token = tokenMethod(user);
-                        return Ok(token);
+                        return Ok(new { token = token });
                     }                   
                 }
             }
@@ -88,8 +88,7 @@ namespace ProjectCMS.Controllers
                     signingCredentials:cred
                 );
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-            var json = JsonConvert.DeserializeObject(jwt);
-            return json;
+            return jwt;
         }
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
         {
