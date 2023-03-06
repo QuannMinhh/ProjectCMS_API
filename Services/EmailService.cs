@@ -1,6 +1,6 @@
-﻿using MailKit.Net.Smtp; // Thư viện để kết nối và gửi email
-using MailKit.Security; // Thư viện cung cấp các tùy chọn bảo mật khi kết nối với máy chủ email
-using MimeKit; // Thư viện cung cấp các lớp để tạo và sửa đổi nội dung email
+﻿using MailKit.Net.Smtp; 
+using MailKit.Security; 
+using MimeKit; 
 using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Services
@@ -10,15 +10,15 @@ namespace ProjectCMS.Services
         public async Task SendEmailAsync(SendEmailModel email)
         {
             
-            // Tạo một đối tượng MimeMessage để tạo email
+            
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("CMS Notification", "testapiweb123@gmail.com")); // Thêm địa chỉ email người gửi
-            message.To.Add(new MailboxAddress("", email.ToEmail)); // Thêm địa chỉ email người nhận
-            message.Subject = email.Subject; // Đặt chủ đề email
+            message.From.Add(new MailboxAddress("CMS Notification", "testapiweb123@gmail.com")); 
+            message.To.Add(new MailboxAddress("", email.ToEmail)); 
+            message.Subject = email.Subject; 
 
-            // Tạo đối tượng BodyBuilder để tạo nội dung email
+            
             var builder = new BodyBuilder();
-            builder.HtmlBody = email.Body; // Đặt nội dung HTML của email
+            builder.HtmlBody = email.Body; 
             message.Body = builder.ToMessageBody(); // Chuyển nội dung HTML thành nội dung email và gán cho đối tượng MimeMessage
 
             // Tạo một đối tượng SmtpClient để gửi email
