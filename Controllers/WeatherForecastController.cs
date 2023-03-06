@@ -5,7 +5,7 @@ namespace ProjectCMS.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/testAuth")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
