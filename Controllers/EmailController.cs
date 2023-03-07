@@ -17,9 +17,9 @@ namespace ProjectCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> TestSendEmail(SendEmailModel email)
+        public async Task<IActionResult> TestSendEmail(string string1, string string2)
         {
-            _emailService.SendEmailAsync(email);
+            await _emailService.NewIdeaNotify(string1, string2);
             return Ok();
         }
     }

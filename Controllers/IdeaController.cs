@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
@@ -13,9 +14,11 @@ namespace ProjectCMS.Controllers
     public class IdeaController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
-        public IdeaController(ApplicationDbContext dbContext)
+        private readonly EmailService _emailService;
+        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice)
         {
             _dbContext = dbContext;
+            _emailService = emailservice;
         }
 
         [HttpGet]
@@ -102,12 +105,18 @@ namespace ProjectCMS.Controllers
                     Viewed = idea.Viewed,
                     AddedDate= idea.SubmitedDate,
                     EvId = idea.eId,
-                    CateId = idea.cId
+                    CateId = idea.cId,
+                    UserId = idea.uId
                 };
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
 
-                return Ok(newIdea);
+                var eventName = await _dbContext._events.FindAsync(idea.eId);
+                var submiter = await _dbContext._users.FindAsync(idea.uId);
+
+                _emailService.NewIdeaNotify(eventName.Name, submiter.UserName);
+
+                return Ok(new {message = "Your Idea has been submited"});
             }
 
             return BadRequest();
