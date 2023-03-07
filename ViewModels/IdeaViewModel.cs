@@ -17,6 +17,8 @@ namespace ProjectCMS.ViewModels
         public int eId { get; set; }
         [Required]
         public int cId { get; set; }
+        [Required]
+        public int uId { get; set; }
 
     }
 }
