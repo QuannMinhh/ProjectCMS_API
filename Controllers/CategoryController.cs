@@ -42,11 +42,11 @@ namespace ProjectCMS.Controllers
                 await  _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._categories.ToListAsync());
             }
-            return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
+            return BadRequest(new {message = "Some value is not valid. Please retype the value." });
         }
 
         
-        // JsonDocument.Parse("{\"property1\":\"value1\",\"property2\":2}")
+        // return Ok(new { message = ""});
 
         // Get a category by id
         [HttpGet]
@@ -72,9 +72,9 @@ namespace ProjectCMS.Controllers
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._categories.ToListAsync());
                 }
-                return BadRequest(JsonDocument.Parse("{\"Message\":\"Cannot delete! This category has ideas.\"}"));
+                return BadRequest(new {message = "Cannot delete! This category has ideas." });
             }
-            return NotFound(JsonDocument.Parse("{\"Message\":\"Category does not exist.\"}"));
+            return NotFound(new {message = "Category does not exist." });
         }
 
 
@@ -93,9 +93,9 @@ namespace ProjectCMS.Controllers
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._categories.ToListAsync());
                 }
-                return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
+                return BadRequest(new {message = "Some value is not valid. Please retype the value." });
             }
-            return BadRequest(JsonDocument.Parse("{\"Message\":\"Category does not exist.\"}"));
+            return BadRequest(new {message = "Category does not exist." });
         }
 
    

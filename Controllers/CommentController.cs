@@ -7,6 +7,7 @@ using ProjectCMS.ViewModels;
 using System.Text.Json;
 using System.Xml.Linq;
 using System.Text.Json.Serialization;
+using Duende.IdentityServer.Extensions;
 
 namespace ProjectCMS.Controllers
 {
@@ -24,12 +25,16 @@ namespace ProjectCMS.Controllers
         // Get all comments of an idea
         [HttpGet]
         [Route("{id:int}")]
-        public async Task<IActionResult> GetAllComments([FromRoute] int id)
+        public async Task<IActionResult> GetAllComments([FromRoute] int id, string? sort)
         {
-            var comments = await _dbContext._comments.Where(x=>x.IdeaId == id).ToListAsync();
+            var comments =  _dbContext._comments.Where(x => x.IdeaId == id); 
             if (comments.Any())
+            {
+                if (!sort.IsNullOrEmpty())
+                    return Ok(await comments.OrderByDescending(x => x.AddedDate).ToListAsync());
                 return Ok(comments);
-            return NotFound();
+            }
+            return NotFound(new {message = "This idea has no comment !"});
         }
 
         // Add a comment
@@ -49,7 +54,7 @@ namespace ProjectCMS.Controllers
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._comments.Where(x => x.IdeaId == comment.IdeaId).ToListAsync());
                 }
-                return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));   
+            return BadRequest(new {message = "Some value is not valid. Please retype the value." }); 
          }
 
 
@@ -65,7 +70,7 @@ namespace ProjectCMS.Controllers
                 await _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._comments.ToListAsync());
             }
-            return NotFound(JsonDocument.Parse("{\"Message\":\"Comment does not exist.\"}"));
+            return NotFound(new {message = "Comment does not exist." });
         }
 
 
@@ -83,29 +88,29 @@ namespace ProjectCMS.Controllers
                     await _dbContext.SaveChangesAsync();
                     return Ok(await _dbContext._comments.ToListAsync());
                 }
-                return BadRequest(JsonDocument.Parse("{\"Message\":\"Some value is not valid. Please retype the value.\"}"));
+                return BadRequest(new {message = "Some value is not valid. Please retype the value." });
             }
-            return NotFound(JsonDocument.Parse("{\"Message\":\"Comment does not exist.\"}"));
+            return NotFound(new {message = "Comment does not exist." });
         }
 
 
 
         // Sort comment by added date 
-        [HttpGet("{sort}/{id}")]
-        public async Task<IActionResult> SortComments([FromRoute] int id)
-        {
-            try
-            {
-                var comments = _dbContext._comments.Where(x => x.IdeaId == id).OrderByDescending(x => x.AddedDate);
-                if (comments.Any())
-                    return Ok(await comments.ToListAsync());
-                return NotFound(JsonDocument.Parse("{\"Message\":\"This idea has no comment yet.\"}"));
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
-            }
-        }
+        //[HttpGet("{sort}/{id}")]
+        //public async Task<IActionResult> SortComments([FromRoute] int id)
+        //{
+        //    try
+        //    {
+        //        var comments = _dbContext._comments.Where(x => x.IdeaId == id).OrderByDescending(x => x.AddedDate);
+        //        if (comments.Any())
+        //            return Ok(await comments.ToListAsync());
+        //        return NotFound(JsonDocument.Parse("{\"Message\":\"This idea has no comment yet.\"}"));
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
+        //    }
+        //}
 
         
               
