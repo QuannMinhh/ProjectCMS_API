@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
@@ -22,6 +23,7 @@ namespace ProjectCMS.Controllers
             _dbContext = dbContext;
             _configuration = configuration;
         }
+
         [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
@@ -63,11 +65,11 @@ namespace ProjectCMS.Controllers
                     if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
                     {
                         string token = tokenMethod(user);
-                        return Ok(token);
+                        return Ok(new { token = token });
                     }                   
                 }
             }
-            return BadRequest("wrong username or password");
+            return BadRequest(new { message = "wrong username or password" });
         }
         private string tokenMethod(User user)
         {
@@ -75,7 +77,10 @@ namespace ProjectCMS.Controllers
             {
                 new Claim(ClaimTypes.Name,user.UserName),
                 new Claim(ClaimTypes.Role,user.Role),
+                new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
+
+
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken

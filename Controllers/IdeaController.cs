@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
@@ -13,9 +14,11 @@ namespace ProjectCMS.Controllers
     public class IdeaController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
-        public IdeaController(ApplicationDbContext dbContext)
+        private readonly EmailService _emailService;
+        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice)
         {
             _dbContext = dbContext;
+            _emailService = emailservice;
         }
 
         [HttpGet]
@@ -29,7 +32,7 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return NotFound("Cannot find any idea like " + searchString);
+                    return NotFound();
                 }
 
                 if (ideas.Any())
@@ -37,7 +40,19 @@ namespace ProjectCMS.Controllers
                     return Ok(await ideas.ToListAsync());
                 }
                 return NotFound();
+        }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetDetail([FromRoute] int id)
+        {
+            var idea = await _dbContext._idea.FindAsync(id);
+            if (idea == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(idea);
         }
 
         [HttpGet("{sort}")]
@@ -90,12 +105,18 @@ namespace ProjectCMS.Controllers
                     Viewed = idea.Viewed,
                     AddedDate= idea.SubmitedDate,
                     EvId = idea.eId,
-                    CateId = idea.cId
+                    CateId = idea.cId,
+                    UserId = idea.uId
                 };
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
 
-                return Ok(newIdea);
+                var eventName = await _dbContext._events.FindAsync(idea.eId);
+                var submiter = await _dbContext._users.FindAsync(idea.uId);
+
+                _emailService.NewIdeaNotify(eventName.Name, submiter.UserName);
+
+                return Ok(new {message = "Your Idea has been submited"});
             }
 
             return BadRequest();
@@ -109,7 +130,7 @@ namespace ProjectCMS.Controllers
             var idea = await _dbContext._idea.FindAsync(id);
             if (idea != null)
             {
-                _dbContext._idea.Remove(idea);
+                 _dbContext._idea.Remove(idea);
                 await _dbContext.SaveChangesAsync();
                 return Ok();
             }
