@@ -29,7 +29,7 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return NotFound("Cannot find any idea like " + searchString);
+                    return NotFound();
                 }
 
                 if (ideas.Any())
@@ -37,7 +37,19 @@ namespace ProjectCMS.Controllers
                     return Ok(await ideas.ToListAsync());
                 }
                 return NotFound();
+        }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetDetail([FromRoute] int id)
+        {
+            var idea = await _dbContext._idea.FindAsync(id);
+            if (idea == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(idea);
         }
 
         [HttpGet("{sort}")]
@@ -109,7 +121,7 @@ namespace ProjectCMS.Controllers
             var idea = await _dbContext._idea.FindAsync(id);
             if (idea != null)
             {
-                _dbContext._idea.Remove(idea);
+                 _dbContext._idea.Remove(idea);
                 await _dbContext.SaveChangesAsync();
                 return Ok();
             }
