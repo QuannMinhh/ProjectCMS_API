@@ -113,8 +113,10 @@ namespace ProjectCMS.Controllers
 
                 var eventName = await _dbContext._events.FindAsync(idea.eId);
                 var submiter = await _dbContext._users.FindAsync(idea.uId);
-
-                _emailService.NewIdeaNotify(eventName.Name, submiter.UserName);
+                var admin = (await _dbContext._users.Where(u => u.Role == "Admin").ToListAsync())
+                                .Select(u => u.Email).ToArray();
+                //Send Email to Admin
+               _emailService.NewIdeaNotify(eventName.Name, submiter.UserName, admin);
 
                 return Ok(new {message = "Your Idea has been submited"});
             }

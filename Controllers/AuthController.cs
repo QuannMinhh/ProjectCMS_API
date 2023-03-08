@@ -71,7 +71,7 @@ namespace ProjectCMS.Controllers
                     if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
                     {
                         string token = tokenMethod(user);
-                        return Ok(new { token = token });
+                        return Ok(token);
                     }                   
                 }
             }
