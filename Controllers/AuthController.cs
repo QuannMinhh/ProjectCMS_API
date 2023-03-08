@@ -23,6 +23,14 @@ namespace ProjectCMS.Controllers
             _dbContext = dbContext;
             _configuration = configuration;
         }
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         [HttpGet("Profile")]
         public IActionResult EndPoint()
         {
@@ -38,7 +46,7 @@ namespace ProjectCMS.Controllers
         }
         
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(UserDTO usr)
+        public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
             User user = new User
@@ -71,11 +79,19 @@ namespace ProjectCMS.Controllers
                     if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
                     {
                         string token = tokenMethod(user);
-                        return Ok(new { token = token });
+                        return Ok(token);
                     }                   
                 }
             }
             return BadRequest(new { message = "wrong username or password" });
+        }
+        public async Task<IActionResult> ForgotPassword(string userName) 
+        {
+
+            string newPassword = RandomString(8);
+            CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+
+            return Ok("Check your email!");
         }
 
         private string tokenMethod(User user)
