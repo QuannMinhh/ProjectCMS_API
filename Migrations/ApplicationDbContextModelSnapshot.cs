@@ -444,6 +444,9 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CateId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -459,6 +462,8 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CateId");
 
                     b.ToTable("_events");
                 });
@@ -563,16 +568,18 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DoB")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Phone")
@@ -582,8 +589,9 @@ namespace ProjectCMS.Migrations
                     b.Property<string>("RefreshToken")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("TokenCreate")
                         .HasColumnType("datetime2");
@@ -593,11 +601,14 @@ namespace ProjectCMS.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId");
 
                     b.HasIndex("DepartmentID");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("_users");
                 });
@@ -671,6 +682,17 @@ namespace ProjectCMS.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ProjectCMS.Models.Event", b =>
+                {
+                    b.HasOne("ProjectCMS.Models.Category", "Category")
+                        .WithMany("Events")
+                        .HasForeignKey("CateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
                     b.HasOne("ProjectCMS.Models.Category", "Category")
@@ -726,6 +748,8 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Category", b =>
                 {
+                    b.Navigation("Events");
+
                     b.Navigation("Ideas");
                 });
 
