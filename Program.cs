@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -19,38 +18,18 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
 //builder.Services.AddIdentityServer()
 //    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-/*
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        //ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
-//    };
-//});
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(o =>
-{
-    o.TokenValidationParameters = new TokenValidationParameters
-    {
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
         ValidateIssuer = false,
         ValidateAudience = false,
-        ValidateLifetime = false,
-        ValidateIssuerSigningKey = true
     };
 });
 
-builder.Services.AddAuthentication()
-    .AddIdentityServerJwt();
-builder.Services.AddAuthorization();
 builder.Services.AddCors(
     option =>
     {
@@ -93,6 +72,6 @@ app.MapControllerRoute(
     pattern: "{controller}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-app.MapFallbackToFile("index.html"); 
+app.MapFallbackToFile("index.html");
 
 app.Run();
