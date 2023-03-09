@@ -1,4 +1,13 @@
-﻿namespace ProjectCMS.Controllers
+﻿using Duende.IdentityServer.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProjectCMS.Data;
+using ProjectCMS.Models;
+using ProjectCMS.Services;
+using ProjectCMS.ViewModels;
+
+namespace ProjectCMS.Controllers
 {
     [Route("api/comment")]
     [ApiController]
