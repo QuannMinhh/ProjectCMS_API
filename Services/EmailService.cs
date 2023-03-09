@@ -40,7 +40,7 @@ namespace ProjectCMS.Services
                 await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
 
                 // Xác thực với máy chủ email bằng tài khoản và mật khẩu
-                await client.AuthenticateAsync("testapiweb123@gmail.com", "xapnxmgbqdmltiph");
+                await client.AuthenticateAsync("testapiweb123@gmail.com", "");
 
                 // Gửi email 
                 await client.SendAsync(message);
