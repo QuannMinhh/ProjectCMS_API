@@ -234,3 +234,4 @@ appsettings.json
 /Migrations
 Migrations/ApplicationDbContextModelSnapshot.cs
 appsettings.json
+Migrations/ApplicationDbContextModelSnapshot.cs
