@@ -32,26 +32,30 @@ namespace ProjectCMS.Controllers
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-        [HttpGet("Profile")]
-        public IActionResult EndPoint()
+        [HttpGet("Profile"),AllowAnonymous]
+        public async Task<IActionResult> EndPoint()
         {
-            var currentUser = GetCurrentUser();
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(currentUser);
-            return Ok();
-        }
+            var currentUser = await _dbContext._users.FirstOrDefaultAsync(uId => uId.UserId == GettUserId());
+            User usr = new User
+            {
+                UserId = currentUser.UserId,
+                UserName = currentUser.UserName,
+                Email = currentUser.Email,
+                Phone = currentUser.Phone,
+                DoB = currentUser.DoB,
+                Address = currentUser.Address,
+                Avatar = currentUser.Avatar,
+                AddedDate = currentUser.AddedDate,
+                Role = currentUser.Role,
+            };
+            return Ok(usr);
+        }        
         [HttpGet,AllowAnonymous]
         public async Task<IActionResult> getAllUser()
         {
             List<User> users = await _dbContext._users.ToListAsync();
             return Ok(users);
         }
-        [HttpPut]
-        [Route("{id:int}")]
-        /*public async Task<IActionResult> ForgotPass([FromRoute] int Uid,string password)
-        {
-            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
-        }
-        */
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
@@ -136,20 +140,16 @@ namespace ProjectCMS.Controllers
             return jwt;
         }
         
-        private  User GetCurrentUser()
+        public int GettUserId()
         {           
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             if (identity !=null)
             {
-                var userClaim = identity.Claims;
+                var userClaim = identity.Claims;               
+                return Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value);                
                 
-                return new User
-                {   
-                    UserId = Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),                 
-                };
-            }
-            
-            return null;
+            }            
+            return 0;
         }
         
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
