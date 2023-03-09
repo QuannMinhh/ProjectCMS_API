@@ -13,12 +13,6 @@ namespace ProjectCMS.Services
 {
     public class EmailService
     {
-        private readonly ApplicationDbContext _dbContext;
-        public EmailService(ApplicationDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
         private async Task SendEmailAsync(SendEmailModel email)
         {
 
