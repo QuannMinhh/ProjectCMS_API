@@ -1,4 +1,15 @@
-﻿namespace ProjectCMS.Controllers
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using ProjectCMS.Data;
+using ProjectCMS.Models;
+using ProjectCMS.ViewModels;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+
+namespace ProjectCMS.Controllers
 {
     [Route("api/auth")]
     [ApiController]
@@ -6,7 +17,7 @@
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
-        public User user = new();
+        public static User user = new();
         private readonly IConfiguration _configuration;
         public AuthController(ApplicationDbContext dbContext, IConfiguration configuration)
         {
@@ -28,7 +39,7 @@
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(currentUser);
             return Ok();
         }
-        [HttpGet,Authorize(Roles ="Admin")]
+        [HttpGet,AllowAnonymous]
         public async Task<IActionResult> getAllUser()
         {
             List<User> users = await _dbContext._users.ToListAsync();
@@ -66,7 +77,7 @@
         [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
         {
-            List<User> users = await _dbContext._users.ToListAsync();
+            /*List<User> users = await _dbContext._users.ToListAsync();
             
             foreach (var user in users) 
             {
@@ -79,7 +90,18 @@
                     }                   
                 }
             }
-            return BadRequest(new { message = "wrong username or password" });
+            */
+             
+            var currentUser = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == rq.userName);
+            if(currentUser != null)
+            {
+                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt))
+                {
+                    string token = tokenMethod(currentUser);
+                    return Ok(token);
+                }    
+            }
+            return BadRequest("Wrong username or password");
         }
         public async Task<IActionResult> ForgotPassword(string userName) 
         {
@@ -114,7 +136,7 @@
             return jwt;
         }
         
-        /*private  User GetCurrentUser()
+        private  User GetCurrentUser()
         {           
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             if (identity !=null)
@@ -123,15 +145,13 @@
                 
                 return new User
                 {   
-                    UserId = Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),
-                    UserName = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value,
-                    Role = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value,
+                    UserId = Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),                 
                 };
             }
             
             return null;
         }
-        */
+        
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
         {
             using(var hmac = new HMACSHA512())
