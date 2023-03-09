@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
@@ -9,6 +10,7 @@ namespace ProjectCMS.Controllers
 {
     [Route("api/category")]
     [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
@@ -28,7 +30,8 @@ namespace ProjectCMS.Controllers
 
 
         // Create a category
-        [HttpPost]
+        [HttpPost,Authorize(Roles ="Admin")]
+        
         public async Task<IActionResult> CreateCategory(CategoryViewModel category)
         {
             if (ModelState.IsValid)

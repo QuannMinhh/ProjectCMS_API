@@ -1,5 +1,5 @@
 ﻿using Duende.IdentityServer.Extensions;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
@@ -11,6 +11,7 @@ namespace ProjectCMS.Controllers
 {
     [Route("api/idea")]
     [ApiController]
+    [Authorize]
     public class IdeaController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;

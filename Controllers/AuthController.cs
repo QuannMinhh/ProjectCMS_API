@@ -1,18 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using ProjectCMS.Data;
-using ProjectCMS.Models;
-using ProjectCMS.ViewModels;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-
-
-namespace ProjectCMS.Controllers
+﻿namespace ProjectCMS.Controllers
 {
     [Route("api/auth")]
     [ApiController]
+    [Authorize]
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
@@ -36,16 +26,22 @@ namespace ProjectCMS.Controllers
         {
             var currentUser = GetCurrentUser();
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(currentUser);
-            return Ok(json);
+            return Ok();
         }
-        [HttpGet]
+        [HttpGet,Authorize(Roles ="Admin")]
         public async Task<IActionResult> getAllUser()
         {
             List<User> users = await _dbContext._users.ToListAsync();
             return Ok(users);
         }
-        
-        [HttpPost("Register")]
+        [HttpPut]
+        [Route("{id:int}")]
+        /*public async Task<IActionResult> ForgotPass([FromRoute] int Uid,string password)
+        {
+            CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
+        }
+        */
+        [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
@@ -67,7 +63,7 @@ namespace ProjectCMS.Controllers
             _dbContext.SaveChanges();
             return Ok(user);
         }
-        [HttpPost("Login")]
+        [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
         {
             List<User> users = await _dbContext._users.ToListAsync();
@@ -98,12 +94,10 @@ namespace ProjectCMS.Controllers
         {
             List<Claim> claims = new()
             {
+                
+                new Claim(ClaimTypes.SerialNumber,user.UserId.ToString()),
                 new Claim(ClaimTypes.NameIdentifier,user.UserName),
                 new Claim(ClaimTypes.Role,user.Role),
-                new Claim(ClaimTypes.Email,user.Email),
-                new Claim(ClaimTypes.Country, user.Address),
-                new Claim(ClaimTypes.Name, user.Avatar),
-
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
 
@@ -119,24 +113,25 @@ namespace ProjectCMS.Controllers
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
         }
-        private User GetCurrentUser()
-        {
+        
+        /*private  User GetCurrentUser()
+        {           
             var identity = HttpContext.User.Identity as ClaimsIdentity;
-            List<string> user = new List<string>();
             if (identity !=null)
             {
                 var userClaim = identity.Claims;
+                
                 return new User
-                {
+                {   
+                    UserId = Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value),
                     UserName = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value,
                     Role = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value,
-                    Avatar = userClaim.FirstOrDefault(o => o.Type ==ClaimTypes.Name)?.Value,
-                    //DoB = DateTime.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.DateOfBirth)?.Value),
-                    Address = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.Country)?.Value
                 };
             }
+            
             return null;
         }
+        */
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
         {
             using(var hmac = new HMACSHA512())

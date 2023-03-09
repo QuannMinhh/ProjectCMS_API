@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
@@ -12,6 +13,7 @@ namespace ProjectCMS.Controllers
 {
     [Route("api/interactions")]
     [ApiController]
+    [Authorize]
     public class InteractionsController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
