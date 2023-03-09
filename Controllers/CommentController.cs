@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Xml.Linq;
 using System.Text.Json.Serialization;
 using Duende.IdentityServer.Extensions;
+using ProjectCMS.Services;
 
 namespace ProjectCMS.Controllers
 {
@@ -16,10 +17,11 @@ namespace ProjectCMS.Controllers
     public class CommentController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
-
-        public CommentController(ApplicationDbContext dbcontext)
+        private readonly EmailService _emailService;
+        public CommentController(ApplicationDbContext dbcontext, EmailService emailService)
         {
             _dbContext = dbcontext;
+            _emailService = emailService;
         }
 
         // Get all comments of an idea
@@ -52,6 +54,9 @@ namespace ProjectCMS.Controllers
                     };
                     await _dbContext._comments.AddAsync(newComment);
                     await _dbContext.SaveChangesAsync();
+
+                    NewCommentNofity(comment.UserId, comment.IdeaId);
+
                     return Ok(await _dbContext._comments.Where(x => x.IdeaId == comment.IdeaId).ToListAsync());
                 }
             return BadRequest(new {message = "Some value is not valid. Please retype the value." }); 
@@ -93,7 +98,16 @@ namespace ProjectCMS.Controllers
             return NotFound(new {message = "Comment does not exist." });
         }
 
+        private async Task NewCommentNofity(int idUser, int idIdea)
+        {
+            var sender = await _dbContext._users.FindAsync(idUser);
+            var ownerIdea = (await _dbContext._idea.FindAsync(idIdea)).UserId;
+            var owerEmail = (await _dbContext._users.FindAsync(ownerIdea)).Email;
 
+            _emailService.NewCommentNotify(sender.UserName, owerEmail);
+
+            return;
+        }
 
         // Sort comment by added date 
         //[HttpGet("{sort}/{id}")]
