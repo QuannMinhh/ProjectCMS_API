@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -17,13 +18,15 @@ namespace ProjectCMS.Controllers
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly EmailService _emailService;
+        private readonly IConfiguration _configuration;
 
         public static User user = new();
-        private readonly IConfiguration _configuration;
-        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration)
+        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice)
         {
             _dbContext = dbContext;
             _configuration = configuration;
+            _emailService = emailservice;
         }
         private static Random random = new Random();
 
@@ -103,11 +106,12 @@ namespace ProjectCMS.Controllers
                 CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
+                _emailService.ForgotPassword(newPassword,user.Email);
                 await _dbContext.SaveChangesAsync();
-                return Ok(newPassword);
+                return Ok("Please Check your Email");
             }    
 
-            return BadRequest("Check your email!");
+            return BadRequest("Wrong username or Email");
         }
 
         private string tokenMethod(User user)
