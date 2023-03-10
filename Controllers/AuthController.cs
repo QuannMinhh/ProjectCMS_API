@@ -17,6 +17,7 @@ namespace ProjectCMS.Controllers
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
+
         public static User user = new();
         private readonly IConfiguration _configuration;
         public AuthController(ApplicationDbContext dbContext, IConfiguration configuration)
@@ -28,7 +29,7 @@ namespace ProjectCMS.Controllers
 
         public static string RandomString(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "abcdefghijklmnopqrstyvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
@@ -81,21 +82,6 @@ namespace ProjectCMS.Controllers
         [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
         {
-            /*List<User> users = await _dbContext._users.ToListAsync();
-            
-            foreach (var user in users) 
-            {
-                if(user.UserName == rq.userName) 
-                {                   
-                    if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
-                    {
-                        string token = tokenMethod(user);
-                        return Ok(token);
-                    }                   
-                }
-            }
-            */
-             
             var currentUser = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == rq.userName);
             if(currentUser != null)
             {
@@ -107,13 +93,21 @@ namespace ProjectCMS.Controllers
             }
             return BadRequest("Wrong username or password");
         }
-        public async Task<IActionResult> ForgotPassword(string userName) 
+        [HttpPost("Resetpassword"),AllowAnonymous]       
+        public async Task<IActionResult> ResetPassword(FPass pwd) 
         {
+            var user = await _dbContext._users.FirstOrDefaultAsync(usrname => usrname.UserName == pwd.userName && usrname.Email == pwd.email);
+            if(user != null)
+            {
+                string newPassword = RandomString(8);
+                CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+                await _dbContext.SaveChangesAsync();
+                return Ok(newPassword);
+            }    
 
-            string newPassword = RandomString(8);
-            CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
-
-            return Ok("Check your email!");
+            return BadRequest("Check your email!");
         }
 
         private string tokenMethod(User user)
@@ -126,8 +120,6 @@ namespace ProjectCMS.Controllers
                 new Claim(ClaimTypes.Role,user.Role),
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
-
-
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken
