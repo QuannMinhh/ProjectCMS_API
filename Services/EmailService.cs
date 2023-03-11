@@ -1,13 +1,7 @@
 ﻿using MailKit.Net.Smtp;
-//using MailKit.Net.Smtp.Pool;
 using MailKit.Security;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MimeKit;
-using ProjectCMS.Data;
-using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
-using static Duende.IdentityServer.Models.IdentityResources;
 
 namespace ProjectCMS.Services
 {
@@ -35,7 +29,7 @@ namespace ProjectCMS.Services
 
                 // Xác thực với máy chủ email bằng tài khoản và mật khẩu
                 await client.AuthenticateAsync("testapiweb123@gmail.com", "");
-
+                
                 // Gửi email 
                 await client.SendAsync(message);
 
@@ -44,7 +38,7 @@ namespace ProjectCMS.Services
             }
             return;
         }
-
+        //ungrowmjjlflqjfv
         public async Task NewIdeaNotify(string eventName, string submiter, string[] admin)
         {
             try
