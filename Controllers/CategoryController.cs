@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
-using System.Text.Json;
+using System.Security.Claims;
+using System.Security.Cryptography;
 
 namespace ProjectCMS.Controllers
 {
     [Route("api/category")]
     [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
@@ -28,7 +31,8 @@ namespace ProjectCMS.Controllers
 
 
         // Create a category
-        [HttpPost]
+        [HttpPost,Authorize(Roles = "Admin,QAM")]
+        
         public async Task<IActionResult> CreateCategory(CategoryViewModel category)
         {
             if (ModelState.IsValid)
@@ -58,21 +62,29 @@ namespace ProjectCMS.Controllers
 
 
         // Delete category
-        [HttpDelete]
+        [HttpPost]
         [Route("{id:int}")]
-        public async Task<IActionResult> DeleteCategory([FromRoute]  int id)
+        public async Task<IActionResult> DeleteCategory(string pwd, [FromRoute]  int id)
         {
-            var category = await _dbContext._categories.FindAsync(id);
-            var ideas = await _dbContext._idea.Where(x => x.CateId == id).ToListAsync();
-            if (category != null)
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var userClaim = identity.Claims;
+            string username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            var user = await _dbContext._users.FirstOrDefaultAsync(usrname => usrname.UserName == username);
+            if(Verify(pwd,user.PasswordHash,user.PasswordSalt))
             {
-                if (!ideas.Any())
+                var category = await _dbContext._categories.FindAsync(id);
+                var ideas = await _dbContext._idea.Where(x => x.CateId == id).ToListAsync();
+                if (category != null)
                 {
-                    _dbContext._categories.Remove(category);
-                    await _dbContext.SaveChangesAsync();
-                    return Ok(await _dbContext._categories.ToListAsync());
+                    if (!ideas.Any())
+                    {
+                        _dbContext._categories.Remove(category);
+                        await _dbContext.SaveChangesAsync();
+                        return Ok(await _dbContext._categories.ToListAsync());
+                    }
+                    return BadRequest(new {message = "Cannot delete! This category has ideas." });
                 }
-                return BadRequest(new {message = "Cannot delete! This category has ideas." });
             }
             return NotFound(new {message = "Category does not exist." });
         }
@@ -97,8 +109,15 @@ namespace ProjectCMS.Controllers
             }
             return BadRequest(new {message = "Category does not exist." });
         }
+        private bool Verify(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return computedHash.SequenceEqual(passwordHash);
+            }
+        }
 
-   
 
 
 

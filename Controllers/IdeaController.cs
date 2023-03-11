@@ -1,5 +1,5 @@
 ﻿using Duende.IdentityServer.Extensions;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
@@ -11,14 +11,20 @@ namespace ProjectCMS.Controllers
 {
     [Route("api/idea")]
     [ApiController]
+    [Authorize]
     public class IdeaController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
-        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice)
+        private readonly IWebHostEnvironment _env;
+        public IdeaController(
+            ApplicationDbContext dbContext,
+            EmailService emailservice,
+            IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _emailService = emailservice;
+            _env = env;
         }
 
         [HttpGet]
@@ -101,13 +107,19 @@ namespace ProjectCMS.Controllers
                 {
                     Name = idea.Title,
                     Content = idea.Content,
-                    Vote= idea.Vote,
+                    Vote = idea.Vote,
                     Viewed = idea.Viewed,
-                    AddedDate= idea.SubmitedDate,
+                    AddedDate = idea.SubmitedDate,
                     EvId = idea.eId,
                     CateId = idea.cId,
-                    UserId = idea.uId
+                    UserId = idea.uId,
+                    IdeaFile = idea.IdeaFile.FileName
                 };
+                if (idea.IdeaFile!= null)
+                {
+                    await SaveFile(idea.IdeaFile);
+                }
+      
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
 
@@ -134,10 +146,49 @@ namespace ProjectCMS.Controllers
             {
                  _dbContext._idea.Remove(idea);
                 await _dbContext.SaveChangesAsync();
+
+                if(idea.IdeaFile.IsNullOrEmpty()) 
+                {
+                    await RemoveFile(idea.IdeaFile);
+                }
+                
                 return Ok();
             }
 
             return NotFound();
+        }
+
+        private async Task<bool> SaveFile(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return false;
+            }
+
+            var webStaticPath = Path.Combine(_env.WebRootPath, "WebStatic");
+            var filePath = Path.Combine(webStaticPath, file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return true;
+        }
+        private async Task<bool> RemoveFile(string file)
+        {
+            var webStaticPath = Path.Combine(_env.WebRootPath, "WebStatic");
+            var filePath = Path.Combine(webStaticPath, file);
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                return false;
+            }
+            else
+            {
+                System.IO.File.Delete(filePath);
+                return true;
+            }
         }
     }
 }

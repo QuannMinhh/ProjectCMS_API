@@ -1,19 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Duende.IdentityServer.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
-using ProjectCMS.ViewModels;
-using System.Text.Json;
-using System.Xml.Linq;
-using System.Text.Json.Serialization;
-using Duende.IdentityServer.Extensions;
 using ProjectCMS.Services;
+using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
 {
     [Route("api/comment")]
     [ApiController]
+    [Authorize]
     public class CommentController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;

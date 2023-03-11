@@ -1,49 +1,74 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
+using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-
 namespace ProjectCMS.Controllers
 {
     [Route("api/auth")]
     [ApiController]
+    [Authorize]
     public class AuthController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
-        public User user = new();
+        private readonly EmailService _emailService;
         private readonly IConfiguration _configuration;
-        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration)
+
+        public static User user = new();
+        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice)
         {
             _dbContext = dbContext;
             _configuration = configuration;
+            _emailService = emailservice;
+        }
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "abcdefghijklmnopqrstyvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
         [HttpGet("Profile")]
-        public IActionResult EndPoint()
+        public async Task<IActionResult> EndPoint()
         {
-            var currentUser = GetCurrentUser();
-            var json = Newtonsoft.Json.JsonConvert.SerializeObject(currentUser);
-            return Ok(json);
-        }
+            var currentUser = await _dbContext._users
+                .Join(_dbContext._departments, _usr => _usr.DepartmentID, _dep =>_dep.DepId, (_usr, _dep) => new UserDTO
+                {
+                    UserId = _usr.UserId,
+                    UserName = _usr.UserName,
+                    Email = _usr.Email,
+                    Phone = _usr.Phone,
+                    DoB = _usr.DoB,
+                    Address = _usr.Address,
+                    Avatar = _usr.Avatar,
+                    AddedDate = _usr.AddedDate,
+                    Role = _usr.Role,
+                    Department = _dep.Name,
+                })
+                .FirstOrDefaultAsync(uId => uId.UserId == GettUserId());
+            return Ok(currentUser);
+        }        
         [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
             List<User> users = await _dbContext._users.ToListAsync();
             return Ok(users);
         }
-        
-        [HttpPost("Register")]
-        public async Task<IActionResult> Register(UserDTO usr)
+        [HttpPost("Register"),Authorize(Roles ="Admin")]
+        public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
             User user = new User
             {
-                UserName = usr.userName,
+                UserName = usr.UserName,
                 Email = usr.Email,
                 Role = usr.Role,
                 Phone = usr.Phone,
@@ -59,39 +84,48 @@ namespace ProjectCMS.Controllers
             _dbContext.SaveChanges();
             return Ok(user);
         }
-        [HttpPost("Login")]
+        [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
         {
-            List<User> users = await _dbContext._users.ToListAsync();
-            
-            foreach (var user in users) 
+            var currentUser = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == rq.userName);
+            if(currentUser != null)
             {
-                if(user.UserName == rq.userName) 
-                {                   
-                    if (Verify(rq.password, user.PasswordHash, user.PasswordSalt))
-                    {
-                        string token = tokenMethod(user);
-                        return Ok(token);
-                    }                   
-                }
+                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt))
+                {
+                    string token = tokenMethod(currentUser);
+                    return Ok(token);
+                }    
             }
-            return BadRequest(new { message = "wrong username or password" });
+            return BadRequest("Wrong username or password");
+        }
+        [HttpPost("Resetpassword"),AllowAnonymous]       
+        public async Task<IActionResult> ResetPassword(FPass pwd) 
+        {
+            var user = await _dbContext._users.FirstOrDefaultAsync(usrname => usrname.UserName == pwd.userName && usrname.Email == pwd.email);
+            if(user != null)
+            {
+                string newPassword = RandomString(8);
+                CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+                _emailService.ForgotPassword(newPassword,user.Email);
+                await _dbContext.SaveChangesAsync();
+                return Ok("Please Check your Email");
+            }    
+
+            return BadRequest("Wrong username or Email");
         }
 
         private string tokenMethod(User user)
         {
             List<Claim> claims = new()
             {
+                
+                new Claim(ClaimTypes.SerialNumber,user.UserId.ToString()),
                 new Claim(ClaimTypes.NameIdentifier,user.UserName),
                 new Claim(ClaimTypes.Role,user.Role),
-                new Claim(ClaimTypes.Email,user.Email),
-                new Claim(ClaimTypes.Country, user.Address),
-                new Claim(ClaimTypes.Name, user.Avatar),
-
                 new Claim(JwtRegisteredClaimNames.Jti , Guid.NewGuid().ToString())
             };
-
-
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
             var cred = new SigningCredentials(key,SecurityAlgorithms.HmacSha512Signature);
             var token = new JwtSecurityToken
@@ -103,24 +137,19 @@ namespace ProjectCMS.Controllers
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
             return jwt;
         }
-        private User GetCurrentUser()
-        {
+        
+        public int GettUserId()
+        {           
             var identity = HttpContext.User.Identity as ClaimsIdentity;
-            List<string> user = new List<string>();
             if (identity !=null)
             {
-                var userClaim = identity.Claims;
-                return new User
-                {
-                    UserName = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value,
-                    Role = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.Role)?.Value,
-                    Avatar = userClaim.FirstOrDefault(o => o.Type ==ClaimTypes.Name)?.Value,
-                    //DoB = DateTime.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.DateOfBirth)?.Value),
-                    Address = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.Country)?.Value
-                };
-            }
-            return null;
+                var userClaim = identity.Claims;               
+                return Int32.Parse(userClaim.FirstOrDefault(o => o.Type == ClaimTypes.SerialNumber)?.Value);                
+                
+            }            
+            return 0;
         }
+        
         private void CreatePasswordHash(string password,out byte[] passwordHash,out byte[] passwordSalt) 
         {
             using(var hmac = new HMACSHA512())

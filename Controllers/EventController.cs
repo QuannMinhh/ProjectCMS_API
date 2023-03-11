@@ -55,7 +55,7 @@ namespace ProjectCMS.Controllers
             return BadRequest();
         }
         [HttpDelete]
-        [Route("id:int")]
+        [Route("{id:int}")]
         public async Task<IActionResult> DeleteEvent([FromRoute] int id)
         {
             var evt = await _dbContext._events.FindAsync(id);
