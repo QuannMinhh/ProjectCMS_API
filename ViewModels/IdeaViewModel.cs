@@ -20,5 +20,7 @@ namespace ProjectCMS.ViewModels
         [Required]
         public int uId { get; set; }
 
+        public IFormFile? IdeaFile { get; set; }
+
     }
 }
