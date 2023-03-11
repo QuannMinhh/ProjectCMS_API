@@ -36,25 +36,27 @@ namespace ProjectCMS.Controllers
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-        [HttpGet("Profile"),AllowAnonymous]
+        [HttpGet("Profile")]
         public async Task<IActionResult> EndPoint()
         {
-            var currentUser = await _dbContext._users.FirstOrDefaultAsync(uId => uId.UserId == GettUserId());
-            User usr = new User
-            {
-                UserId = currentUser.UserId,
-                UserName = currentUser.UserName,
-                Email = currentUser.Email,
-                Phone = currentUser.Phone,
-                DoB = currentUser.DoB,
-                Address = currentUser.Address,
-                Avatar = currentUser.Avatar,
-                AddedDate = currentUser.AddedDate,
-                Role = currentUser.Role,
-            };
-            return Ok(usr);
+            var currentUser = await _dbContext._users
+                .Join(_dbContext._departments, _usr => _usr.DepartmentID, _dep =>_dep.DepId, (_usr, _dep) => new UserDTO
+                {
+                    UserId = _usr.UserId,
+                    UserName = _usr.UserName,
+                    Email = _usr.Email,
+                    Phone = _usr.Phone,
+                    DoB = _usr.DoB,
+                    Address = _usr.Address,
+                    Avatar = _usr.Avatar,
+                    AddedDate = _usr.AddedDate,
+                    Role = _usr.Role,
+                    Department = _dep.Name,
+                })
+                .FirstOrDefaultAsync(uId => uId.UserId == GettUserId());
+            return Ok(currentUser);
         }        
-        [HttpGet,AllowAnonymous]
+        [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
             List<User> users = await _dbContext._users.ToListAsync();
@@ -66,7 +68,7 @@ namespace ProjectCMS.Controllers
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
             User user = new User
             {
-                UserName = usr.userName,
+                UserName = usr.UserName,
                 Email = usr.Email,
                 Role = usr.Role,
                 Phone = usr.Phone,
