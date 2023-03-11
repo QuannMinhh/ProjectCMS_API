@@ -4,6 +4,7 @@ namespace ProjectCMS.ViewModels
 {
     public class EventViewModel
     {
+
         [Required]
         public string Name { get; set; }
         [Required]
