@@ -65,16 +65,7 @@ app.UseRouting();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
-//app.UseIdentityServer();
-
-//Cấu hình static file bằng cách tạo đối tượng chỉ định đường dẫn tới static file
-var physicalProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "WebStatic"));
-app.UseStaticFiles(new StaticFileOptions()
-{
-    FileProvider = physicalProvider,
-    RequestPath = "/WebStatic"
-});
-
+app.UseStaticFiles();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");

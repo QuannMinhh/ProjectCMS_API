@@ -24,7 +24,7 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
             _emailService = emailservice;
-            _env = env;
+            this._env = env;
         }
 
         [HttpGet]
@@ -98,7 +98,7 @@ namespace ProjectCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateIdea(IdeaViewModel idea)
+        public async Task<IActionResult> CreateIdea([FromForm] IdeaViewModel idea)
         {
 
             if (ModelState.IsValid)
@@ -160,20 +160,26 @@ namespace ProjectCMS.Controllers
 
         private async Task<bool> SaveFile(IFormFile file)
         {
-            if (file == null || file.Length == 0)
-            {
-                return false;
-            }
+            
+                if(_env.WebRootPath == null)
+                {
+                    Console.WriteLine("_env is null");
+                    return false;
+                }
+                if (file == null || file.Length == 0)
+                {
+                    return false;
+                }
+                string fileName = file.FileName;
+                string filePath = _env.WebRootPath + "\\Idea\\" + fileName;
 
-            var webStaticPath = Path.Combine(_env.WebRootPath, "WebStatic");
-            var filePath = Path.Combine(webStaticPath, file.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
 
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
-
-            return true;
+                return true;
+            
         }
         private async Task<bool> RemoveFile(string file)
         {
