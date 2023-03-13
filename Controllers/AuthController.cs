@@ -40,7 +40,7 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> EndPoint()
         {
             var currentUser = await _dbContext._users
-                .Join(_dbContext._departments, _usr => _usr.DepartmentID, _dep =>_dep.DepId, (_usr, _dep) => new UserDTO
+                .Join(_dbContext._departments, _usr => _usr.DepartmentID, _dep =>_dep.DepId, (_usr, _dep) => new UserViewModel
                 {
                     UserId = _usr.UserId,
                     UserName = _usr.UserName,
@@ -66,7 +66,7 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            User user = new User
+            User user = new()
             {
                 UserName = usr.UserName,
                 Email = usr.Email,
