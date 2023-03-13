@@ -103,6 +103,16 @@ namespace ProjectCMS.Controllers
 
             if (ModelState.IsValid)
             {
+                var eventName = await _dbContext._events.FindAsync(idea.eId);
+                var submiter = await _dbContext._users.FindAsync(idea.uId);
+                var fileName = "";
+
+                if (idea.IdeaFile != null)
+                {
+                    fileName = submiter.UserName + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_" + idea.IdeaFile.FileName;
+                    await SaveFile(fileName, submiter.UserName, idea.IdeaFile);
+                }
+
                 Idea newIdea = new()
                 {
                     Name = idea.Title,
@@ -113,18 +123,14 @@ namespace ProjectCMS.Controllers
                     EvId = idea.eId,
                     CateId = idea.cId,
                     UserId = idea.uId,
-                    IdeaFile = idea.IdeaFile.FileName
+                    IdeaFile = fileName
                 };
-                if (idea.IdeaFile!= null)
-                {
-                    await SaveFile(idea.IdeaFile);
-                }
+                
       
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
 
-                var eventName = await _dbContext._events.FindAsync(idea.eId);
-                var submiter = await _dbContext._users.FindAsync(idea.uId);
+                
                 var admin = (await _dbContext._users.Where(u => u.Role == "Admin").ToListAsync())
                                 .Select(u => u.Email).ToArray();
                 //Send Email to Admin
@@ -138,16 +144,17 @@ namespace ProjectCMS.Controllers
 
 
         [HttpDelete]
-        [Route("id:int")]
+        [Route("{id}")]
         public async Task<IActionResult> DeleteIdea([FromRoute] int id)
         {
             var idea = await _dbContext._idea.FindAsync(id);
+
             if (idea != null)
             {
                  _dbContext._idea.Remove(idea);
                 await _dbContext.SaveChangesAsync();
 
-                if(idea.IdeaFile.IsNullOrEmpty()) 
+                if(!idea.IdeaFile.IsNullOrEmpty()) 
                 {
                     await RemoveFile(idea.IdeaFile);
                 }
@@ -158,19 +165,15 @@ namespace ProjectCMS.Controllers
             return NotFound();
         }
 
-        private async Task<bool> SaveFile(IFormFile file)
+        private async Task<bool> SaveFile(string fileName, string username, IFormFile file)
         {
             
-                if(_env.WebRootPath == null)
-                {
-                    Console.WriteLine("_env is null");
-                    return false;
-                }
+
                 if (file == null || file.Length == 0)
                 {
                     return false;
                 }
-                string fileName = file.FileName;
+
                 string filePath = _env.WebRootPath + "\\Idea\\" + fileName;
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
@@ -183,8 +186,8 @@ namespace ProjectCMS.Controllers
         }
         private async Task<bool> RemoveFile(string file)
         {
-            var webStaticPath = Path.Combine(_env.WebRootPath, "WebStatic");
-            var filePath = Path.Combine(webStaticPath, file);
+            
+            string filePath = _env.WebRootPath + "\\Idea\\" + file;
 
             if (!System.IO.File.Exists(filePath))
             {
