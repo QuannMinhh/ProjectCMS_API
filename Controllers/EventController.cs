@@ -72,8 +72,16 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
         {
-            return Ok(await _dbContext._events.FindAsync(id));
-
+            var Eventt = await _dbContext._events.Join(_dbContext._categories, _event => _event.CateId, _category => _category.Id, (_event, _category) => new EventCateViewModel
+            {
+                Id = _event.Id,
+                Name = _event.Name,
+                Content = _event.Content,
+                First_Closure= _event.First_Closure,
+                Last_Closure= _event.Last_Closure,
+                CateName = _category.Name,
+            }).FirstOrDefaultAsync(Evt => Evt.Id == id);            
+            return Ok(Eventt);
         }
         [HttpPut, Authorize(Roles = "Admin")]
         [Route("{id:int}")]
