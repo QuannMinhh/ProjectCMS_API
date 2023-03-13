@@ -16,10 +16,15 @@ namespace ProjectCMS.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
-        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice)
+        private readonly IWebHostEnvironment _env;
+        public IdeaController(
+            ApplicationDbContext dbContext,
+            EmailService emailservice,
+            IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _emailService = emailservice;
+            this._env = env;
         }
 
         [HttpGet]
@@ -93,27 +98,39 @@ namespace ProjectCMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateIdea(IdeaViewModel idea)
+        public async Task<IActionResult> CreateIdea([FromForm] IdeaViewModel idea)
         {
 
             if (ModelState.IsValid)
             {
+                var eventName = await _dbContext._events.FindAsync(idea.eId);
+                var submiter = await _dbContext._users.FindAsync(idea.uId);
+                var fileName = "";
+
+                if (idea.IdeaFile != null)
+                {
+                    fileName = submiter.UserName + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_" + idea.IdeaFile.FileName;
+                    await SaveFile(fileName, submiter.UserName, idea.IdeaFile);
+                }
+
                 Idea newIdea = new()
                 {
                     Name = idea.Title,
                     Content = idea.Content,
-                    Vote= idea.Vote,
+                    Vote = idea.Vote,
                     Viewed = idea.Viewed,
-                    AddedDate= idea.SubmitedDate,
+                    AddedDate = idea.SubmitedDate,
                     EvId = idea.eId,
                     CateId = idea.cId,
-                    UserId = idea.uId
+                    UserId = idea.uId,
+                    IdeaFile = fileName
                 };
+                
+      
                 await _dbContext._idea.AddAsync(newIdea);
                 await _dbContext.SaveChangesAsync();
 
-                var eventName = await _dbContext._events.FindAsync(idea.eId);
-                var submiter = await _dbContext._users.FindAsync(idea.uId);
+                
                 var admin = (await _dbContext._users.Where(u => u.Role == "Admin").ToListAsync())
                                 .Select(u => u.Email).ToArray();
                 //Send Email to Admin
@@ -127,19 +144,61 @@ namespace ProjectCMS.Controllers
 
 
         [HttpDelete]
-        [Route("id:int")]
+        [Route("{id}")]
         public async Task<IActionResult> DeleteIdea([FromRoute] int id)
         {
             
             var idea = await _dbContext._idea.FindAsync(id);
+
             if (idea != null)
             {
                  _dbContext._idea.Remove(idea);
                 await _dbContext.SaveChangesAsync();
+
+                if(!idea.IdeaFile.IsNullOrEmpty()) 
+                {
+                    await RemoveFile(idea.IdeaFile);
+                }
+                
                 return Ok();
             }
 
             return NotFound();
+        }
+
+        private async Task<bool> SaveFile(string fileName, string username, IFormFile file)
+        {
+            
+
+                if (file == null || file.Length == 0)
+                {
+                    return false;
+                }
+
+                string filePath = _env.WebRootPath + "\\Idea\\" + fileName;
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return true;
+            
+        }
+        private async Task<bool> RemoveFile(string file)
+        {
+            
+            string filePath = _env.WebRootPath + "\\Idea\\" + file;
+
+            if (!System.IO.File.Exists(filePath))
+            {
+                return false;
+            }
+            else
+            {
+                System.IO.File.Delete(filePath);
+                return true;
+            }
         }
     }
 }

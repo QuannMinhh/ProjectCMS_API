@@ -20,5 +20,10 @@ namespace ProjectCMS.ViewModels
         [Required]
         public int uId { get; set; }
 
+        [AllowedExtensions(new string[] { ".pdf" })]
+        [MaxFileSize(5 * 1024 * 1024)]
+        public IFormFile? IdeaFile { get; set; }
+
     }
+    
 }
