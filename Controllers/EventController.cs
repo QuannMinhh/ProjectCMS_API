@@ -18,11 +18,9 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
-        [HttpGet]
+        [HttpGet,Authorize]
         public async Task<IActionResult> GetEvent()
         {
-            //List<Event> events = await _dbContext._events.ToListAsync();
-            //List<Category> cates = await _dbContext._categories.ToListAsync();
             var listEvent = await _dbContext._events
                 .Join(_dbContext._categories, _event => _event.CateId, _category => _category.Id, (_event, _category) => new EventCateViewModel
                 {
@@ -42,12 +40,14 @@ namespace ProjectCMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event newEvt = new Event();
-                newEvt.Name = evt.Name;
-                newEvt.Content = evt.Content;
-                newEvt.First_Closure= evt.First_Closure;
-                newEvt.Last_Closure = evt.First_Closure.AddDays(7);
-                newEvt.CateId = evt.CateId;
+                Event newEvt = new()
+                {
+                    Name = evt.Name,
+                    Content = evt.Content,
+                    First_Closure = evt.First_Closure,
+                    Last_Closure = evt.First_Closure.AddDays(7),
+                    CateId = evt.CateId
+                };
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
