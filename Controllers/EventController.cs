@@ -29,6 +29,7 @@ namespace ProjectCMS.Controllers
                     Content = _event.Content,
                     First_Closure = _event.First_Closure,
                     Last_Closure = _event.Last_Closure,
+                    CateId = _event.CateId,
                     CateName = _category.Name,
 
                 }
@@ -79,6 +80,7 @@ namespace ProjectCMS.Controllers
                 Content = _event.Content,
                 First_Closure= _event.First_Closure,
                 Last_Closure= _event.Last_Closure,
+                CateId = _event.CateId,
                 CateName = _category.Name,
             }).FirstOrDefaultAsync(Evt => Evt.Id == id);            
             return Ok(Eventt);
