@@ -84,6 +84,29 @@ namespace ProjectCMS.Controllers
             _dbContext.SaveChanges();
             return Ok(user);
         }
+        [HttpDelete]
+        [Route("{usr}")]
+        public async Task<IActionResult> DeleteAccount([FromForm]string password, [FromRoute]string usr)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;           
+            var userClaim = identity.Claims;
+            var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;           
+            var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
+            if(User !=null)
+            {
+                if(Verify(password, User.PasswordHash, User.PasswordSalt))
+                {
+                    var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
+                    if(user != null)
+                    {
+                        _dbContext._users.Remove(user);
+                        await _dbContext.SaveChangesAsync();
+                        return Ok();
+                    }
+                }
+            }
+            return BadRequest();
+        }
         [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
         {

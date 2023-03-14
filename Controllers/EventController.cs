@@ -59,6 +59,7 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> DeleteEvent([FromRoute] int id)
         {
+
             var evt = await _dbContext._events.FindAsync(id);
             if (evt != null)
             {
@@ -69,6 +70,7 @@ namespace ProjectCMS.Controllers
 
             return NotFound();
         }
+
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
