@@ -77,6 +77,7 @@ namespace ProjectCMS.Controllers
                 AddedDate = usr.AddedDate,
                 Avatar = usr.Avatar,
                 DepartmentID = usr.DepartmentID,
+                Status = usr.Status,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };
@@ -131,7 +132,7 @@ namespace ProjectCMS.Controllers
             }
             return BadRequest();
         }
-        [HttpDelete]
+        [HttpPut]
         [Route("{usr}")]
         public async Task<IActionResult> DeleteAccount([FromForm]string password, [FromRoute]string usr)
         {
@@ -148,7 +149,7 @@ namespace ProjectCMS.Controllers
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
                         {
-                            _dbContext._users.Remove(user);
+                            User.Status = "Disable";
                             await _dbContext.SaveChangesAsync();
                             return Ok();
                         }

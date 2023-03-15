@@ -23,6 +23,7 @@ namespace ProjectCMS.Models
 
         [ForeignKey("DepId")]
         public int DepartmentID { get; set; }
+        public string Status { get; set; }
 
         public ICollection<Idea> Ideas { get; set; }
         public ICollection<Comment> Comments { get; set; }

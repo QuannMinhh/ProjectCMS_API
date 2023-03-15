@@ -13,5 +13,6 @@
         public DateTime AddedDate { get; set; } = DateTime.Now;
         public string Role { get;  set; }
         public int DepartmentID { get; set; }
+        public string Status { get;  set; }
     }
 }
