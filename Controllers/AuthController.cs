@@ -84,27 +84,77 @@ namespace ProjectCMS.Controllers
             _dbContext.SaveChanges();
             return Ok(user);
         }
+        [HttpPut("Update")]
+        public async Task<IActionResult> EditAccount(UserUpdate usr)
+        {
+            
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if(identity !=  null)
+            {
+                var userClaim = identity.Claims;
+                var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+                var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
+                if(User != null)
+                {
+                    if(Verify(usr.Password,User.PasswordHash,User.PasswordSalt))
+                    {
+                        //Bí Thuật
+                        if (usr.Address != null)
+                        {
+                            User.Address = usr.Address;
+                        }
+                        else { User.Address = User.Address; }
+                        if(usr.Avatar != null)
+                        {
+                            User.Avatar = usr.Avatar;
+                        }    
+                        else { User.Avatar = User.Avatar; }
+                        if(usr.Email != null)
+                        {
+                            User.Email = usr.Email;
+                        }
+                        else { User.Email = User.Email; }
+                        if(usr.Phone != null) 
+                        {
+                            User.Phone = usr.Phone;
+                        }
+                        else { User.Phone = User.Phone; }
+                        if(usr.DoB != null)
+                        {
+                            User.DoB = usr.DoB;
+                        }    
+                        else { User.DoB = User.DoB; }
+                        await _dbContext.SaveChangesAsync();
+                        return Ok(usr.Password);
+                    }
+                }    
+            }
+            return BadRequest();
+        }
         [HttpDelete]
         [Route("{usr}")]
         public async Task<IActionResult> DeleteAccount([FromForm]string password, [FromRoute]string usr)
         {
-            var identity = HttpContext.User.Identity as ClaimsIdentity;           
-            var userClaim = identity.Claims;
-            var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;           
-            var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
-            if(User !=null)
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
             {
-                if(Verify(password, User.PasswordHash, User.PasswordSalt))
+                var userClaim = identity.Claims;
+                var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+                var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
+                if(User !=null)
                 {
-                    var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
-                    if(user != null)
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt))
                     {
-                        _dbContext._users.Remove(user);
-                        await _dbContext.SaveChangesAsync();
-                        return Ok();
+                        var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
+                        if(user != null)
+                        {
+                            _dbContext._users.Remove(user);
+                            await _dbContext.SaveChangesAsync();
+                            return Ok();
+                        }
                     }
                 }
-            }
+            }                     
             return BadRequest();
         }
         [HttpPost("Login"),AllowAnonymous]
