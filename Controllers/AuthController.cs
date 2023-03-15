@@ -59,13 +59,27 @@ namespace ProjectCMS.Controllers
         [HttpGet]
         public async Task<IActionResult> getAllUser()
         {
-            List<User> users = await _dbContext._users.ToListAsync();
+            var users = await _dbContext._users
+                .Join(_dbContext._departments, _usr => _usr.DepartmentID, _dep => _dep.DepId, (_usr, _dep) => new UserViewModel
+                {
+                    UserId = _usr.UserId,
+                    UserName = _usr.UserName,
+                    Email = _usr.Email,
+                    Phone = _usr.Phone,
+                    DoB = _usr.DoB,
+                    Address = _usr.Address,
+                    Avatar = _usr.Avatar,
+                    AddedDate = _usr.AddedDate,
+                    Role = _usr.Role,
+                    Department = _dep.Name,
+                }).ToListAsync();
             return Ok(users);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
+
             User user = new()
             {
                 UserName = usr.UserName,
@@ -76,7 +90,7 @@ namespace ProjectCMS.Controllers
                 DoB = usr.DoB,
                 AddedDate = usr.AddedDate,
                 Avatar = usr.Avatar,
-                DepartmentID = usr.DepartmentID,
+                DepartmentID = usr.DepartmentID,                
                 Status = usr.Status,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
