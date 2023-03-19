@@ -20,13 +20,15 @@ namespace ProjectCMS.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
         public static User user = new();
-        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice)
+        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice, IWebHostEnvironment webHostEnvironment)
         {
             _dbContext = dbContext;
             _configuration = configuration;
             _emailService = emailservice;
+            _webHostEnvironment = webHostEnvironment;
         }
         private static Random random = new Random();
 
@@ -36,6 +38,9 @@ namespace ProjectCMS.Controllers
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+        
+
+        
         [HttpGet("Profile")]
         public async Task<IActionResult> EndPoint()
         {
@@ -71,14 +76,25 @@ namespace ProjectCMS.Controllers
                     Avatar = _usr.Avatar,
                     AddedDate = _usr.AddedDate,
                     Role = _usr.Role,
+                    Status = _usr.Status,
                     Department = _dep.Name,
                 }).ToListAsync();
             return Ok(users);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
-        public async Task<IActionResult> CreateAccount(UserDTO usr)
+        public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
+            if (usr.Image.Length > 0)
+            {
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
+                using (var stream = System.IO.File.Create(path))
+                {
+                    await usr.Image.CopyToAsync(stream);
+                }
+                usr.Avatar = "/images/" + usr.Image.FileName;
+
+            }
 
             User user = new()
             {
@@ -91,7 +107,7 @@ namespace ProjectCMS.Controllers
                 AddedDate = usr.AddedDate,
                 Avatar = usr.Avatar,
                 DepartmentID = usr.DepartmentID,                
-                Status = usr.Status,
+                Status = usr.Status,                
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };

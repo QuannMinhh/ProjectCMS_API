@@ -8,7 +8,7 @@ namespace ProjectCMS.Models
         [Key]
         public int UserId { get; set; }
         public string UserName { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string? Phone { get; set; }
@@ -24,9 +24,9 @@ namespace ProjectCMS.Models
         [ForeignKey("DepId")]
         public int DepartmentID { get; set; }
         public string Status { get; set; }
-
         public ICollection<Idea> Ideas { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Interactions> Iteractions { get; set; }
+        
     }
 }
