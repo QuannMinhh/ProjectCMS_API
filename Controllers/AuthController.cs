@@ -81,6 +81,34 @@ namespace ProjectCMS.Controllers
                 }).ToListAsync();
             return Ok(users);
         }
+        [HttpPut("UpdateAvatar")]
+        public async Task<IActionResult> UpdateAvatar([FromForm] UpdateAvatar avatar)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userClaim = identity.Claims;
+                var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+                var user = _dbContext._users.FirstOrDefault(user => user.UserName == username);
+                {
+                    if (user != null)
+                    {
+                        if (avatar.Image.Length > 0)
+                        {
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", avatar.Image.FileName);
+                            using (var stream = System.IO.File.Create(path))
+                            {
+                                await avatar.Image.CopyToAsync(stream);
+                            }
+                            user.Avatar = "/images/" + avatar.Image.FileName;
+                            await _dbContext.SaveChangesAsync();
+                            return Ok("Update success");
+                        }
+                    }
+                }
+            }
+                return BadRequest("Upload avatar failed");
+        }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
         {
@@ -116,7 +144,7 @@ namespace ProjectCMS.Controllers
             return Ok(user);
         }
         [HttpPut("Update")]
-        public async Task<IActionResult> EditAccount(UserUpdate usr)
+        public async Task<IActionResult> EditAccount([FromForm] UserUpdate usr)
         {
             
             var identity = HttpContext.User.Identity as ClaimsIdentity;
@@ -155,8 +183,18 @@ namespace ProjectCMS.Controllers
                             User.DoB = usr.DoB;
                         }    
                         else { User.DoB = User.DoB; }
+                        if (usr.Image.Length > 0)
+                        {
+                            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
+                            using (var stream = System.IO.File.Create(path))
+                            {
+                                await usr.Image.CopyToAsync(stream);
+                            }
+                            User.Avatar = "/images/" + usr.Image.FileName;
+
+                        }
                         await _dbContext.SaveChangesAsync();
-                        return Ok(usr.Password);
+                        return Ok();
                     }
                 }    
             }
