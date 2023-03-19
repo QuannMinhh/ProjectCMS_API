@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
@@ -9,6 +10,7 @@ using ProjectCMS.ViewModels;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+
 
 namespace ProjectCMS.Controllers
 {
@@ -108,6 +110,18 @@ namespace ProjectCMS.Controllers
                 }
             }
                 return BadRequest("Upload avatar failed");
+        }
+        [HttpGet("Download"),AllowAnonymous]
+        public async Task<IActionResult> DownloadFile(string filename)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Idea",filename);
+            var provider = new FileExtensionContentTypeProvider();
+            if(!provider.TryGetContentType(path,out var contenttype))
+            {
+                contenttype = "application/octet-stream";
+            }    
+            var bytes = await System.IO.File.ReadAllBytesAsync(path);
+            return File(bytes, contenttype,Path.GetFileName (path));
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
