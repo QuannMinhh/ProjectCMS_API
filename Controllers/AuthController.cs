@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
@@ -22,15 +21,15 @@ namespace ProjectCMS.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IWebHostEnvironment _env;
 
         public static User user = new();
-        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice, IWebHostEnvironment webHostEnvironment)
+        public AuthController(ApplicationDbContext dbContext, IConfiguration configuration, EmailService emailservice, IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _configuration = configuration;
             _emailService = emailservice;
-            _webHostEnvironment = webHostEnvironment;
+            _env = env;
         }
         private static Random random = new Random();
 
@@ -112,16 +111,10 @@ namespace ProjectCMS.Controllers
                 return BadRequest("Upload avatar failed");
         }
         [HttpGet("Download"),AllowAnonymous]
-        public async Task<IActionResult> DownloadFile(string filename)
+        public async Task<IActionResult> DownloadFile(string directoryName)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Idea",filename);
-            var provider = new FileExtensionContentTypeProvider();
-            if(!provider.TryGetContentType(path,out var contenttype))
-            {
-                contenttype = "application/octet-stream";
-            }    
-            var bytes = await System.IO.File.ReadAllBytesAsync(path);
-            return File(bytes, contenttype,Path.GetFileName (path));
+            var (fileType,bytes,fileName) = new FileService(_env).DownloadZip(directoryName);
+            return File(bytes,fileType,fileName);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
