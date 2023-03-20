@@ -60,6 +60,30 @@ namespace ProjectCMS.Controllers
 
             return Ok(idea);
         }
+        [HttpGet("ByUser")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetByUser([FromRoute] int id)
+        {
+            var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
+            return Ok(byUser);
+        }
+        [HttpGet("ByEvent")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetByEvent([FromRoute] int id)
+        {
+            var byEvent = await _dbContext._idea.Where(i => i.EvId == id).ToListAsync();
+            return Ok(byEvent);
+        }
+
+        [HttpGet("CountByUser")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> CountByUser([FromRoute] int id)
+        {
+            var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
+            return Ok(byUser.Count());
+        }
+
+        
 
         [HttpGet("{sort}")]
         public async Task<IActionResult> Sort(string sortType)
@@ -100,6 +124,11 @@ namespace ProjectCMS.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateIdea([FromForm] IdeaViewModel idea)
         {
+            var deadline = (await _dbContext._events.FindAsync(idea.eId)).First_Closure;
+            if(idea.SubmitedDate > deadline)
+            {
+                return BadRequest(new {message = "Event is over!"});
+            }
 
             if (ModelState.IsValid)
             {
@@ -165,6 +194,7 @@ namespace ProjectCMS.Controllers
             return NotFound();
         }
 
+
         private async Task<bool> SaveFile(string fileName, string username, IFormFile file)
         {
             
@@ -184,19 +214,19 @@ namespace ProjectCMS.Controllers
                 return true;
             
         }
-        private async Task<bool> RemoveFile(string file)
+        private async Task<Task> RemoveFile(string file)
         {
             
             string filePath = _env.WebRootPath + "\\Idea\\" + file;
 
             if (!System.IO.File.Exists(filePath))
             {
-                return false;
+                return Task.CompletedTask;
             }
             else
             {
                 System.IO.File.Delete(filePath);
-                return true;
+                return Task.CompletedTask;
             }
         }
     }
