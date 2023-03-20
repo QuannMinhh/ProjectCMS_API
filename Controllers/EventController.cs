@@ -18,6 +18,8 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
+        public EventController() { }
+
         [HttpGet,Authorize]
         public async Task<IActionResult> GetEvent()
         {
@@ -55,22 +57,33 @@ namespace ProjectCMS.Controllers
             }
             return BadRequest();
         }
-        [HttpDelete]
-        [Route("{id:int}")]
-        public async Task<IActionResult> DeleteEvent([FromRoute] int id)
+        public  Task Timeout()
         {
-
-            var evt = await _dbContext._events.FindAsync(id);
-            if (evt != null)
+            Task.Factory.StartNew(() =>
             {
-                _dbContext._events.Remove(evt);
-                await _dbContext.SaveChangesAsync();
-                return Ok();
-            }
-
-            return NotFound();
+                System.Threading.Thread.Sleep(86400000);
+                CheckDateEvent();
+            });
+            return Task.CompletedTask;
         }
-
+        public  async void CheckDateEvent()
+        {
+            var listEvent = await _dbContext._events.ToListAsync();
+            foreach(var evt in listEvent) 
+            {
+                Console.WriteLine(evt.Name);
+                if(evt.First_Closure < DateTime.Now)
+                {
+                    evt.First_IsOverDeadline = true;
+                }
+                if(evt.Last_Closure < DateTime.Now)
+                {
+                    evt.Second_IsOverDeadline = true;
+                }
+            }
+                await _dbContext.SaveChangesAsync();            
+        }
+        
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
@@ -82,6 +95,8 @@ namespace ProjectCMS.Controllers
                 Content = _event.Content,
                 First_Closure= _event.First_Closure,
                 Last_Closure= _event.Last_Closure,
+                First_IsOverDeadline = _event.First_IsOverDeadline,
+                Second_IsOverDeadline= _event.Second_IsOverDeadline,
                 CateId = _event.CateId,
                 CateName = _category.Name,
             }).FirstOrDefaultAsync(Evt => Evt.Id == id);            
@@ -100,6 +115,8 @@ namespace ProjectCMS.Controllers
                     evt.Content = evtUpdate.Content;
                     evt.First_Closure = evtUpdate.First_Closure;
                     evt.Last_Closure = evtUpdate.First_Closure.AddDays(7);
+                    evt.First_IsOverDeadline = evtUpdate.First_IsOverDeadline;
+                    evt.Second_IsOverDeadline = evtUpdate.Second_IsOverDeadline;
                     evt.CateId = evtUpdate.CateId;
                     _dbContext.SaveChanges();
                     return Ok(await _dbContext._events.ToListAsync());
@@ -107,6 +124,5 @@ namespace ProjectCMS.Controllers
             }
                 return BadRequest();
         }
-
     }
 }

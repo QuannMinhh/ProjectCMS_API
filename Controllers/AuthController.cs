@@ -142,7 +142,7 @@ namespace ProjectCMS.Controllers
                 AddedDate = usr.AddedDate,
                 Avatar = usr.Avatar,
                 DepartmentID = usr.DepartmentID,                
-                Status = usr.Status,                
+                Status = "Enable",                
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };
