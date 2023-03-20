@@ -11,6 +11,7 @@
         public string? Address { get; set; }
         public string? Avatar { get; set; }
         public DateTime AddedDate { get; set; }
+        public string? Status { get; set; }
         public string Role { get; set; }
         public string  Department { get; set; }
     }
