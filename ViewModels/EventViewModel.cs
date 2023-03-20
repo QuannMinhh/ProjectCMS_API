@@ -11,11 +11,6 @@ namespace ProjectCMS.ViewModels
         public string Content { get; set; }
         [Required]
         public DateTime First_Closure { get; set; }
-        [Required]
-        public int CateId { get; set; }
-        [Required]
-        public bool First_IsOverDeadline { get; set; }
-        public bool Second_IsOverDeadline { get; set; }
 
     }
 }

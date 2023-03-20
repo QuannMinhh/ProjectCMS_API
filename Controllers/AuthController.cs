@@ -120,17 +120,6 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            if (usr.Image.Length > 0)
-            {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
-                using (var stream = System.IO.File.Create(path))
-                {
-                    await usr.Image.CopyToAsync(stream);
-                }
-                usr.Avatar = "/images/" + usr.Image.FileName;
-
-            }
-
             User user = new()
             {
                 UserName = usr.UserName,
@@ -190,16 +179,22 @@ namespace ProjectCMS.Controllers
                             User.DoB = usr.DoB;
                         }    
                         else { User.DoB = User.DoB; }
-                        if (usr.Image.Length > 0)
+                        //Internal 500
+                        if(User.Avatar !=null)
                         {
-                            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
-                            using (var stream = System.IO.File.Create(path))
+                            if (usr.Image.Length > 0)
                             {
-                                await usr.Image.CopyToAsync(stream);
-                            }
-                            User.Avatar = "/images/" + usr.Image.FileName;
+                                //Add userName
+                                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
+                                using (var stream = System.IO.File.Create(path))
+                                {
+                                    await usr.Image.CopyToAsync(stream);
+                                }
+                                User.Avatar = "/images/" + usr.Image.FileName;
 
-                        }
+                            }
+                        }  
+                        else { User.Avatar = User.Avatar; }
                         await _dbContext.SaveChangesAsync();
                         return Ok();
                     }
