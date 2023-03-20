@@ -129,7 +129,7 @@ namespace ProjectCMS.Controllers
                 Address = usr.Address,
                 DoB = usr.DoB,
                 AddedDate = usr.AddedDate,
-                Avatar = usr.Avatar,
+                Avatar = "/images/Avatar.jpg",
                 DepartmentID = usr.DepartmentID,                
                 Status = "Enable",                
                 PasswordHash = passwordHash,

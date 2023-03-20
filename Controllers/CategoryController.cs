@@ -80,7 +80,7 @@ namespace ProjectCMS.Controllers
         }
         [HttpDelete]
         [Route("{id:int}")]
-        public async Task<IActionResult> DeleteCategory([FromForm] string pwd, [FromRoute] int id)
+        public async Task<IActionResult> DeleteCategory([FromRoute] int id)
         {
             {
                 var category = await _dbContext._categories.FindAsync(id);
