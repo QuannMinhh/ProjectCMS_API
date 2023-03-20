@@ -18,7 +18,7 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
-        public EventController() { }
+        
 
         [HttpGet,Authorize]
         public async Task<IActionResult> GetEvent()
