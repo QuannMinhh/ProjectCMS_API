@@ -78,6 +78,26 @@ namespace ProjectCMS.Controllers
             }
             return BadRequest(new {message = "Category does not exist." });
         }
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteCategory([FromForm] string pwd, [FromRoute] int id)
+        {
+            {
+                var category = await _dbContext._categories.FindAsync(id);
+                var ideas = await _dbContext._idea.Where(x => x.CateId == id).ToListAsync();
+                if (category != null)
+                {
+                    if (!ideas.Any())
+                    {
+                        _dbContext._categories.Remove(category);
+                        await _dbContext.SaveChangesAsync();
+                        return Ok(await _dbContext._categories.ToListAsync());
+                    }
+                    return BadRequest(new { message = "Cannot delete! This category has ideas." });
+                }
+            }
+            return NotFound(new { message = "Category does not exist." });
+        }
         private bool Verify(string password, byte[] passwordHash, byte[] passwordSalt)
         {
             using (var hmac = new HMACSHA512(passwordSalt))
