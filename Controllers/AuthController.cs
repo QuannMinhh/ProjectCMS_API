@@ -117,7 +117,7 @@ namespace ProjectCMS.Controllers
             return File(bytes,fileType,fileName);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
-        public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
+        public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
             User user = new()
