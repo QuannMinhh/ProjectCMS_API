@@ -13,9 +13,6 @@ namespace ProjectCMS.Models
         public DateTime Last_Closure { get; set;}
         public bool First_IsOverDeadline { get; set; }
         public bool Second_IsOverDeadline { get; set; }
-        [ForeignKey("CateId")]
-        public Category Category { get; set; }
-        public int CateId { get; set; }
         public ICollection<Idea> Ideas { get; set; }
     }
 }

@@ -23,19 +23,7 @@ namespace ProjectCMS.Controllers
         [HttpGet,Authorize]
         public async Task<IActionResult> GetEvent()
         {
-            var listEvent = await _dbContext._events
-                .Join(_dbContext._categories, _event => _event.CateId, _category => _category.Id, (_event, _category) => new EventCateViewModel
-                {
-                    Id = _event.Id,
-                    Name = _event.Name,
-                    Content = _event.Content,
-                    First_Closure = _event.First_Closure,
-                    Last_Closure = _event.Last_Closure,
-                    CateId = _event.CateId,
-                    CateName = _category.Name,
-
-                }
-                ).ToListAsync();
+            var listEvent = await _dbContext._events.ToListAsync();
             return Ok(listEvent);
         }
         [HttpPost, Authorize(Roles = "Admin")]
@@ -49,7 +37,6 @@ namespace ProjectCMS.Controllers
                     Content = evt.Content,
                     First_Closure = evt.First_Closure,
                     Last_Closure = evt.First_Closure.AddDays(7),
-                    CateId = evt.CateId
                 };
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
@@ -88,18 +75,7 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
         {
-            var Eventt = await _dbContext._events.Join(_dbContext._categories, _event => _event.CateId, _category => _category.Id, (_event, _category) => new EventCateViewModel
-            {
-                Id = _event.Id,
-                Name = _event.Name,
-                Content = _event.Content,
-                First_Closure= _event.First_Closure,
-                Last_Closure= _event.Last_Closure,
-                First_IsOverDeadline = _event.First_IsOverDeadline,
-                Second_IsOverDeadline= _event.Second_IsOverDeadline,
-                CateId = _event.CateId,
-                CateName = _category.Name,
-            }).FirstOrDefaultAsync(Evt => Evt.Id == id);            
+            var Eventt = await _dbContext._events.FirstOrDefaultAsync(Evt => Evt.Id == id);            
             return Ok(Eventt);
         }
         [HttpPut, Authorize(Roles = "Admin")]
@@ -117,7 +93,6 @@ namespace ProjectCMS.Controllers
                     evt.Last_Closure = evtUpdate.First_Closure.AddDays(7);
                     evt.First_IsOverDeadline = evtUpdate.First_IsOverDeadline;
                     evt.Second_IsOverDeadline = evtUpdate.Second_IsOverDeadline;
-                    evt.CateId = evtUpdate.CateId;
                     _dbContext.SaveChanges();
                     return Ok(await _dbContext._events.ToListAsync());
                 }
