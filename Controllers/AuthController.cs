@@ -120,8 +120,8 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            var file = new FileService(_env).GetCSV();
-            return Ok(file);
+            int i = new FileService(_env).CreateCSV();
+            return Ok(i);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
