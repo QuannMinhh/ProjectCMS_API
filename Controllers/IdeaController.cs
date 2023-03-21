@@ -176,6 +176,7 @@ namespace ProjectCMS.Controllers
         [Route("{id}")]
         public async Task<IActionResult> DeleteIdea([FromRoute] int id)
         {
+            
             var idea = await _dbContext._idea.FindAsync(id);
 
             if (idea != null)

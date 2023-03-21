@@ -11,6 +11,5 @@ namespace ProjectCMS.Models
         public DateTime AddedDate { get; set; }
 
         public ICollection<Idea> Ideas { get; set; }
-        public ICollection<Event> Events { get; set; }
     }
 }
