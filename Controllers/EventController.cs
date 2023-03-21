@@ -25,6 +25,12 @@ namespace ProjectCMS.Controllers
         {
             return Ok(await _dbContext._events.ToListAsync());
         }
+        [HttpGet("EnventInDate"),AllowAnonymous]
+        public async Task<IActionResult> EventIndate()
+        {            
+            var evt = await _dbContext._events.Where(e => e.First_Closure > DateTime.Now).ToListAsync();
+            return Ok(evt);    
+        }
         [HttpPost, Authorize(Roles = "Admin")]
         public async Task<ActionResult> CreateEvent(EventViewModel evt)
         {

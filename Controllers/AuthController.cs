@@ -110,11 +110,18 @@ namespace ProjectCMS.Controllers
             }
                 return BadRequest("Upload avatar failed");
         }
-        [HttpGet("Download"),AllowAnonymous]
-        public async Task<IActionResult> DownloadFile(string directoryName)
+        [HttpGet(),AllowAnonymous]
+        [Route("Download/{directoryName}")]
+        public async Task<IActionResult> DownloadFile([FromRoute]string directoryName)
         {
             var (fileType,bytes,fileName) = new FileService(_env).DownloadZip(directoryName);
             return File(bytes,fileType,fileName);
+        }
+        [HttpGet("DownloadCSV"),AllowAnonymous]
+        public async Task<IActionResult> DownloadCSV()
+        {
+            var file = new FileService(_env).GetCSV();
+            return Ok(file);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
@@ -180,23 +187,23 @@ namespace ProjectCMS.Controllers
                         }    
                         else { User.DoB = User.DoB; }
                         //Internal 500
-                        if(User.Avatar !=null)
-                        {
+                        
                             if (usr.Image.Length > 0)
                             {
                                 //Add userName
-                                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
+                                string ext = Path.GetExtension(usr.Image.FileName);
+                                string fileName = User.UserName + ext;
+                                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
                                 using (var stream = System.IO.File.Create(path))
                                 {
                                     await usr.Image.CopyToAsync(stream);
                                 }
-                                User.Avatar = "/images/" + usr.Image.FileName;
+                                User.Avatar = "/images/" + fileName;
 
                             }
-                        }  
-                        else { User.Avatar = User.Avatar; }
+                        
                         await _dbContext.SaveChangesAsync();
-                        return Ok();
+                        return Ok(User);    
                     }
                 }    
             }
@@ -214,12 +221,12 @@ namespace ProjectCMS.Controllers
                 var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
                 if(User !=null)
                 {
-                    if(Verify(password, User.PasswordHash, User.PasswordSalt))
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin")
                     {
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
                         {
-                            User.Status = "Disable";
+                            user.Status = "Disable";
                             await _dbContext.SaveChangesAsync();
                             return Ok();
                         }
