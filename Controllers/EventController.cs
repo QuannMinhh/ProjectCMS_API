@@ -7,9 +7,9 @@ using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/event")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class EventController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
