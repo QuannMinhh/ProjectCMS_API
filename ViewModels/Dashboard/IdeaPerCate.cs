@@ -1,9 +1,10 @@
-﻿namespace ProjectCMS.ViewModels.Dashboard
+﻿using ProjectCMS.Models;
+
+namespace ProjectCMS.ViewModels.Dashboard
 {
     public class IdeaPerCate
     {
-        public int CateId { get; set; }
         public string CateName { get; set; }
-        public int IdeaCount { get; set; }
+        public int Ideas { get; set; }
     }
 }
