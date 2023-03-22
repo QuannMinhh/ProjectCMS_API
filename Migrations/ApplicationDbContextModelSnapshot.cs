@@ -243,12 +243,10 @@ namespace ProjectCMS.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -285,12 +283,10 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -387,6 +383,15 @@ namespace ProjectCMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("_categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddedDate = new DateTime(2023, 3, 20, 23, 39, 35, 658, DateTimeKind.Local).AddTicks(8508),
+                            Content = "This is content of this category",
+                            Name = "Information technology"
+                        });
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Comment", b =>
@@ -434,6 +439,23 @@ namespace ProjectCMS.Migrations
                     b.HasKey("DepId");
 
                     b.ToTable("_departments");
+
+                    b.HasData(
+                        new
+                        {
+                            DepId = 1,
+                            Name = "Business"
+                        },
+                        new
+                        {
+                            DepId = 2,
+                            Name = "Information technology"
+                        },
+                        new
+                        {
+                            DepId = 3,
+                            Name = "Design"
+                        });
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Event", b =>
@@ -444,7 +466,7 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CateId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Content")
@@ -463,7 +485,7 @@ namespace ProjectCMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CateId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("_events");
                 });
@@ -488,6 +510,9 @@ namespace ProjectCMS.Migrations
 
                     b.Property<int>("EvId")
                         .HasColumnType("int");
+
+                    b.Property<string>("IdeaFile")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -557,21 +582,18 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DepartmentID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DoB")
+                    b.Property<DateTime?>("DoB")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
@@ -583,13 +605,16 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RefreshToken")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -611,6 +636,25 @@ namespace ProjectCMS.Migrations
                         .IsUnique();
 
                     b.ToTable("_users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            AddedDate = new DateTime(2023, 3, 20, 23, 39, 35, 658, DateTimeKind.Local).AddTicks(9567),
+                            Address = "Ha Noi",
+                            Avatar = "Image",
+                            DepartmentID = 2,
+                            DoB = new DateTime(2000, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "hoanghip108@gmail.com",
+                            PasswordHash = new byte[] { 211, 167, 15, 117, 215, 114, 220, 226, 161, 237, 87, 162, 242, 94, 68, 92, 34, 164, 177, 37, 212, 66, 242, 223, 214, 194, 87, 172, 58, 177, 115, 91, 245, 208, 108, 59, 248, 80, 16, 108, 134, 13, 54, 16, 92, 36, 0, 84, 37, 140, 200, 190, 245, 77, 112, 68, 4, 162, 40, 90, 54, 95, 163, 113 },
+                            PasswordSalt = new byte[] { 80, 68, 12, 169, 122, 42, 210, 62, 96, 8, 52, 29, 44, 253, 148, 243, 211, 4, 148, 165, 159, 129, 249, 187, 155, 109, 154, 198, 187, 254, 221, 145, 146, 72, 147, 209, 147, 230, 92, 247, 76, 155, 171, 252, 61, 238, 25, 145, 17, 116, 150, 43, 71, 53, 150, 89, 252, 159, 229, 118, 240, 200, 33, 75, 164, 74, 93, 106, 196, 158, 153, 48, 45, 251, 90, 121, 168, 255, 156, 89, 39, 126, 187, 241, 92, 83, 142, 30, 33, 158, 87, 74, 216, 253, 27, 254, 7, 103, 126, 250, 88, 215, 16, 3, 68, 162, 172, 78, 159, 74, 123, 181, 227, 229, 151, 226, 210, 112, 62, 61, 144, 140, 140, 152, 85, 239, 145, 124 },
+                            Phone = "0333804202",
+                            RefreshToken = "",
+                            Role = "Admin",
+                            Status = "Enable",
+                            UserName = "admin1"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -684,13 +728,9 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Event", b =>
                 {
-                    b.HasOne("ProjectCMS.Models.Category", "Category")
+                    b.HasOne("ProjectCMS.Models.Category", null)
                         .WithMany("Events")
-                        .HasForeignKey("CateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
+                        .HasForeignKey("CategoryId");
                 });
 
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>

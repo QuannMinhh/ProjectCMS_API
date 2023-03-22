@@ -110,27 +110,23 @@ namespace ProjectCMS.Controllers
             }
                 return BadRequest("Upload avatar failed");
         }
-        [HttpGet("Download"),AllowAnonymous]
-        public async Task<IActionResult> DownloadFile(string directoryName)
+        [HttpGet(),AllowAnonymous]
+        [Route("Download/{directoryName}")]
+        public async Task<IActionResult> DownloadFile([FromRoute]string directoryName)
         {
             var (fileType,bytes,fileName) = new FileService(_env).DownloadZip(directoryName);
             return File(bytes,fileType,fileName);
         }
+        [HttpGet("DownloadCSV"),AllowAnonymous]
+        public async Task<IActionResult> DownloadCSV()
+        {
+            int i = new FileService(_env).CreateCSV();
+            return Ok(i);
+        }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
-        public async Task<IActionResult> CreateAccount([FromForm]UserDTO usr)
+        public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            if (usr.Image.Length > 0)
-            {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
-                using (var stream = System.IO.File.Create(path))
-                {
-                    await usr.Image.CopyToAsync(stream);
-                }
-                usr.Avatar = "/images/" + usr.Image.FileName;
-
-            }
-
             User user = new()
             {
                 UserName = usr.UserName,
@@ -140,7 +136,7 @@ namespace ProjectCMS.Controllers
                 Address = usr.Address,
                 DoB = usr.DoB,
                 AddedDate = usr.AddedDate,
-                Avatar = usr.Avatar,
+                Avatar = "/images/Avatar.jpg",
                 DepartmentID = usr.DepartmentID,                
                 Status = "Enable",                
                 PasswordHash = passwordHash,
@@ -190,18 +186,24 @@ namespace ProjectCMS.Controllers
                             User.DoB = usr.DoB;
                         }    
                         else { User.DoB = User.DoB; }
-                        if (usr.Image.Length > 0)
-                        {
-                            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", usr.Image.FileName);
-                            using (var stream = System.IO.File.Create(path))
+                        //Internal 500
+                        
+                            if (usr.Image.Length > 0)
                             {
-                                await usr.Image.CopyToAsync(stream);
-                            }
-                            User.Avatar = "/images/" + usr.Image.FileName;
+                                //Add userName
+                                string ext = Path.GetExtension(usr.Image.FileName);
+                                string fileName = User.UserName + ext;
+                                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
+                                using (var stream = System.IO.File.Create(path))
+                                {
+                                    await usr.Image.CopyToAsync(stream);
+                                }
+                                User.Avatar = "/images/" + fileName;
 
-                        }
+                            }
+                        
                         await _dbContext.SaveChangesAsync();
-                        return Ok();
+                        return Ok(User);    
                     }
                 }    
             }
@@ -219,12 +221,12 @@ namespace ProjectCMS.Controllers
                 var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
                 if(User !=null)
                 {
-                    if(Verify(password, User.PasswordHash, User.PasswordSalt))
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin")
                     {
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
                         {
-                            User.Status = "Disable";
+                            user.Status = "Disable";
                             await _dbContext.SaveChangesAsync();
                             return Ok();
                         }
