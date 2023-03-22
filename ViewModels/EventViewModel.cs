@@ -12,5 +12,6 @@ namespace ProjectCMS.ViewModels
         [Required]
         public DateTime First_Closure { get; set; }
 
+
     }
 }

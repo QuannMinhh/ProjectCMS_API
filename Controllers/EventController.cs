@@ -7,9 +7,9 @@ using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/event")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class EventController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
@@ -53,6 +53,7 @@ namespace ProjectCMS.Controllers
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
+
         {            
             return Ok(await _dbContext._events.FirstOrDefaultAsync(Evt => Evt.Id == id));
         }
