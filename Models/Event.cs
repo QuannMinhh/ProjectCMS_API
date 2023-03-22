@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ProjectCMS.Models
 {
@@ -12,10 +10,6 @@ namespace ProjectCMS.Models
         public string Content { get; set; }
         public DateTime First_Closure { get; set; }
         public DateTime Last_Closure { get; set;}
-
-        [ForeignKey("CateId")]
-        public Category Category { get; set; }
-        public int CateId { get; set; }
         public ICollection<Idea> Ideas { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace ProjectCMS.ViewModels
 {
-    public class UserLogin
+    public class FPass
     {
         public string userName { get; set; }
-        public string password { get; set; }
+        public string email { get; set; }
     }
 }

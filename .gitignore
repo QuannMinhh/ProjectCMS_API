@@ -233,3 +233,10 @@ _Pvt_Extensions
 appsettings.json
 /Migrations
 Migrations/ApplicationDbContextModelSnapshot.cs
+appsettings.json
+Migrations/ApplicationDbContextModelSnapshot.cs
+appsettings.json
+Services/EmailService.cs
+Migrations/ApplicationDbContextModelSnapshot.cs
+Migrations/ApplicationDbContextModelSnapshot.cs
+appsettings.json

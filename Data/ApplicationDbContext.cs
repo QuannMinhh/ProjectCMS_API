@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Options;
 using ProjectCMS.Models;
+using System.Security.Cryptography;
 
 namespace ProjectCMS.Data
 {
@@ -41,7 +42,9 @@ namespace ProjectCMS.Data
                 .HasIndex(u => u.UserName)
                 .IsUnique();
             base.OnModelCreating(builder);
-
+            SeedCate(builder);
+            SeedDepartment(builder);
+            SeedUser(builder);
         }
         protected override void ConfigureConventions(ModelConfigurationBuilder builder)
         {
@@ -52,6 +55,14 @@ namespace ProjectCMS.Data
             builder.Properties<DateOnly?>()
                 .HaveConversion<NullableDateOnlyConverter>()
                 .HaveColumnType("date");
+        }
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
         }
         private void SeedDepartment(ModelBuilder builder)
         {
@@ -76,6 +87,7 @@ namespace ProjectCMS.Data
         }
         private void SeedUser (ModelBuilder builder)
         {
+            CreatePasswordHash("123456", out byte[] passwordHash, out byte[] passwordSalt);
             builder.Entity<User>().HasData
                 (
                 new User
@@ -84,6 +96,16 @@ namespace ProjectCMS.Data
                     UserName = "admin1",
                     Email = "hoanghip108@gmail.com",
                     DepartmentID = 2,
+                    PasswordHash = passwordHash,
+                    PasswordSalt = passwordSalt,
+                    Phone = "0333804202",
+                    DoB = DateTime.Parse("2000-08-10"),
+                    Address = "Ha Noi",
+                    Avatar = "Image",
+                    AddedDate = DateTime.Now,
+                    Role = "Admin",
+                    Status = "Enable"
+
                 }
                 );
                 

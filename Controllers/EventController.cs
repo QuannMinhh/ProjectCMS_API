@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
@@ -6,8 +7,9 @@ using ProjectCMS.ViewModels;
 
 namespace ProjectCMS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/event")]
     [ApiController]
+    //[Authorize]
     public class EventController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
@@ -16,67 +18,63 @@ namespace ProjectCMS.Controllers
         {
             _dbContext = dbContext;
         }
-        [HttpGet]
+        
+
+        [HttpGet,Authorize]
         public async Task<IActionResult> GetEvent()
         {
-            List<Event> events = await _dbContext._events.ToListAsync();
-            //List<Category> cates = await _dbContext._categories.ToListAsync();
-            return Ok(events);
+            return Ok(await _dbContext._events.ToListAsync());
         }
-        [HttpPost]
+        [HttpGet("EnventInDate"),AllowAnonymous]
+        public async Task<IActionResult> EventIndate()
+        {            
+            var evt = await _dbContext._events.Where(e => e.First_Closure > DateTime.Now).ToListAsync();
+            return Ok(evt);    
+        }
+        [HttpPost, Authorize(Roles = "Admin")]
         public async Task<ActionResult> CreateEvent(EventViewModel evt)
         {
             if (ModelState.IsValid)
             {
-                Event newEvt = new Event();
-                newEvt.Name = evt.Name;
-                newEvt.Content = evt.Content;
-                newEvt.First_Closure= evt.First_Closure;
-                newEvt.Last_Closure = evt.First_Closure.AddDays(7);
-                newEvt.CateId = evt.CateId;
+                Event newEvt = new()
+                {
+                    Name = evt.Name,
+                    Content = evt.Content,
+                    First_Closure = evt.First_Closure,
+                    Last_Closure = evt.First_Closure.AddDays(7),
+                };
                 _dbContext._events.Add(newEvt);
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
             }
             return BadRequest();
         }
-        [HttpDelete]
-        [Route("id:int")]
-        public async Task<IActionResult> DeleteEvent([FromRoute] int id)
-        {
-            var evt = await _dbContext._events.FindAsync(id);
-            if (evt != null)
-            {
-                _dbContext._events.Remove(evt);
-                await _dbContext.SaveChangesAsync();
-                return Ok();
-            }
-
-            return NotFound();
-        }
+         
         [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetEvent([FromRoute] int id)
-        {
-            return Ok(await _dbContext._events.FindAsync(id));
 
+        {            
+            return Ok(await _dbContext._events.FirstOrDefaultAsync(Evt => Evt.Id == id));
         }
-        [HttpPut("id:int")]
-        public async Task<IActionResult> UpdateEvent(Event rqEvt)
+        [HttpPut, Authorize(Roles = "Admin")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> UpdateEvent(EventViewModel evtUpdate, [FromRoute] int id)
         {
-            var evt = await _dbContext._events.FindAsync(rqEvt.Id);
-            if(evt == null)
+            var evt = await _dbContext._events.FindAsync(id);
+            if(evt != null)
             {
-                return BadRequest();
+                if(ModelState.IsValid)
+                {
+                    evt.Name = evtUpdate.Name;
+                    evt.Content = evtUpdate.Content;
+                    evt.First_Closure = evtUpdate.First_Closure;
+                    evt.Last_Closure = evtUpdate.First_Closure.AddDays(7);
+                    _dbContext.SaveChanges();
+                    return Ok(await _dbContext._events.ToListAsync());
+                }
             }
-            evt.Name = evt.Name;
-            evt.Content = evt.Content;
-            evt.First_Closure = evt.First_Closure;
-            evt.Last_Closure = evt.First_Closure.AddDays(7);
-            evt.CateId = evt.CateId;
-            _dbContext.SaveChanges();
-            return Ok(await _dbContext._events.ToListAsync());
+                return BadRequest();
         }
-
     }
 }

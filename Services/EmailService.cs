@@ -1,22 +1,12 @@
-﻿using MailKit.Net.Smtp; 
+﻿using MailKit.Net.Smtp;
 using MailKit.Security;
-using Microsoft.EntityFrameworkCore;
 using MimeKit;
-using ProjectCMS.Data;
-using ProjectCMS.Models;
 using ProjectCMS.ViewModels;
-using static Duende.IdentityServer.Models.IdentityResources;
 
 namespace ProjectCMS.Services
 {
     public class EmailService
     {
-        private readonly ApplicationDbContext _dbContext;
-        public EmailService(ApplicationDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
         private async Task SendEmailAsync(SendEmailModel email)
         {
 
@@ -31,39 +21,47 @@ namespace ProjectCMS.Services
             builder.HtmlBody = email.Body;
             message.Body = builder.ToMessageBody(); // Chuyển nội dung HTML thành nội dung email và gán cho đối tượng MimeMessage
 
-            // Tạo một đối tượng SmtpClient để gửi email
+            //Tạo một đối tượng SmtpClient để gửi email
             using (var client = new SmtpClient())
             {
                 // Kết nối đến máy chủ email
                 await client.ConnectAsync("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
 
                 // Xác thực với máy chủ email bằng tài khoản và mật khẩu
-                await client.AuthenticateAsync("testapiweb123@gmail.com", "wanoopyitnbbheqi");
-
+                await client.AuthenticateAsync("testapiweb123@gmail.com", "");
+                
                 // Gửi email 
                 await client.SendAsync(message);
 
                 // Ngắt kết nối với máy chủ email
                 await client.DisconnectAsync(true);
             }
+            return;
         }
-
-        public async Task NewIdeaNotify(string eventName, string submiter)
+        //ungrowmjjlflqjfv
+        public async Task NewIdeaNotify(string eventName, string submiter, string[] admin)
         {
-            List<User> admin = await _dbContext._users.Where(u => u.Role == "Admin").ToListAsync();
-
-            string body ="User " + submiter + " submitted an idea to the event " + eventName;
-            foreach (var user in admin)
+            try
             {
-                SendEmailModel newEmail = new()
-                {
-                    ToEmail = user.Email,
-                    Subject = "New Idea submited",
-                    Body = body
-                };
 
-                await SendEmailAsync(newEmail);
+                string body = "User " + submiter + " submitted an idea to the event " + eventName;
+                foreach (var user in admin)
+                {
+                    SendEmailModel newEmail = new()
+                    {
+                        ToEmail = user,
+                        Subject = "New Idea submited",
+                        Body = body
+                    };
+
+                    await SendEmailAsync(newEmail);
+                }
+                return;
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"Error sending email: {ex.Message}");
             }
+            
         }
 
         public async Task NewCommentNotify(string submiter, string toEmail)
@@ -77,6 +75,21 @@ namespace ProjectCMS.Services
             };
 
             await SendEmailAsync(newEmail);
+            return;
+        }
+
+        public async Task ForgotPassword(string newPass, string toEmail)
+        {
+            string body = "New password of your account is: " + newPass;
+            SendEmailModel newEmail = new()
+            {
+                ToEmail = toEmail,
+                Subject = "Password has been reset",
+                Body = body
+            };
+
+            await SendEmailAsync(newEmail);
+            return;
         }
 
     }
