@@ -7,9 +7,5 @@
         public string? Content { get; set; }
         public DateTime? First_Closure { get; set; }
         public DateTime? Last_Closure { get; set; }
-        public int CateId { get; set; }
-        public bool First_IsOverDeadline { get; set; }
-        public bool Second_IsOverDeadline { get; set; }
-        public string? CateName { get; set; }
     }
 }
