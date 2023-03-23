@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Duende.IdentityServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectCMS.Data;
@@ -47,7 +48,8 @@ namespace ProjectCMS.Controllers
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
             }
-            return BadRequest();
+            ErrorMessage err = new();
+            return BadRequest(err);
         }
          
         [HttpGet]

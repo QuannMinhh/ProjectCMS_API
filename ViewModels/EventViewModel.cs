@@ -32,7 +32,7 @@ namespace ProjectCMS.ViewModels
             }
         }
 
-        private void OnPropertyChanged(string propertyName)
+        public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
