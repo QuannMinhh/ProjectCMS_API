@@ -123,25 +123,38 @@ namespace ProjectCMS.Controllers
             int i = new FileService(_env).GPT();
             return Ok(i);
         }
-        [HttpPost("Register"),Authorize(Roles ="Admin")]
+        [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            User user = new()
-            {
-                UserName = usr.UserName,
-                Email = usr.Email,
-                Role = usr.Role,
-                DepartmentID = usr.DepartmentID,                
-                Phone = usr.Phone,
-                AddedDate = usr.AddedDate,
-                Address = usr.Address,
-                DoB = usr.DoB,
-                Avatar = "/images/Avatar.jpg",
-                Status = "Enable",                
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
-            };
+            User user = new User();
+
+                user.UserName = usr.UserName;
+                user.Email = usr.Email;
+                user.Role = usr.Role;
+                user.DepartmentID = usr.DepartmentID;
+                user.Avatar = "/images/Avatar.jpg";
+                if (usr.Phone != null)
+                {
+                    user.Phone = usr.Phone;
+                }
+                else user.Phone = "1900 1001";
+
+                user.AddedDate = usr.AddedDate;
+                if (usr.Address != null)
+                {
+                    user.Address = usr.Address;
+                }
+                else user.Address = "Default address";
+                if (usr.DoB != null)
+                {
+                user.DoB = usr.DoB;
+                }
+                else user.DoB = DateTime.Parse("2000-01-01");
+                user.Status = "Enable";
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+            
             _dbContext._users.Add(user);
             _dbContext.SaveChanges();
             return Ok(user);
