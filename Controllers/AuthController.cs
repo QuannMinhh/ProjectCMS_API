@@ -120,7 +120,7 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env).CreateCSV();
+            int i = new FileService(_env).GPT();
             return Ok(i);
         }
         [HttpPost("Register"),Authorize(Roles ="Admin")]
@@ -132,12 +132,12 @@ namespace ProjectCMS.Controllers
                 UserName = usr.UserName,
                 Email = usr.Email,
                 Role = usr.Role,
+                DepartmentID = usr.DepartmentID,                
                 Phone = usr.Phone,
+                AddedDate = usr.AddedDate,
                 Address = usr.Address,
                 DoB = usr.DoB,
-                AddedDate = usr.AddedDate,
                 Avatar = "/images/Avatar.jpg",
-                DepartmentID = usr.DepartmentID,                
                 Status = "Enable",                
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
@@ -192,7 +192,8 @@ namespace ProjectCMS.Controllers
                             {
                                 //Add userName
                                 string ext = Path.GetExtension(usr.Image.FileName);
-                                string fileName = User.UserName + ext;
+                            DateTime dt = DateTime.Now;
+                            string fileName = User.UserName + ext;
                                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
                                 using (var stream = System.IO.File.Create(path))
                                 {
