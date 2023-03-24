@@ -120,7 +120,7 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env).GPT();
+            int i = new FileService(_env).ExportTablesToCSV();
             return Ok(i);
         }
         [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
@@ -138,14 +138,14 @@ namespace ProjectCMS.Controllers
                 {
                     user.Phone = usr.Phone;
                 }
-                else user.Phone = "1900 1001";
+                else user.Phone = "0";
 
                 user.AddedDate = usr.AddedDate;
                 if (usr.Address != null)
                 {
                     user.Address = usr.Address;
                 }
-                else user.Address = "Default address";
+                else user.Address = "0";
                 if (usr.DoB != null)
                 {
                 user.DoB = usr.DoB;
@@ -159,7 +159,30 @@ namespace ProjectCMS.Controllers
             _dbContext.SaveChanges();
             return Ok(user);
         }
-        [HttpPut("Update")]
+        [HttpPut("ChangePassword")]
+        public async Task<IActionResult> EditPassword([FromForm]string oldPassword, [FromForm] string newPassword)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userClaim = identity.Claims;
+                var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+                var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
+                if (User != null)
+                {
+                    if (Verify(oldPassword, User.PasswordHash, User.PasswordSalt))
+                    {
+                        CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+                        User.PasswordHash= passwordHash;
+                        User.PasswordSalt= passwordSalt;
+                        await _dbContext.SaveChangesAsync();
+                        return Ok("password have been changed successfully");
+                    }
+                }
+            }
+                return BadRequest();
+        }
+            [HttpPut("Update")]
         public async Task<IActionResult> EditAccount([FromForm] UserUpdate usr)
         {
             
@@ -206,7 +229,7 @@ namespace ProjectCMS.Controllers
                                 //Add userName
                                 string ext = Path.GetExtension(usr.Image.FileName);
                             DateTime dt = DateTime.Now;
-                            string fileName = User.UserName + ext;
+                            string fileName = User.UserName + RandomString(3) + ext ;
                                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
                                 using (var stream = System.IO.File.Create(path))
                                 {
