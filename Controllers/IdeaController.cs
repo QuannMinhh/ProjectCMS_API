@@ -71,28 +71,46 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
-            var idea = await _dbContext._idea.FindAsync(id);
+            var ideas = from idea in _dbContext._idea
+                        join user in _dbContext._users on idea.UserId equals user.UserId
+                        join evt in _dbContext._events on idea.EvId equals evt.Id
+                        where idea.Id == id 
+                        select new
+                        {
+                            IdeaId = idea.Id,
+                            IdeaName = idea.Name,
+                            IdeaContent = idea.Content,
+                            IdeaAddedDate = idea.AddedDate,
+                            IdeaVote = idea.Vote,
+                            IdeaViewed = idea.Viewed,
+                            IdeaFile = idea.IdeaFile,
+                            UserName = user.UserName,
+                            Avatar = user.Avatar,
+                            EventName = evt.Name,
+                            EventFirstClosure = evt.First_Closure,
+                            EventLastClosure = evt.Last_Closure
+                        };
             //user name
             //user avt
             // cate name
             // event name
             // event second_clo
 
-            if (idea == null)
+            if (ideas == null)
             {
                 return NotFound();
             }
 
-            return Ok(idea);
+            return Ok(ideas);
         }
-        [HttpGet("ByUser/{id}")]
+        [HttpGet("byUser/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByUser([FromRoute] int id)
         {
             var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
             return Ok(byUser);
         }
-        [HttpGet("ByEvent/{id}")]
+        [HttpGet("byEvent/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByEvent([FromRoute] int id)
         {
@@ -100,7 +118,7 @@ namespace ProjectCMS.Controllers
             return Ok(byEvent);
         }
 
-        [HttpGet("CountByUser/{id}")]
+        [HttpGet("countByUser/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> CountByUser([FromRoute] int id)
         {
@@ -110,7 +128,7 @@ namespace ProjectCMS.Controllers
 
         
 
-        [HttpGet("{sort}")]
+        [HttpGet("sort")]
         public async Task<IActionResult> Sort(string sortType)
         {
             try
@@ -128,6 +146,9 @@ namespace ProjectCMS.Controllers
                             break;
                         case "lid":
                             ideas = ideas.OrderByDescending(s => s.AddedDate);
+                            break;
+                        default:
+                            return BadRequest(new {message = "Your sort type is incorrect!" });
                             break;
                     }
                 }
