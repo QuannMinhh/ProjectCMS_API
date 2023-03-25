@@ -22,7 +22,7 @@ namespace ProjectCMS.Controllers
             var ideaCount = (await _dbContext._idea.ToListAsync()).Count();
             var eventCount = (await _dbContext._events.ToListAsync()).Count();
             var cateCount = (await _dbContext._categories.ToListAsync()).Count();
-            var userCount = (await _dbContext.Users.ToListAsync()).Count();
+            var userCount = (await _dbContext._users.ToListAsync()).Count();
 
             return Ok(new { idea = ideaCount, even = eventCount, cate = cateCount, user = userCount });
         }
@@ -31,7 +31,7 @@ namespace ProjectCMS.Controllers
         {
             var popularIdeas = await _dbContext._idea
                                 .Select(i => new { i.Id, i.Name, i.Vote })
-                                .OrderBy(i => i.Vote)
+                                .OrderByDescending(i => i.Vote)
                                 .ToListAsync();
             return Ok(popularIdeas);
         }

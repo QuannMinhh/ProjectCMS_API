@@ -30,7 +30,26 @@ namespace ProjectCMS.Controllers
         [HttpGet]
         public async Task<IActionResult> GetIdeas(string? searchString)
         {
-                var ideas =  from i in _dbContext._idea select i;
+            var ideas = from i in _dbContext._idea
+                        join u in _dbContext._users
+                        on i.UserId equals u.UserId
+                        select new
+                        {
+                            Id = i.Id,
+                            Name = i.Name,
+                            Content = i.Content,
+                            AddedDate = i.AddedDate,
+                            Vote = i.Vote,
+                            Viewed= i.Viewed,
+                            IdeaFile = i.IdeaFile,
+                            EvId = i.EvId,
+                            CateId= i.CateId,
+                            UserId = i.UserId,
+                            UserName = u.UserName,
+                            Avatar = u.Avatar
+                        };
+            //user Name 
+            // user avatar
                 if (!searchString.IsNullOrEmpty())
                 {
                     ideas = ideas.Where(s => s.Name.Contains(searchString));
@@ -48,11 +67,17 @@ namespace ProjectCMS.Controllers
                 return NotFound();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
             var idea = await _dbContext._idea.FindAsync(id);
+            //user name
+            //user avt
+            // cate name
+            // event name
+            // event second_clo
+
             if (idea == null)
             {
                 return NotFound();
@@ -60,14 +85,14 @@ namespace ProjectCMS.Controllers
 
             return Ok(idea);
         }
-        [HttpGet("ByUser")]
+        [HttpGet("ByUser/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByUser([FromRoute] int id)
         {
             var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
             return Ok(byUser);
         }
-        [HttpGet("ByEvent")]
+        [HttpGet("ByEvent/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByEvent([FromRoute] int id)
         {
@@ -75,7 +100,7 @@ namespace ProjectCMS.Controllers
             return Ok(byEvent);
         }
 
-        [HttpGet("CountByUser")]
+        [HttpGet("CountByUser/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> CountByUser([FromRoute] int id)
         {
