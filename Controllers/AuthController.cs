@@ -258,7 +258,7 @@ namespace ProjectCMS.Controllers
                 var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
                 if(User !=null)
                 {
-                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin")
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin" && User.UserName !=username)
                     {
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
@@ -270,7 +270,7 @@ namespace ProjectCMS.Controllers
                     }
                 }
             }                     
-            return BadRequest();
+            return BadRequest("Can not disable your self");
         }
         [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
@@ -278,7 +278,7 @@ namespace ProjectCMS.Controllers
             var currentUser = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == rq.userName);
             if(currentUser != null)
             {
-                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt))
+                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt) && currentUser.Status =="Enable")
                 {
                     string token = tokenMethod(currentUser);
                     return Ok(token);
@@ -289,7 +289,7 @@ namespace ProjectCMS.Controllers
         [HttpPost("Resetpassword"),AllowAnonymous]       
         public async Task<IActionResult> ResetPassword(FPass pwd) 
         {
-            var user = await _dbContext._users.FirstOrDefaultAsync(usrname => usrname.UserName == pwd.userName && usrname.Email == pwd.email);
+            var user = await _dbContext._users.FirstOrDefaultAsync(usrname =>usrname.Email == pwd.email);
             if(user != null)
             {
                 string newPassword = RandomString(8);
