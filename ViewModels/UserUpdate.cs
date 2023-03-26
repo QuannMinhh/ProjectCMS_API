@@ -8,6 +8,7 @@
         public DateTime? DoB { get; set; }
         public string? Address { get; set; }
         public string? Avatar { get; set; }
+        public IFormFile Image { get; set; }
         public int DepartmentID { get; set; }
     }
 }

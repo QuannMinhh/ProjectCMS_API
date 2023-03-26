@@ -258,7 +258,7 @@ namespace ProjectCMS.Controllers
                 var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
                 if(User !=null)
                 {
-                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin" && User.UserName !=username)
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin" && User.UserName != usr)
                     {
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
