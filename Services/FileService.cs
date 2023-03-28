@@ -1,5 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Globalization;
 using System.IO.Compression;
 using System.Text;
 
@@ -63,10 +66,6 @@ namespace ProjectCMS.Services
             }    
             System.IO.File.WriteAllLinesAsync(file, lines);
             return file;
-        }
-        public string connectionString()
-        {
-            return @"Server=DESKTOP-NPP0M4V\\HOANG;Database=ProjectCMSAPI;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True";
         }
         public int  CreateCSV()
         {
@@ -229,5 +228,112 @@ namespace ProjectCMS.Services
             file.Close();
             return 0;
         }
+        public int GPT()
+        {
+            string connectionString = "Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True";
+
+            Dictionary<string, List<object>> tableData = new Dictionary<string, List<object>>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Retrieve all table names from the database
+                DataTable tables = connection.GetSchema("Tables");
+
+                // Loop through each table and retrieve its data
+                foreach (DataRow table in tables.Rows)
+                {
+                    string tableName = (string)table[2];
+
+                    if (tableName == "__EFMigrationsHistory")
+                    {
+                        continue; // skip this table                        
+                    }
+                    // Retrieve the data from the table
+                    string query = $"SELECT * FROM {tableName}";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {                    
+                            List<object> rowData = new List<object>();
+
+                            // Read each row of data and add it to the list
+                            while (reader.Read())
+                            {
+                                object[] values = new object[reader.FieldCount];
+                                reader.GetValues(values);
+                                rowData.AddRange(values);
+                            }
+
+                            // Add the row data to the table data dictionary
+                            tableData.Add(tableName, rowData);
+                        
+                    }
+                }
+
+                // Write the table data to the CSV file
+                using (StreamWriter writer = new StreamWriter("output.csv"))
+                using (CsvWriter csv = new CsvWriter(writer, new CsvConfiguration(CultureInfo.InvariantCulture)))
+                {
+                    // Write the header row with the table names
+                    csv.WriteField("");
+                    foreach (string tableName in tableData.Keys)
+                    {
+                        csv.WriteField(tableName);
+                    }
+                    csv.NextRecord();
+
+                    // Write the data rows with the table data
+                    int maxRows = tableData.Values.Max(l => l.Count);
+                    for (int i = 0; i < maxRows; i++)
+                    {
+                        csv.WriteField(i + 1);
+
+                        foreach (string tableName in tableData.Keys)
+                        {
+                            if (i < tableData[tableName].Count)
+                            {
+                                csv.WriteField(tableData[tableName][i]);
+                            }
+                            else
+                            {
+                                csv.WriteField("");
+                            }
+                        }
+
+                        csv.NextRecord();
+                    }
+                }
+            }
+            return 0;
+        }
+        public  int ExportTablesToCSV()
+        {
+            string[] tablesToSkip = { };
+            using var connection = new SqlConnection("Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True");
+            connection.Open();
+            string query = "select UserId,UserName,Email,Phone,DoB,Address,AddedDate,Role,Status,_departments.Name from _users Join _departments on _users.DepartmentID = _departments.DepId";
+            using var command = new SqlCommand(query, connection);
+            using var reader = command.ExecuteReader();
+
+            // Create a DataTable to hold the results of the query
+            var dataTable = new DataTable();
+            dataTable.Load(reader);
+
+            // Write the results to a CSV file
+            using var writer = new StreamWriter("users.csv");
+            var header = string.Join(",", dataTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName));
+            writer.WriteLine(header);
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                var values = row.ItemArray.Select(value => value.ToString()).ToArray();
+                var line = string.Join(",", values);
+                writer.WriteLine(line);
+            }
+
+            return 0;
+        }
+
     }
 }
