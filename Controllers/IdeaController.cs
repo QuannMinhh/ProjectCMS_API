@@ -67,7 +67,7 @@ namespace ProjectCMS.Controllers
                 return NotFound();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
