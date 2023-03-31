@@ -93,8 +93,8 @@ namespace ProjectCMS.Data
                 new User
                 {
                     UserId = 1,
-                    UserName = "admin1",
-                    Email = "hoanghip108@gmail.com",
+                    UserName = "admin",
+                    Email = "duongtdgch17587@fpt.edu.vn",
                     DepartmentID = 2,
                     PasswordHash = passwordHash,
                     PasswordSalt = passwordSalt,
