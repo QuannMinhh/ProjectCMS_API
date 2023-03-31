@@ -101,7 +101,7 @@ namespace ProjectCMS.Data
                     Phone = "0333804202",
                     DoB = DateTime.Parse("2000-08-10"),
                     Address = "Ha Noi",
-                    Avatar = "Image.jpg",
+                    Avatar = "/images/Avatar.jpg",
                     AddedDate = DateTime.Now,
                     Role = "Admin",
                     Status = "Enable"
