@@ -50,7 +50,6 @@ namespace ProjectCMS.Controllers
                 };
                 ideaPerCate.Add(newIpC);
             }
-
             return Ok(ideaPerCate);
         }
 
