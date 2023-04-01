@@ -17,10 +17,7 @@ namespace ProjectCMS.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
         private readonly IWebHostEnvironment _env;
-        public IdeaController(
-            ApplicationDbContext dbContext,
-            EmailService emailservice,
-            IWebHostEnvironment env)
+        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice, IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _emailService = emailservice;
@@ -57,14 +54,14 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return NotFound();
-                }
+                    return Ok(new { message = "No Idea Found!" });
+            }
 
                 if (ideas.Any())
                 {
                     return Ok(await ideas.ToListAsync());
                 }
-                return NotFound();
+                return Ok(new { message = "No Idea Found!" }); ;
         }
 
         [HttpGet]
@@ -94,7 +91,7 @@ namespace ProjectCMS.Controllers
                         };
             if (ideas == null)
             {
-                return NotFound();
+                return Ok(new {message = "No Idea Found!"});
             }
 
             return Ok(await ideas.ToListAsync());
@@ -199,7 +196,6 @@ namespace ProjectCMS.Controllers
                             ideas = ideas.OrderByDescending(s => s.AddedDate);
                             break;
                         default:
-                            return Ok(new {message = "Your sort type is incorrect!" });
                             break;
                     }
                 }
