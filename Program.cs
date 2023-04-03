@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
+using ProjectCMS.Hub;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
 using System.Text;
@@ -46,6 +47,7 @@ builder.Services.AddCors(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<EmailService>();
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -66,6 +68,10 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<CountUserHub>("/CountUserHub");
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");

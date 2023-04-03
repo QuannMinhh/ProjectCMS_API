@@ -10,10 +10,12 @@ namespace ProjectCMS.Services
 {
     public class FileService
     {
-        private IWebHostEnvironment _env;   
-        public FileService(IWebHostEnvironment env) 
+        private IWebHostEnvironment _env;
+        private readonly IConfiguration _config;
+        public FileService(IWebHostEnvironment env, IConfiguration config) 
         {
             _env = env;
+            _config = config;
         }
 
         public (string filtType, byte[] archivedate,string achiveName ) DownloadZip(string directoryName)
@@ -25,7 +27,7 @@ namespace ProjectCMS.Services
             {
                 using(var achive = new ZipArchive(memoryStream,ZipArchiveMode.Create)) 
                 {
-                    foreach(var file in files) 
+                    foreach(var file in files)      
                     {
                         achive.CreateEntryFromFile(file,Path.GetFileName(file));
                     }
@@ -35,7 +37,8 @@ namespace ProjectCMS.Services
         }
         public string GetCSV()
         {
-            using (SqlConnection cnt = new SqlConnection("Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True"))
+            var sqlConnect = _config.GetConnectionString("DefaultConnection");
+            using (SqlConnection cnt = new SqlConnection(sqlConnect))
             {
                 cnt.Open();
 
@@ -228,6 +231,7 @@ namespace ProjectCMS.Services
             file.Close();
             return 0;
         }
+
         public int GPT()
         {
             string connectionString = "Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True";

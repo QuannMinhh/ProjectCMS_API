@@ -17,10 +17,8 @@ namespace ProjectCMS.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
         private readonly IWebHostEnvironment _env;
-        public IdeaController(
-            ApplicationDbContext dbContext,
-            EmailService emailservice,
-            IWebHostEnvironment env)
+
+        public IdeaController(ApplicationDbContext dbContext, EmailService emailservice, IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _emailService = emailservice;
@@ -31,8 +29,9 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> GetIdeas(string? searchString)
         {
             var ideas = from i in _dbContext._idea
-                        join u in _dbContext._users
-                        on i.UserId equals u.UserId
+                        join u in _dbContext._users on i.UserId equals u.UserId
+                        join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
+                        
                         select new
                         {
                             Id = i.Id,
@@ -46,7 +45,8 @@ namespace ProjectCMS.Controllers
                             CateId= i.CateId,
                             UserId = i.UserId,
                             UserName = u.UserName,
-                            Avatar = u.Avatar
+                            Avatar = u.Avatar,
+                            DepartmentName = dep.Name
                         };
             //user Name 
             // user avatar
@@ -57,65 +57,113 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return NotFound();
-                }
-
+                    return Ok(new { message = "No Idea Found!" });
+            }
                 if (ideas.Any())
                 {
                     return Ok(await ideas.ToListAsync());
                 }
-                return NotFound();
+                return Ok(new { message = "No Idea Found!" }); ;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("byDetail")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
             var ideas = from idea in _dbContext._idea
                         join user in _dbContext._users on idea.UserId equals user.UserId
                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                        join cate in _dbContext._categories on idea.CateId equals cate.Id
+                        join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
                         where idea.Id == id 
                         select new
                         {
-                            IdeaId = idea.Id,
-                            IdeaName = idea.Name,
-                            IdeaContent = idea.Content,
-                            IdeaAddedDate = idea.AddedDate,
-                            IdeaVote = idea.Vote,
-                            IdeaViewed = idea.Viewed,
+                            Id = idea.Id,
+                            Name = idea.Name,
+                            Content = idea.Content,
+                            AddedDate = idea.AddedDate,
+                            Vote = idea.Vote,
+                            Viewed = idea.Viewed,
                             IdeaFile = idea.IdeaFile,
+                            EvId = idea.EvId,
+                            CateId = idea.CateId,
                             UserName = user.UserName,
                             Avatar = user.Avatar,
                             EventName = evt.Name,
                             EventFirstClosure = evt.First_Closure,
-                            EventLastClosure = evt.Last_Closure
+                            EventLastClosure = evt.Last_Closure,
+                            CategoryName = cate.Name,
+                            DepartmentName = dep.Name
                         };
-            //user name
-            //user avt
-            // cate name
-            // event name
-            // event second_clo
-
             if (ideas == null)
             {
-                return NotFound();
+                return Ok(new {message = "No Idea Found!"});
             }
 
-            return Ok(ideas);
+            return Ok(await ideas.ToListAsync());
         }
+
         [HttpGet("byUser/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByUser([FromRoute] int id)
         {
-            var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
-            return Ok(byUser);
+            var byUser = from idea in _dbContext._idea
+                         join user in _dbContext._users on idea.UserId equals user.UserId
+                         join cate in _dbContext._categories on idea.EvId equals cate.Id
+                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                         where idea.UserId == id
+                         select new
+                         {
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
+                             IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
+                             UserName = user.UserName,
+                             Avatar = user.Avatar,
+                             EventName = evt.Name,
+                             EventFirstClosure = evt.First_Closure,
+                             EventLastClosure = evt.Last_Closure,
+                             CategoryName = cate.Name, 
+                             DepartmentName = dep.Name
+                            };
+            return Ok(await byUser.ToListAsync());
         }
         [HttpGet("byEvent/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByEvent([FromRoute] int id)
         {
-            var byEvent = await _dbContext._idea.Where(i => i.EvId == id).ToListAsync();
-            return Ok(byEvent);
+            var byUser = from idea in _dbContext._idea
+                         join user in _dbContext._users on idea.UserId equals user.UserId
+                         join cate in _dbContext._categories on idea.EvId equals cate.Id
+                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                         where idea.EvId == id
+                         select new
+                         {
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
+                             IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
+                             UserName = user.UserName,
+                             Avatar = user.Avatar,
+                             EventName = evt.Name,
+                             EventFirstClosure = evt.First_Closure,
+                             EventLastClosure = evt.Last_Closure,
+                             CategoryName = cate.Name,
+                             DepartmentName = dep.Name
+                         };
+            return Ok(await byUser.ToListAsync());
         }
 
         [HttpGet("countByUser/{id}")]
@@ -125,15 +173,64 @@ namespace ProjectCMS.Controllers
             var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
             return Ok(byUser.Count());
         }
-
-        
+        [HttpGet("byDepartment/{id}")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetByDepartment([FromRoute] int id)
+        {
+            var byUser = from idea in _dbContext._idea
+                         join user in _dbContext._users on idea.UserId equals user.UserId
+                         join cate in _dbContext._categories on idea.EvId equals cate.Id
+                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                         where user.DepartmentID == id
+                         select new
+                         {
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
+                             IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
+                             UserName = user.UserName,
+                             Avatar = user.Avatar,
+                             EventName = evt.Name,
+                             EventFirstClosure = evt.First_Closure,
+                             EventLastClosure = evt.Last_Closure,
+                             CategoryName = cate.Name,
+                             DepartmentName = dep.Name
+                         };
+            return Ok(await byUser.ToListAsync());
+        }
 
         [HttpGet("sort")]
         public async Task<IActionResult> Sort(string sortType)
         {
             try
             {
-                var ideas = from i in _dbContext._idea select i;
+                //thêm người đăng + avatar
+                var ideas = from i in _dbContext._idea
+                            join u in _dbContext._users on i.UserId equals u.UserId
+                            join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
+
+                            select new
+                            {
+                                Id = i.Id,
+                                Name = i.Name,
+                                Content = i.Content,
+                                AddedDate = i.AddedDate,
+                                Vote = i.Vote,
+                                Viewed = i.Viewed,
+                                IdeaFile = i.IdeaFile,
+                                EvId = i.EvId,
+                                CateId = i.CateId,
+                                UserId = i.UserId,
+                                UserName = u.UserName,
+                                Avatar = u.Avatar,
+                                DepartmentName = dep.Name
+                            };
                 if (sortType != null)
                 {
                     switch (sortType)
@@ -148,7 +245,6 @@ namespace ProjectCMS.Controllers
                             ideas = ideas.OrderByDescending(s => s.AddedDate);
                             break;
                         default:
-                            return BadRequest(new {message = "Your sort type is incorrect!" });
                             break;
                     }
                 }
@@ -158,7 +254,7 @@ namespace ProjectCMS.Controllers
                     return Ok(await ideas.ToListAsync());
                 }
 
-                return NotFound();
+                return Ok(new { message = "Your sort type is incorrect!" });
             }
             catch (Exception)
             {
@@ -198,7 +294,8 @@ namespace ProjectCMS.Controllers
                     EvId = idea.eId,
                     CateId = idea.cId,
                     UserId = idea.uId,
-                    IdeaFile = fileName
+                    IdeaFile = fileName,
+                    IsAnonymous = idea.IsAnonymous
                 };
                 
       
@@ -276,5 +373,6 @@ namespace ProjectCMS.Controllers
                 return Task.CompletedTask;
             }
         }
+
     }
 }

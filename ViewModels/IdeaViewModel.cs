@@ -10,6 +10,7 @@ namespace ProjectCMS.ViewModels
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
+        public bool IsAnonymous { get; set; }
         public int Vote { get; set; } = 0;
         public int Viewed { get; set; } = 0;
         public DateTime SubmitedDate { get; set; } = DateTime.Now;
