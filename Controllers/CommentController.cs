@@ -66,9 +66,9 @@ namespace ProjectCMS.Controllers
                     await _dbContext._comments.AddAsync(newComment);
                     await _dbContext.SaveChangesAsync();
 
-                   NewCommentNofity(comment.UserId, comment.IdeaId);
+                   await NewCommentNofity(comment.UserId, comment.IdeaId);
 
-                    return Ok(await _dbContext._comments.Where(x => x.IdeaId == comment.IdeaId).ToListAsync());
+                    return Ok();
                 }
             return BadRequest(new {message = "Some value is not valid. Please retype the value." }); 
          }
