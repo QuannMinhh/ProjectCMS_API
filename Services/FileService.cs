@@ -27,7 +27,7 @@ namespace ProjectCMS.Services
             {
                 using(var achive = new ZipArchive(memoryStream,ZipArchiveMode.Create)) 
                 {
-                    foreach(var file in files) 
+                    foreach(var file in files)      
                     {
                         achive.CreateEntryFromFile(file,Path.GetFileName(file));
                     }
@@ -231,6 +231,7 @@ namespace ProjectCMS.Services
             file.Close();
             return 0;
         }
+
         public int GPT()
         {
             string connectionString = "Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True";
