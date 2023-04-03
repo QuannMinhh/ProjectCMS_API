@@ -78,13 +78,15 @@ namespace ProjectCMS.Controllers
                         where idea.Id == id 
                         select new
                         {
-                            IdeaId = idea.Id,
-                            IdeaName = idea.Name,
-                            IdeaContent = idea.Content,
-                            IdeaAddedDate = idea.AddedDate,
-                            IdeaVote = idea.Vote,
-                            IdeaViewed = idea.Viewed,
+                            Id = idea.Id,
+                            Name = idea.Name,
+                            Content = idea.Content,
+                            AddedDate = idea.AddedDate,
+                            Vote = idea.Vote,
+                            Viewed = idea.Viewed,
                             IdeaFile = idea.IdeaFile,
+                            EvId = idea.EvId,
+                            CateId = idea.CateId,
                             UserName = user.UserName,
                             Avatar = user.Avatar,
                             EventName = evt.Name,
@@ -113,13 +115,15 @@ namespace ProjectCMS.Controllers
                          where idea.UserId == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -142,13 +146,15 @@ namespace ProjectCMS.Controllers
                          where idea.EvId == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -179,13 +185,15 @@ namespace ProjectCMS.Controllers
                          where user.DepartmentID == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -202,6 +210,7 @@ namespace ProjectCMS.Controllers
         {
             try
             {
+                //thêm người đăng + avatar
                 var ideas = from i in _dbContext._idea
                             join u in _dbContext._users on i.UserId equals u.UserId
                             join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
