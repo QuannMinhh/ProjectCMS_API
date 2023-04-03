@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Crypto.Tls;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
@@ -28,8 +29,9 @@ namespace ProjectCMS.Controllers
         public async Task<IActionResult> GetIdeas(string? searchString)
         {
             var ideas = from i in _dbContext._idea
-                        join u in _dbContext._users
-                        on i.UserId equals u.UserId
+                        join u in _dbContext._users on i.UserId equals u.UserId
+                        join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
+                        
                         select new
                         {
                             Id = i.Id,
@@ -43,7 +45,8 @@ namespace ProjectCMS.Controllers
                             CateId= i.CateId,
                             UserId = i.UserId,
                             UserName = u.UserName,
-                            Avatar = u.Avatar
+                            Avatar = u.Avatar,
+                            DepartmentName = dep.Name
                         };
             //user Name 
             // user avatar
@@ -64,7 +67,7 @@ namespace ProjectCMS.Controllers
                 return Ok(new { message = "No Idea Found!" }); ;
         }
 
-        [HttpGet]
+        [HttpGet("byDetail")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
@@ -72,6 +75,7 @@ namespace ProjectCMS.Controllers
                         join user in _dbContext._users on idea.UserId equals user.UserId
                         join evt in _dbContext._events on idea.EvId equals evt.Id
                         join cate in _dbContext._categories on idea.CateId equals cate.Id
+                        join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
                         where idea.Id == id 
                         select new
                         {
@@ -87,7 +91,8 @@ namespace ProjectCMS.Controllers
                             EventName = evt.Name,
                             EventFirstClosure = evt.First_Closure,
                             EventLastClosure = evt.Last_Closure,
-                            CategoryName = cate.Name
+                            CategoryName = cate.Name,
+                            DepartmentName = dep.Name
                         };
             if (ideas == null)
             {
@@ -105,6 +110,7 @@ namespace ProjectCMS.Controllers
                          join user in _dbContext._users on idea.UserId equals user.UserId
                          join cate in _dbContext._categories on idea.EvId equals cate.Id
                          join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
                          where idea.UserId == id
                          select new
                          {
@@ -120,7 +126,8 @@ namespace ProjectCMS.Controllers
                              EventName = evt.Name,
                              EventFirstClosure = evt.First_Closure,
                              EventLastClosure = evt.Last_Closure,
-                             CategoryName = cate.Name
+                             CategoryName = cate.Name, 
+                             DepartmentName = dep.Name
                             };
             return Ok(await byUser.ToListAsync());
         }
@@ -132,6 +139,7 @@ namespace ProjectCMS.Controllers
                          join user in _dbContext._users on idea.UserId equals user.UserId
                          join cate in _dbContext._categories on idea.EvId equals cate.Id
                          join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
                          where idea.EvId == id
                          select new
                          {
@@ -147,7 +155,8 @@ namespace ProjectCMS.Controllers
                              EventName = evt.Name,
                              EventFirstClosure = evt.First_Closure,
                              EventLastClosure = evt.Last_Closure,
-                             CategoryName = cate.Name
+                             CategoryName = cate.Name,
+                             DepartmentName = dep.Name
                          };
             return Ok(await byUser.ToListAsync());
         }
@@ -159,6 +168,35 @@ namespace ProjectCMS.Controllers
             var byUser = await _dbContext._idea.Where(i => i.UserId == id).ToListAsync();
             return Ok(byUser.Count());
         }
+        [HttpGet("byDepartment/{id}")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetByDepartment([FromRoute] int id)
+        {
+            var byUser = from idea in _dbContext._idea
+                         join user in _dbContext._users on idea.UserId equals user.UserId
+                         join cate in _dbContext._categories on idea.EvId equals cate.Id
+                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                         where user.DepartmentID == id
+                         select new
+                         {
+                             IdeaId = idea.Id,
+                             IdeaName = idea.Name,
+                             IdeaContent = idea.Content,
+                             IdeaAddedDate = idea.AddedDate,
+                             IdeaVote = idea.Vote,
+                             IdeaViewed = idea.Viewed,
+                             IdeaFile = idea.IdeaFile,
+                             UserName = user.UserName,
+                             Avatar = user.Avatar,
+                             EventName = evt.Name,
+                             EventFirstClosure = evt.First_Closure,
+                             EventLastClosure = evt.Last_Closure,
+                             CategoryName = cate.Name,
+                             DepartmentName = dep.Name
+                         };
+            return Ok(await byUser.ToListAsync());
+        }
 
         [HttpGet("sort")]
         public async Task<IActionResult> Sort(string sortType)
@@ -167,6 +205,8 @@ namespace ProjectCMS.Controllers
             {
                 var ideas = from i in _dbContext._idea
                             join u in _dbContext._users on i.UserId equals u.UserId
+                            join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
+
                             select new
                             {
                                 Id = i.Id,
@@ -180,7 +220,8 @@ namespace ProjectCMS.Controllers
                                 CateId = i.CateId,
                                 UserId = i.UserId,
                                 UserName = u.UserName,
-                                Avatar = u.Avatar
+                                Avatar = u.Avatar,
+                                DepartmentName = dep.Name
                             };
                 if (sortType != null)
                 {
@@ -245,7 +286,8 @@ namespace ProjectCMS.Controllers
                     EvId = idea.eId,
                     CateId = idea.cId,
                     UserId = idea.uId,
-                    IdeaFile = fileName
+                    IdeaFile = fileName,
+                    IsAnonymous = idea.IsAnonymous
                 };
                 
       

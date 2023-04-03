@@ -17,6 +17,5 @@ namespace ProjectCMS.ViewModels
         [DataType(DataType.Date)]
         [FutureDate(ErrorMessage = "The date must be equal or greater than now")]
         public DateTime First_Closure { get; set; }
-        
     }
 }
