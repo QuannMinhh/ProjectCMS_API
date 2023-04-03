@@ -120,33 +120,69 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env).CreateCSV();
+            int i = new FileService(_env).ExportTablesToCSV();
             return Ok(i);
         }
-        [HttpPost("Register"),Authorize(Roles ="Admin")]
+        [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
         {
             CreatePasswordHash(usr.password, out byte[] passwordHash, out byte[] passwordSalt);
-            User user = new()
-            {
-                UserName = usr.UserName,
-                Email = usr.Email,
-                Role = usr.Role,
-                Phone = usr.Phone,
-                Address = usr.Address,
-                DoB = usr.DoB,
-                AddedDate = usr.AddedDate,
-                Avatar = "/images/Avatar.jpg",
-                DepartmentID = usr.DepartmentID,                
-                Status = "Enable",                
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
-            };
+            User user = new User();
+
+                user.UserName = usr.UserName;
+                user.Email = usr.Email;
+                user.Role = usr.Role;
+                user.DepartmentID = usr.DepartmentID;
+                user.Avatar = "/images/Avatar.jpg";
+                if (usr.Phone != null)
+                {
+                    user.Phone = usr.Phone;
+                }
+                else user.Phone = "0";
+
+                user.AddedDate = usr.AddedDate;
+                if (usr.Address != null)
+                {
+                    user.Address = usr.Address;
+                }
+                else user.Address = "0";
+                if (usr.DoB != null)
+                {
+                user.DoB = usr.DoB;
+                }
+                else user.DoB = DateTime.Parse("2000-01-01");
+                user.Status = "Enable";
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+            
             _dbContext._users.Add(user);
             _dbContext.SaveChanges();
             return Ok(user);
         }
-        [HttpPut("Update")]
+        [HttpPut("ChangePassword")]
+        public async Task<IActionResult> EditPassword([FromForm]string oldPassword, [FromForm] string newPassword)
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userClaim = identity.Claims;
+                var username = userClaim.FirstOrDefault(o => o.Type == ClaimTypes.NameIdentifier)?.Value;
+                var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
+                if (User != null)
+                {
+                    if (Verify(oldPassword, User.PasswordHash, User.PasswordSalt))
+                    {
+                        CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+                        User.PasswordHash= passwordHash;
+                        User.PasswordSalt= passwordSalt;
+                        await _dbContext.SaveChangesAsync();
+                        return Ok("password have been changed successfully");
+                    }
+                }
+            }
+                return BadRequest();
+        }
+            [HttpPut("Update")]
         public async Task<IActionResult> EditAccount([FromForm] UserUpdate usr)
         {
             
@@ -192,7 +228,8 @@ namespace ProjectCMS.Controllers
                             {
                                 //Add userName
                                 string ext = Path.GetExtension(usr.Image.FileName);
-                                string fileName = User.UserName + ext;
+                            DateTime dt = DateTime.Now;
+                            string fileName = User.UserName + RandomString(3) + ext ;
                                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", fileName);
                                 using (var stream = System.IO.File.Create(path))
                                 {
@@ -221,7 +258,7 @@ namespace ProjectCMS.Controllers
                 var User = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == username);
                 if(User !=null)
                 {
-                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin")
+                    if(Verify(password, User.PasswordHash, User.PasswordSalt)&& User.Role=="Admin" && User.UserName != usr)
                     {
                         var user = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == usr);
                         if(user != null)
@@ -233,7 +270,7 @@ namespace ProjectCMS.Controllers
                     }
                 }
             }                     
-            return BadRequest();
+            return BadRequest("Can not disable your self");
         }
         [HttpPost("Login"),AllowAnonymous]
         public async Task<IActionResult> Login(UserLogin rq)
@@ -241,7 +278,7 @@ namespace ProjectCMS.Controllers
             var currentUser = await _dbContext._users.FirstOrDefaultAsync(u => u.UserName == rq.userName);
             if(currentUser != null)
             {
-                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt))
+                if (Verify(rq.password, currentUser.PasswordHash, currentUser.PasswordSalt) && currentUser.Status =="Enable")
                 {
                     string token = tokenMethod(currentUser);
                     return Ok(token);
@@ -252,7 +289,7 @@ namespace ProjectCMS.Controllers
         [HttpPost("Resetpassword"),AllowAnonymous]       
         public async Task<IActionResult> ResetPassword(FPass pwd) 
         {
-            var user = await _dbContext._users.FirstOrDefaultAsync(usrname => usrname.UserName == pwd.userName && usrname.Email == pwd.email);
+            var user = await _dbContext._users.FirstOrDefaultAsync(usrname =>usrname.Email == pwd.email);
             if(user != null)
             {
                 string newPassword = RandomString(8);

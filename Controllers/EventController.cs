@@ -47,6 +47,7 @@ namespace ProjectCMS.Controllers
                 _dbContext.SaveChanges();
                 return Ok(await _dbContext._events.ToListAsync());
             }
+            
             return BadRequest();
         }
          
