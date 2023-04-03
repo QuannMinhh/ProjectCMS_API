@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Crypto.Tls;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
@@ -18,6 +17,7 @@ namespace ProjectCMS.Controllers
         private readonly ApplicationDbContext _dbContext;
         private readonly EmailService _emailService;
         private readonly IWebHostEnvironment _env;
+
         public IdeaController(ApplicationDbContext dbContext, EmailService emailservice, IWebHostEnvironment env)
         {
             _dbContext = dbContext;
@@ -59,7 +59,6 @@ namespace ProjectCMS.Controllers
                     }
                     return Ok(new { message = "No Idea Found!" });
             }
-
                 if (ideas.Any())
                 {
                     return Ok(await ideas.ToListAsync());

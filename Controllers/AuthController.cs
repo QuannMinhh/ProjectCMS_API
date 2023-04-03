@@ -120,7 +120,7 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env).ExportTablesToCSV();
+            int i = new FileService(_env, _configuration).ExportTablesToCSV();
             return Ok(i);
         }
         [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
