@@ -311,12 +311,12 @@ namespace ProjectCMS.Services
             }
             return 0;
         }
-        public  int ExportTablesToCSV()
+        public  int ExportTablesToCSV(string query,string tableName)
         {
             string[] tablesToSkip = { };
             using var connection = new SqlConnection("Server=DESKTOP-NPP0M4V\\HOANG;Database=Project;Trusted_Connection = True;MultipleActiveResultSets = True; TrustServerCertificate = True;Integrated Security=True");
             connection.Open();
-            string query = "select UserId,UserName,Email,Phone,DoB,Address,AddedDate,Role,Status,_departments.Name from _users Join _departments on _users.DepartmentID = _departments.DepId";
+            //string query = "select UserId,UserName,Email,Phone,DoB,Address,AddedDate,Role,Status,_departments.Name from _users Join _departments on _users.DepartmentID = _departments.DepId";
             using var command = new SqlCommand(query, connection);
             using var reader = command.ExecuteReader();
 
@@ -325,7 +325,7 @@ namespace ProjectCMS.Services
             dataTable.Load(reader);
 
             // Write the results to a CSV file
-            using var writer = new StreamWriter("users.csv");
+            using var writer = new StreamWriter(tableName+".csv");
             var header = string.Join(",", dataTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName));
             writer.WriteLine(header);
 
