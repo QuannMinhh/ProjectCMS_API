@@ -265,7 +265,7 @@ namespace ProjectCMS.Controllers
                         {
                             user.Status = "Disable";
                             await _dbContext.SaveChangesAsync();
-                            return Ok();
+                            return Ok("Disable success");
                         }
                     }
                 }
