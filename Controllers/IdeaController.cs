@@ -37,6 +37,7 @@ namespace ProjectCMS.Controllers
                             Id = i.Id,
                             Name = i.Name,
                             Content = i.Content,
+                            Anonymous = i.IsAnonymous,
                             AddedDate = i.AddedDate,
                             Vote = i.Vote,
                             Viewed= i.Viewed,
@@ -47,6 +48,7 @@ namespace ProjectCMS.Controllers
                             UserName = u.UserName,
                             Avatar = u.Avatar,
                             DepartmentName = dep.Name
+
                         };
             //user Name 
             // user avatar
@@ -81,6 +83,7 @@ namespace ProjectCMS.Controllers
                             Id = idea.Id,
                             Name = idea.Name,
                             Content = idea.Content,
+                            Anonymous = idea.IsAnonymous,
                             AddedDate = idea.AddedDate,
                             Vote = idea.Vote,
                             Viewed = idea.Viewed,
@@ -118,6 +121,7 @@ namespace ProjectCMS.Controllers
                              Id = idea.Id,
                              Name = idea.Name,
                              Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
                              AddedDate = idea.AddedDate,
                              Vote = idea.Vote,
                              Viewed = idea.Viewed,
@@ -149,6 +153,7 @@ namespace ProjectCMS.Controllers
                              Id = idea.Id,
                              Name = idea.Name,
                              Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
                              AddedDate = idea.AddedDate,
                              Vote = idea.Vote,
                              Viewed = idea.Viewed,
@@ -188,6 +193,7 @@ namespace ProjectCMS.Controllers
                              Id = idea.Id,
                              Name = idea.Name,
                              Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
                              AddedDate = idea.AddedDate,
                              Vote = idea.Vote,
                              Viewed = idea.Viewed,
@@ -220,6 +226,7 @@ namespace ProjectCMS.Controllers
                                 Id = i.Id,
                                 Name = i.Name,
                                 Content = i.Content,
+                                Anonymous = i.IsAnonymous,
                                 AddedDate = i.AddedDate,
                                 Vote = i.Vote,
                                 Viewed = i.Viewed,

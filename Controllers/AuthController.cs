@@ -120,8 +120,23 @@ namespace ProjectCMS.Controllers
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env, _configuration).ExportTablesToCSV();
-            return Ok(i);
+            string[] query = {
+                "select UserId,UserName,Email,Phone,DoB,Address,AddedDate,Role,Status,_departments.Name from _users Join _departments on _users.DepartmentID = _departments.DepId",
+                "select _idea.Id as IdeaID, _idea.Name as IdeaName, _idea.Content,_idea.AddedDate,vote,Viewed,IdeaFile,_idea.EvId as EventID, _idea.CateId as CategoryID, _events.Name as EventName, _categories.Name as Category\r\nfrom _idea join _events on _idea.EvId =_events.Id join _categories on _idea.CateId = _categories.Id join _users on _idea.UserId = _users.UserId",
+                "select CommentId,_comments.AddedDate,_comments.Content,_users.UserName,_idea.Name as IdeaName from _comments\r\nleft join _users on _comments.UserId = _users.UserId\r\nleft join _idea on _comments.IdeaId = _idea.Id"
+            };
+            
+            string[] tableName =
+            {
+                "User",
+                "Idea",
+                "comment"
+            };
+            int user = new FileService(_env, _configuration).ExportTablesToCSV(query[0], tableName[0]);
+            int Idea = new FileService(_env, _configuration).ExportTablesToCSV(query[1], tableName[1]);
+            int Comment = new FileService(_env, _configuration).ExportTablesToCSV(query[2], tableName[2]);
+
+            return Ok(1);
         }
         [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)
@@ -265,7 +280,7 @@ namespace ProjectCMS.Controllers
                         {
                             user.Status = "Disable";
                             await _dbContext.SaveChangesAsync();
-                            return Ok();
+                            return Ok("Disable success");
                         }
                     }
                 }
