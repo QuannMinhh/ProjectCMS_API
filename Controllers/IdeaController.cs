@@ -66,7 +66,7 @@ namespace ProjectCMS.Controllers
                 return Ok(new { message = "No Idea Found!" }); ;
         }
 
-        [HttpGet("byDetail")]
+        [HttpGet("byDetail/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetDetail([FromRoute] int id)
         {
