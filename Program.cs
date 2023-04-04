@@ -6,6 +6,7 @@ using ProjectCMS.Data;
 using ProjectCMS.Hub;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
+using ProjectCMS.SignalR;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,9 +38,10 @@ builder.Services.AddCors(
     {
         option.AddPolicy("AllowAll", builder =>
         {
-            builder.AllowAnyOrigin();
+            builder.WithOrigins("https://localhost:44487", "https://localhost:3000");
             builder.AllowAnyHeader();
             builder.AllowAnyMethod();
+            builder.AllowCredentials();
         });
     }
     );
@@ -47,7 +49,11 @@ builder.Services.AddCors(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<EmailService>();
-builder.Services.AddSignalR();
+builder.Services.AddSignalR(options =>
+{
+    options.EnableDetailedErrors = true;
+    options.KeepAliveInterval = TimeSpan.FromMinutes(1);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
