@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using ProjectCMS.Data;
-using ProjectCMS.Hub;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
 using ProjectCMS.SignalR;
