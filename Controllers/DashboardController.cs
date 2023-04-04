@@ -29,6 +29,7 @@ namespace ProjectCMS.Controllers
         [HttpGet("IdeaPopular")]
         public async Task<IActionResult> GetMostPopularIdea()
         {
+            //thêm người đăng + avatar
             var popularIdeas = await _dbContext._idea
                                 .Select(i => new { i.Id, i.Name, i.Vote })
                                 .OrderByDescending(i => i.Vote)
@@ -50,7 +51,6 @@ namespace ProjectCMS.Controllers
                 };
                 ideaPerCate.Add(newIpC);
             }
-
             return Ok(ideaPerCate);
         }
 

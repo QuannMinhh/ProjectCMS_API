@@ -10,6 +10,7 @@ namespace ProjectCMS.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
+        public bool IsAnonymous { get; set; }
         public DateTime AddedDate { get; set; }
         public int Vote { get; set; }
         public int Viewed { get; set; }  

@@ -114,13 +114,13 @@ namespace ProjectCMS.Controllers
         [Route("Download/{directoryName}")]
         public async Task<IActionResult> DownloadFile([FromRoute]string directoryName)
         {
-            var (fileType,bytes,fileName) = new FileService(_env).DownloadZip(directoryName);
+            var (fileType,bytes,fileName) = new FileService(_env, _configuration).DownloadZip(directoryName);
             return File(bytes,fileType,fileName);
         }
         [HttpGet("DownloadCSV"),AllowAnonymous]
         public async Task<IActionResult> DownloadCSV()
         {
-            int i = new FileService(_env).ExportTablesToCSV();
+            int i = new FileService(_env, _configuration).ExportTablesToCSV();
             return Ok(i);
         }
         [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]

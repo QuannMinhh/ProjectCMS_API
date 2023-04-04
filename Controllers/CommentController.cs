@@ -27,14 +27,27 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetAllComments([FromRoute] int id, string? sort)
         {
-            var comments =  _dbContext._comments.Where(x => x.IdeaId == id); 
+            //var comments =  _dbContext._comments.Where(x => x.IdeaId == id); 
+            var comments = from cmt in _dbContext._comments
+                           join user in _dbContext._users on cmt.UserId equals user.UserId
+                           where cmt.IdeaId == id
+                           select new
+                           {
+                               CommentId = cmt.CommentId,
+                               UserId = user.UserId,
+                               IdeaId = cmt.IdeaId,
+                               AddedDate = cmt.AddedDate,
+                               Content = cmt.Content,
+                               UserName = user.UserName,
+                               UserAvatar = user.Avatar
+                           };
             if (comments.Any())
             {
                 if (!sort.IsNullOrEmpty())
                     return Ok(await comments.OrderByDescending(x => x.AddedDate).ToListAsync());
-                return Ok(comments);
+                return Ok(await comments.OrderBy(x => x.AddedDate).ToListAsync());
             }
-            return NotFound(new {message = "This idea has no comment !"});
+            return Ok(new {message = "This idea has no comment !"});
         }
 
         // Add a comment
@@ -53,9 +66,9 @@ namespace ProjectCMS.Controllers
                     await _dbContext._comments.AddAsync(newComment);
                     await _dbContext.SaveChangesAsync();
 
-                    NewCommentNofity(comment.UserId, comment.IdeaId);
+                   await NewCommentNofity(comment.UserId, comment.IdeaId);
 
-                    return Ok(await _dbContext._comments.Where(x => x.IdeaId == comment.IdeaId).ToListAsync());
+                    return Ok();
                 }
             return BadRequest(new {message = "Some value is not valid. Please retype the value." }); 
          }
@@ -73,7 +86,7 @@ namespace ProjectCMS.Controllers
                 await _dbContext.SaveChangesAsync();
                 return Ok(await _dbContext._comments.ToListAsync());
             }
-            return NotFound(new {message = "Comment does not exist." });
+            return Ok(new {message = "Comment does not exist." });
         }
 
 
@@ -93,7 +106,7 @@ namespace ProjectCMS.Controllers
                 }
                 return BadRequest(new {message = "Some value is not valid. Please retype the value." });
             }
-            return NotFound(new {message = "Comment does not exist." });
+            return Ok(new {message = "Comment does not exist." });
         }
 
         private async Task NewCommentNofity(int idUser, int idIdea)
@@ -123,14 +136,7 @@ namespace ProjectCMS.Controllers
         //        return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database");
         //    }
         //}
-
-        
-              
- 
-
-
-
-
+   
     }
 }
 
