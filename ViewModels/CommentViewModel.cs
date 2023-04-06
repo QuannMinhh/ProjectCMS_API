@@ -11,5 +11,7 @@ namespace ProjectCMS.ViewModels
         [Required]
         [MinLength(1, ErrorMessage= "Content must have at least one character"), MaxLength(50, ErrorMessage = "Content must be less than 50 characters")]
         public string Content { get; set; }
+
+        public bool IsAnonymous { get; set; }
     }
 }

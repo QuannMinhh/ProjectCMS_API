@@ -61,6 +61,7 @@ namespace ProjectCMS.Controllers
                         Content = comment.Content,
                         IdeaId = comment.IdeaId,
                         UserId = comment.UserId,
+                        IsAnonymous = comment.IsAnonymous,
                         AddedDate = DateTime.Now
                     };
                     await _dbContext._comments.AddAsync(newComment);
