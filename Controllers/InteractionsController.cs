@@ -11,6 +11,15 @@ using System.Text.Json.Serialization;
 
 namespace ProjectCMS.Controllers
 {
+    public class InteracResult
+    {
+        public int InteracId { get; set; }
+        public int UserId { get; set; }
+        public int IdeaId { get; set; }
+        public bool Voted { get; set; }
+        public bool Viewed { get; set; }
+        public bool Vote { get; set; }
+    }
     [Route("api/interactions")]
     [ApiController]
     [Authorize]
@@ -27,12 +36,12 @@ namespace ProjectCMS.Controllers
         {
             if(ModelState.IsValid)
             {
-                var interac = (from i in _dbContext._interactions select i)
-                    .Where(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId);
+                var interac = await (from i in _dbContext._interactions select i)
+                    .FirstOrDefaultAsync(s => s.UserId == interactions.UserId && s.IdeaId == interactions.IdeaId);
 
-                if (interac.Any())
+                if (interac != null)
                 {
-                    return Ok(await interac.ToListAsync());
+                    return Ok(interac);
                 }
                 else
                 {
@@ -52,18 +61,21 @@ namespace ProjectCMS.Controllers
                             Voted = false,
                             Viewed = true,
                             Vote = false,
-                            Idea = null
 
                         };                      
                         await _dbContext._interactions.AddAsync(newInterac);
                         await _dbContext.SaveChangesAsync();
-                        var options = new JsonSerializerOptions
+                        
+                        InteracResult result = new InteracResult
                         {
-                            ReferenceHandler = ReferenceHandler.Preserve,               
-                            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+                            InteracId = newInterac.InteracId,
+                            UserId = newInterac.UserId,
+                            IdeaId = newInterac.IdeaId,
+                            Voted = false,
+                            Viewed = true,
+                            Vote = false
                         };
-                        var json = JsonSerializer.Serialize(newInterac, options);
-                        return Ok(json);
+                        return Ok(result);
                     }
                     return BadRequest();
                 }

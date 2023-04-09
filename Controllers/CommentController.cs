@@ -47,7 +47,7 @@ namespace ProjectCMS.Controllers
                     return Ok(await comments.OrderByDescending(x => x.AddedDate).ToListAsync());
                 return Ok(await comments.OrderBy(x => x.AddedDate).ToListAsync());
             }
-            return Ok(new {message = "This idea has no comment !"});
+            return Ok(comments);
         }
 
         // Add a comment
@@ -61,6 +61,7 @@ namespace ProjectCMS.Controllers
                         Content = comment.Content,
                         IdeaId = comment.IdeaId,
                         UserId = comment.UserId,
+                        IsAnonymous = comment.IsAnonymous,
                         AddedDate = DateTime.Now
                     };
                     await _dbContext._comments.AddAsync(newComment);

@@ -37,10 +37,10 @@ builder.Services.AddCors(
     {
         option.AddPolicy("AllowAll", builder =>
         {
-            builder.WithOrigins("https://localhost:44487", "https://localhost:3000");
+            builder.AllowAnyOrigin();
             builder.AllowAnyHeader();
             builder.AllowAnyMethod();
-            builder.AllowCredentials();
+            //
         });
     }
     );
@@ -73,10 +73,10 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<CountUserHub>("/CountUserHub");
-});
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapHub<CountUserHub>("/CountUserHub");
+//});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
