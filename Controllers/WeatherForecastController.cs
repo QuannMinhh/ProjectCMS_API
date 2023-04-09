@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectCMS.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/testAuth")]
     public class WeatherForecastController : ControllerBase
