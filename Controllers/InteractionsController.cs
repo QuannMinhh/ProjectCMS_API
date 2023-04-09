@@ -65,12 +65,7 @@ namespace ProjectCMS.Controllers
                         };                      
                         await _dbContext._interactions.AddAsync(newInterac);
                         await _dbContext.SaveChangesAsync();
-                        /*var options = new JsonSerializerOptions
-                        {
-                            ReferenceHandler = ReferenceHandler.Preserve,               
-                            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-                        };
-                        var json = JsonSerializer.Serialize(newInterac, options);*/
+                        
                         InteracResult result = new InteracResult
                         {
                             InteracId = newInterac.InteracId,
