@@ -19,5 +19,8 @@ namespace ProjectCMS.Models
         public DateTime AddedDate { get; set; }
 
         public string Content { get; set; }
+
+        public bool IsAnonymous { get; set; }
+
     }
 }
