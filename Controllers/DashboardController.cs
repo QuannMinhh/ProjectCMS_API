@@ -66,27 +66,15 @@ namespace ProjectCMS.Controllers
                 List<IdeaPerDep> ideaPerDeps = new List<IdeaPerDep>();
                 foreach (var d in dep)
                 {
-                    var ideas = from department in _dbContext._departments
-                               join users in _dbContext._users on department.DepId equals users.DepartmentID
-                               join idea in _dbContext._idea on users.UserId equals idea.UserId
-                               where d.DepId == department.DepId && y == idea.AddedDate.Year  
-                               select new
-                               {
-                                   Id = idea.Id,
-                               };
-                   
-                    ideaPerDeps.Add(new IdeaPerDep { DepName = d.Name , Ideas = ideas.Count()})  ;
-                }
-               
+                    var ideas =  _dbContext._idea.Count(idea => idea.User.DepartmentID == d.DepId && idea.AddedDate.Year == y);                  
+                    ideaPerDeps.Add(new IdeaPerDep { DepName = d.Name , Ideas = ideas})  ;
+                }             
                 results.Add(new Result
                 {
                     Year = y,
                     iderPerDeps = ideaPerDeps
                 });
-            }
-
-
-           
+            } 
             return Ok(results.ToList());
         }
 
