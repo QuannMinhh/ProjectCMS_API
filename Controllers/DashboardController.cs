@@ -89,17 +89,30 @@ namespace ProjectCMS.Controllers
            
             return Ok(results.ToList());
         }
-        //
-        //[HttpGet("Contributor")]
-        //public async Task<IActionResult> Contributor()
-        //{
-        //    var deps = await _dbContext._departments.ToListAsync();
 
-        //    foreach (var d in deps)
-        //    {
-        //        var users = from user in _dbContext._users where user.DepartmentID == d.DepId                        
-        //    }
-        //}
+        [HttpGet("Contributor")]
+        public async Task<IActionResult> Contributor()
+        {
+            List<Result2> results = new List<Result2>();
+            var deps = await _dbContext._departments.ToListAsync();
+
+            foreach (var d in deps)
+            {
+                List<IdeaPerUser> ideaPerUsers= new List<IdeaPerUser>();
+                var users = await _dbContext._users.Where(user => user.DepartmentID == d.DepId).ToListAsync();
+                foreach(var u in users)
+                {
+                    var ideas = (await _dbContext._idea.Where(idea => idea.UserId == u.UserId).ToListAsync()).Count();
+                    ideaPerUsers.Add(new IdeaPerUser { UserName = u.UserName, Ideas = ideas});
+                }
+                results.Add(new Result2
+                {
+                    Department = d.Name,
+                    iderPerUsers = ideaPerUsers
+                }) ;
+            }
+            return Ok(results);
+        }
     }
     public class Result
     {
@@ -111,9 +124,15 @@ namespace ProjectCMS.Controllers
         public string DepName { get; set; }
         public int Ideas { get; set; }
     }
+    public class Result2
+    {
+        public string Department { get; set; }
+        public List<IdeaPerUser> iderPerUsers { get; set; }
+    }
 
     public class IdeaPerUser
     {
         public string UserName { get; set; }
+        public int Ideas { get; set;}
     }
 }
