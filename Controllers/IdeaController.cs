@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Scripting.Utils;
+using Org.BouncyCastle.Crypto;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
-using System;
+using System.Linq;
 
 namespace ProjectCMS.Controllers
 {
@@ -185,65 +186,70 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetByDepartment([FromRoute] int id)
         {
-            var byDep = from idea in _dbContext._idea
-                         join user in _dbContext._users on idea.UserId equals user.UserId
-                         join cate in _dbContext._categories on idea.EvId equals cate.Id
-                         join evt in _dbContext._events on idea.EvId equals evt.Id
-                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
-                         where user.DepartmentID == id
-                         select new
-                         {
-                             Id = idea.Id,
-                             Name = idea.Name,
-                             Content = idea.Content,
-                             Anonymous = idea.IsAnonymous,
-                             AddedDate = idea.AddedDate,
-                             Vote = idea.Vote,
-                             Viewed = idea.Viewed,
-                             IdeaFile = idea.IdeaFile,
-                             EvId = idea.EvId,
-                             CateId = idea.CateId,
-                             UserName = user.UserName,
-                             Avatar = user.Avatar,
-                             EventName = evt.Name,
-                             EventFirstClosure = evt.First_Closure,
-                             EventLastClosure = evt.Last_Closure,
-                             CategoryName = cate.Name,
-                             DepartmentName = dep.Name
-                         };
-            return Ok(await byDep.ToListAsync());
+
+            //var byDep = await _dbContext._idea
+            //    .Where(i => i.User.DepartmentID == id)       
+            //    .ToListAsync();
+            var result = await (from user in _dbContext._users
+                    where user.DepartmentID == id
+                    join idea in _dbContext._idea on user.UserId equals idea.UserId into userIdeas
+                    from userIdea in userIdeas.DefaultIfEmpty()
+                    join evt in _dbContext._events on userIdea.EvId equals evt.Id
+                    join cate in _dbContext._categories on userIdea.CateId equals cate.Id
+                    join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                    select new
+                    {
+                        Id = userIdea.Id,
+                        Name = userIdea.Name,
+                        Content = userIdea.Content,
+                        IsAnonymous = userIdea.IsAnonymous,
+                        AddedDate = userIdea.AddedDate,
+                        Vote = userIdea.Vote,
+                        Viewed = userIdea.Viewed,
+                        IdeaFile = userIdea.IdeaFile,
+                        EvId = userIdea.EvId,
+                        CateId = userIdea.CateId,
+                        UserName = user.UserName,
+                        Avatar = user.Avatar,
+                        EventName = evt.Name,
+                        EventFirstClosure = evt.First_Closure,
+                        EventLastClosure = evt.Last_Closure,
+                        CategoryName = cate.Name,
+                        DepartmentName = dep.Name
+                    }).ToListAsync();
+            return Ok(result);
         }
         [HttpGet("byCategory/{id}")]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByCate([FromRoute] int id)
         {
-            var byCate = from idea in _dbContext._idea
-                         join user in _dbContext._users on idea.UserId equals user.UserId
-                         join cate in _dbContext._categories on idea.EvId equals cate.Id
-                         join evt in _dbContext._events on idea.EvId equals evt.Id
-                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
-                         where idea.CateId == id
-                         select new
-                         {
-                             Id = idea.Id,
-                             Name = idea.Name,
-                             Content = idea.Content,
-                             Anonymous = idea.IsAnonymous,
-                             AddedDate = idea.AddedDate,
-                             Vote = idea.Vote,
-                             Viewed = idea.Viewed,
-                             IdeaFile = idea.IdeaFile,
-                             EvId = idea.EvId,
-                             CateId = idea.CateId,
-                             UserName = user.UserName,
-                             Avatar = user.Avatar,
-                             EventName = evt.Name,
-                             EventFirstClosure = evt.First_Closure,
-                             EventLastClosure = evt.Last_Closure,
-                             CategoryName = cate.Name,
-                             DepartmentName = dep.Name
-                         };
-            return Ok(await byCate.ToListAsync());
+            var result = await (from user in _dbContext._users
+                                join idea in _dbContext._idea on user.UserId equals idea.UserId
+                                join evt in _dbContext._events on idea.EvId equals evt.Id
+                                join cate in _dbContext._categories on idea.CateId equals cate.Id
+                                join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                                where cate.Id == id
+                                select new
+                                {
+                                    Id = idea.Id,
+                                    Name = idea.Name,
+                                    Content = idea.Content,
+                                    IsAnonymous = idea.IsAnonymous,
+                                    AddedDate = idea.AddedDate,
+                                    Vote = idea.Vote,
+                                    Viewed = idea.Viewed,
+                                    IdeaFile = idea.IdeaFile,
+                                    EvId = idea.EvId,
+                                    CateId = idea.CateId,
+                                    UserName = user.UserName,
+                                    Avatar = user.Avatar,
+                                    EventName = evt.Name,
+                                    EventFirstClosure = evt.First_Closure,
+                                    EventLastClosure = evt.Last_Closure,
+                                    CategoryName = cate.Name,
+                                    DepartmentName = dep.Name
+                                }).ToListAsync();
+            return Ok(result);
         }
 
         [HttpGet("sort")]

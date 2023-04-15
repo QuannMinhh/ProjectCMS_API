@@ -39,7 +39,8 @@ namespace ProjectCMS.Controllers
                                AddedDate = cmt.AddedDate,
                                Content = cmt.Content,
                                UserName = user.UserName,
-                               UserAvatar = user.Avatar
+                               UserAvatar = user.Avatar,
+                               Annonymous = cmt.IsAnonymous
                            };
             if (comments.Any())
             {
