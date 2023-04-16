@@ -234,4 +234,6 @@ _Pvt_Extensions
 /Migrations
 Services/EmailService.cs
 Migrations/ApplicationDbContextModelSnapshot.cs
+*/Migrations/ApplicationDbContextModelSnapshot.cs
+ApplicationDbContextModelSnapshot.cs
 
