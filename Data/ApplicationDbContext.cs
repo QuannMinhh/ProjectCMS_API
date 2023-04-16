@@ -151,14 +151,14 @@ namespace ProjectCMS.Data
 
                 }
                 );
-            for(int i = 4 ; i < 15; i++) {
+            for(int i = 4 ; i < 25; i++) {
                 builder.Entity<User>().HasData
                 (
                 new User
                 {
                     UserId = i,
-                    UserName = "Staff0" + i.ToString(),
-                    Email = "staff0"+i.ToString()+"@fpt.edu.vn",
+                    UserName = i < 10 ? "Staff0" + i.ToString() : "Staff" + i.ToString(),
+                    Email = i < 10 ? "staff0" + i.ToString()+"@fpt.edu.vn" : "staff" + i.ToString() + "@fpt.edu.vn",
                     DepartmentID = random.Next(1,4),
                     PasswordHash = passwordHash,
                     PasswordSalt = passwordSalt,
@@ -248,7 +248,7 @@ namespace ProjectCMS.Data
         private void SeedIdea(ModelBuilder builder)
         {
             Random random = new Random();
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 30; i++)
             {
                 builder.Entity<Idea>().HasData
                     (
@@ -263,12 +263,12 @@ namespace ProjectCMS.Data
                         Viewed = random.Next(1, 15),
                         IdeaFile = "Bang TN.pdf",
                         EvId = 1,
-                        CateId= random.Next(1,4),
-                        UserId = random.Next(4, 15),
+                        CateId= random.Next(1,5),
+                        UserId = random.Next(4, 25),
                     }
                     );
             }
-            for (int i = 11; i <= 20; i++)
+            for (int i = 31; i <= 70; i++)
             {
                 builder.Entity<Idea>().HasData
                     (
@@ -283,12 +283,12 @@ namespace ProjectCMS.Data
                         Viewed = random.Next(1, 15),
                         IdeaFile = "Bang TN.pdf",
                         EvId = 2,
-                        CateId = random.Next(1, 4),
-                        UserId = random.Next(4, 15),
+                        CateId = random.Next(1, 5),
+                        UserId = random.Next(4, 25),
                     }
                     );
             }
-            for (int i = 21; i <= 30; i++)
+            for (int i = 71; i <= 170; i++)
             {
                 builder.Entity<Idea>().HasData
                     (
@@ -303,12 +303,12 @@ namespace ProjectCMS.Data
                         Viewed = random.Next(1, 15),
                         IdeaFile = "Bang TN.pdf",
                         EvId = 3,
-                        CateId = random.Next(1, 4),
-                        UserId = random.Next(4, 15),
+                        CateId = random.Next(1, 5),
+                        UserId = random.Next(4, 25),
                     }
                     );
             }
-            for (int i = 31; i <= 40; i++)
+            for (int i = 171; i <= 230; i++)
             {
                 builder.Entity<Idea>().HasData
                     (
@@ -323,8 +323,8 @@ namespace ProjectCMS.Data
                         Viewed = random.Next(1, 15),
                         IdeaFile = "Bang TN.pdf",
                         EvId = 4,
-                        CateId = random.Next(1, 4),
-                        UserId = random.Next(4, 15),
+                        CateId = random.Next(1, 5),
+                        UserId = random.Next(4, 25),
                     }
                     );
             }
