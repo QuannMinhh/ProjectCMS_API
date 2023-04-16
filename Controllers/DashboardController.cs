@@ -86,21 +86,19 @@ namespace ProjectCMS.Controllers
 
             foreach (var d in deps)
             {
-                List<IdeaPerUser> ideaPerUsers= new List<IdeaPerUser>();
-                var users = await _dbContext._users.Where(user => user.DepartmentID == d.DepId).ToListAsync();
-                foreach(var u in users)
-                {
-                    var ideas = (await _dbContext._idea.Where(idea => idea.UserId == u.UserId).ToListAsync()).Count();
-                    ideaPerUsers.Add(new IdeaPerUser { UserName = u.UserName, Ideas = ideas});
-                }
+                
+                var users =  _dbContext._users.Count(user => user.DepartmentID == d.DepId);
+                var ideas = _dbContext._idea.Count(idea => idea.User.DepartmentID == d.DepId);
+                IdeaUser ideaUser = new IdeaUser { Users = users, Ideas = ideas };
                 results.Add(new Result2
                 {
                     Department = d.Name,
-                    iderPerUsers = ideaPerUsers
+                    iderPerUsers = ideaUser
                 }) ;
             }
             return Ok(results);
         }
+        
     }
     public class Result
     {
@@ -115,12 +113,12 @@ namespace ProjectCMS.Controllers
     public class Result2
     {
         public string Department { get; set; }
-        public List<IdeaPerUser> iderPerUsers { get; set; }
+        public IdeaUser iderPerUsers { get; set; }
     }
 
-    public class IdeaPerUser
+    public class IdeaUser
     {
-        public string UserName { get; set; }
+        public int Users { get; set; }
         public int Ideas { get; set;}
     }
 }
