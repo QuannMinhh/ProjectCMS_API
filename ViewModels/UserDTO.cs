@@ -6,7 +6,7 @@ namespace ProjectCMS.ViewModels
     {
         public int? UserId { get; set; }
         [Required]
-        [MinLength(5, ErrorMessage = "Username must more than 3 characters"), MaxLength(20, ErrorMessage = "Username must less than 20 characters ")]
+        [MinLength(5, ErrorMessage = "Username must more than 5 characters"), MaxLength(20, ErrorMessage = "Username must less than 20 characters ")]
 
         public string UserName { get; set; }
         [Required]
