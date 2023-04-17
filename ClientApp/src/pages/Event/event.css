@@ -1,0 +1,214 @@
+small{
+    display: block;
+}
+.table-responsive{
+    overflow-x: hidden;
+}
+.create, .edit{
+    max-width: 100%;
+}
+
+.modalEvent{
+    --growth-from:0.7;
+    --growth-to:1;
+    margin: auto;
+    background-color: white;
+    border-radius: .5rem;
+    width: 40%;
+    height: 70%;
+    display: flex;
+    animation: growth linear 0.1s;
+    z-index: 999;
+}
+.createFormEvent_Select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.createFormEvent{
+    padding: 30px 32px;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btnForm{
+    margin-top: 60px;
+}
+.createFormEvent_Header{
+    margin-bottom: 2rem;
+}
+
+.tableAdmin{
+    padding-top: 2rem;
+    /* margin-top: 150px; */
+}
+
+.tableAdmin .card {
+    height: 95%;
+    padding-top: 1rem;
+}
+
+button.btn.btn-danger.mb-2{
+    margin-left: 2%;
+}
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+
+
+/*event responsive tablet*/
+@media screen and ((max-width:1150px) and (min-width:820px)){
+    /*table*/
+    div.myExp_card__fOcsb.card{
+        width:120%; 
+        margin-left: -70px;
+        display: block;
+    }
+
+    /*Modal*/
+    .modalEvent{
+        margin: 100px 40px 0 0px;
+        width:65%;
+        height:40%;
+    }
+
+
+    /*List ideas*/
+    div.card{
+        width: 120%;
+        margin:20px 0 0 -70px ;
+    }
+    
+
+}
+
+
+/*event responsive mobile*/
+@media screen and (max-width:845px){
+    .media-body h5{
+        padding-top: 10px;
+    }
+
+    .page-title{
+        margin-right: -50px;
+        width: 100%;
+    }
+
+    button.btn.btn-danger.mb-2{
+        margin-left: -50px;
+    }
+
+    div.Exp{
+        width: 63%;
+        margin: 40px 0 0 60px;
+        display: none;
+    }
+
+    /*Table*/
+    div.myExp_card__fOcsb.card{
+        width:135%; 
+        margin-left: -50px;
+        margin-top:-30px;
+        padding-right: 12px;
+    }
+
+    th{
+        font-size: 9px;
+    }
+
+    td{
+        font-size: 9px;
+    }
+
+    div.page-title-box{
+        display: block;
+    }
+
+    div.card-body{
+        margin-left: -15px;
+    }
+
+    div.table-responsive{
+        margin-top:-15px;
+        margin-left: -12px;
+        width: 110%;
+    }
+
+    /* Event modal*/
+    .modalEvent{
+        margin: 100px 40px 0 10px;
+        width:95%;
+        height:55%; 
+    }
+
+    div.createFormEvent{
+        width: 98%;
+    }
+
+    .createFormEvent_Header h1{
+        width: 90%;
+    }
+
+    .First-closureDate span{ 
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .First-closureDate input{ 
+        width: 55%;
+        margin:0 15px 0 5px;
+    }
+
+    .Last-closureDate span{
+        margin-left: -115px;
+        font-size: 12px;
+    }
+
+    .Last-closureDate input{
+        margin-left: -71px;  
+        width: 85%;
+    }
+
+    /* button.btn.btn-success{
+        margin-top: -610px;
+        height: 50%;
+    }   */
+
+    div.btnForm{
+        margin-top: 20px;
+    }
+    
+    /*List ideas*/
+    div.tableListIdea{
+        width: 140%;
+        margin:-40px 0 0 -30px ;
+    }
+
+    /*event idea card*/
+    div.row{
+        display: block;
+    }
+
+    div.col-4{
+        width: 100%;
+    }
+
+
+}

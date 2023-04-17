@@ -1,0 +1,9 @@
+.SortMenu{
+   justify-content:space-between;
+   display: flex;
+   margin-bottom: 20px;
+}
+
+@media screen and (max-width:819px){
+   
+}

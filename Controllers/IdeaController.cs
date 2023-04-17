@@ -386,6 +386,7 @@ namespace ProjectCMS.Controllers
             return NotFound();
         }
         [HttpGet("download/{filename}")]
+        [AllowAnonymous]
         [Route("filename:string")]
 
         public async Task<IActionResult> DownloadFile(string filename)

@@ -1,0 +1,55 @@
+/* All document */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  /* background-color: #e1e4ea !important; */
+  background-color: rgb(86, 216, 228, 1)!important;
+}
+.App, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea {
+  /* position: relative */
+  width: 100%;
+  height: 100vh;
+  background-image: url('./images/TruongTao.png');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+#NewFeedBackG, #userProfile, #dashBoard{
+  width: 100%;
+  background-image: url('./images/TruongTao.png');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+body a{
+  text-decoration: none;
+}
+.modalOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.3);
+  z-index: 2;
+}
+.create, .edit{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 0!important;
+}
+.container-fluid{
+  max-width: 80%;
+}
+.container {
+  max-width: 50%;
+}
