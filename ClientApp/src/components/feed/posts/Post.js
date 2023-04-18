@@ -25,11 +25,8 @@ function Post({ dataIdea }) {
   }
 
   const handleDetail = (id) => {
-    console.log(id);
     navigate("/DetailIdea", { state: { ideaId: id } });
   };
-
-  console.log(dataIdea);
   return (
     <>
       {currenItems.map((dataIdea) => {

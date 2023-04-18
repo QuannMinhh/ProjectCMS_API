@@ -74,8 +74,6 @@ function CreateIdea({ token, readOnly, dataUser }) {
     formData.append("eId", eventId);
     formData.append("uId", dataUser.userId);
     formData.append("IsAnonymous", anonymous);
-
-    console.log(anonymous);
     fetch(apiIdea, {
       method: "POST",
       headers: {
