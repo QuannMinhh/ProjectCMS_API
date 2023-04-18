@@ -8,6 +8,7 @@ import ChangePassword from "../../components/authentication/ChangePassword"
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
+  console.log(setDataUser)
   const [fileAvatarInDb, setFileAvatarInDb] = useState(dataUser.avatar);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
@@ -34,6 +35,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
     e.preventDefault();
 
     const fileAvaFormat = fileAvatarInDb.substring(8);
+    console.log(fileAvaFormat);
 
     const formEdit = new FormData();
     formEdit.append("password", currentPassword);

@@ -67,6 +67,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
       firstClosure.getTime() + 7 * 24 * 60 * 60 * 1000 + 7 * 60 * 60 * 1000
     );
     let formattedDate = sevenDay.toISOString().slice(0, 16);
+    console.log(formattedDate);
     setLast_Closure(formattedDate);
   }
 

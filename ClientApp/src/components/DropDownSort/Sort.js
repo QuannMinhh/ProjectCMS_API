@@ -110,6 +110,8 @@ function Sort({ token, setDataIdea }) {
     const isCategory = items[1].children.some((item) => item.key === key);
 
     if (isDepartment) {
+      console.log("Selected department:", key.substring(4, 5));
+
       // Call API to get ideas by department
       fetch(apiIdeaByDepartment + "/" + key.substring(4, 5), {
         headers: { Authorization: `Bearer ${token}` },
@@ -128,6 +130,7 @@ function Sort({ token, setDataIdea }) {
           console.log(err);
         });
     } else if (isCategory) {
+      console.log("Selected category:", key.substring(5, 6));
       // Call API to get ideas by category
       fetch(apiIdeaByCategory + "/" + key.substring(5, 6), {
         headers: { Authorization: `Bearer ${token}` },

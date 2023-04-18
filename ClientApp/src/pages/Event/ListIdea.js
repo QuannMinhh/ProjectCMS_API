@@ -34,6 +34,7 @@ function ListIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setDataIdea(data);
       })
       .catch(() => {

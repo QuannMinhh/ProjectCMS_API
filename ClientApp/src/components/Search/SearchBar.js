@@ -7,6 +7,7 @@ function SearchBar({ token, setDataIdea }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log("log", apiIdea);
     fetch(apiIdea + "?searchString=" + searchInput, {
       headers: { Authorization: `Bearer ${token}` },
     })

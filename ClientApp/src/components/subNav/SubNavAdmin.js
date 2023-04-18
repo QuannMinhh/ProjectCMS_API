@@ -9,6 +9,11 @@ function SubNavAdmin() {
       >
         <div className="container-fluid">
           <ul className="navbar-nav">
+            {/* <li className="subNav-item">
+              <Link className="nav-link" to="/DashBoard">
+                Dashboard
+              </Link>
+            </li> */}
             <li className="subNav-item">
               <Link className="nav-link" to="/">
                 Home

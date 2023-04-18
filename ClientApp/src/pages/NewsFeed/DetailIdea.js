@@ -155,6 +155,9 @@ function DetailIdea({ token }) {
       window.location.href,
       apiIdeaDownload + "/" + fileName
     );
+    // fetch(apiIdeaDownload + "/" + fileName, {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // }).catch(() => console.log("eo dc"));
   };
 
   return (

@@ -6,6 +6,7 @@ import React from "react";
 import {
   apiCount,
   apiDownloadCSV,
+  apiExportCSV,
   apiIdeaContributor,
   apiIdeaPerCate,
   apiIdeaPerYear,
@@ -46,7 +47,7 @@ function DashBoard({ token }) {
       .then((number) => {
         setNumberOf(number);
       })
-      .catch(() => setNumberOf(0));
+      .catch(() => console.log("Hoc toan ngu"));
   }, [token]);
 
   //Stacked bar chart
@@ -61,7 +62,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setIdeaPerYear(data);
       })
-      .catch(() => setIdeaPerYear([]));
+      .catch(() => console.log("chet ở idea per year"));
   }, [token]);
 
   useEffect(() => {
@@ -101,7 +102,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setIdeaPerCate(data);
       })
-      .catch(() => setIdeaPerCate([]));
+      .catch(() => console.log("api ideaPerCate"));
   }, [token]);
 
   useEffect(() => {
@@ -137,7 +138,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setContributor(data);
       })
-      .catch(() => setContributor([]));
+      .catch(() => console.log("api ideaPerCate"));
   }, [token]);
 
   useEffect(() => {
@@ -170,7 +171,19 @@ function DashBoard({ token }) {
     }
   }, [contributor]);
 
-  const handleDownloadCSV = () => {
+    const ExportCSV = () => {
+        const currentHref = window.location.href;
+        window.location.href = window.location.href.replace(
+            window.location.href,
+            apiExportCSV
+        );
+        window.location.href = window.location.href.replace(
+            window.location.href,
+            currentHref
+        );
+    };
+
+  const DownloadCSV = () => {
     window.location.href = window.location.href.replace(
       window.location.href,
       apiDownloadCSV
@@ -180,7 +193,10 @@ function DashBoard({ token }) {
   return (
     <div id="dashBoard">
       <div className={`${Style.dash_board} container-fluid  `}>
-        <button onClick={handleDownloadCSV} className="btn btn-success mb-4 mt-4">DownloadCSV</button>
+        {/* <div className="mb-4 "> */}
+          <button onClick={ExportCSV} className="btn btn-success mb-4 mt-4">ExportCSV</button>
+          <button onClick={DownloadCSV} className="btn btn-primary mb-4 mt-4">DownloadCSV</button>
+        {/* </div> */}
         <div className="row">
           <div className="col-3">
             <div className="mb-3">

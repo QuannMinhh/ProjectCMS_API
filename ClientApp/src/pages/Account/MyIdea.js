@@ -7,6 +7,7 @@ function MyIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
   const user = useContext(UserContext);
   const userId = user.userId;
+  console.log(userId);
   useEffect(() => {
     fetch(apiIdeaByUser + "/" + userId, {
       headers: { Authorization: `Bearer ${token}` },
