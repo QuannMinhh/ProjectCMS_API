@@ -68,7 +68,7 @@ namespace ProjectCMS.Controllers
                     await _dbContext._comments.AddAsync(newComment);
                     await _dbContext.SaveChangesAsync();
 
-                   await NewCommentNofity(comment.UserId, comment.IdeaId);
+                   await NewCommentNofity(comment.UserId, comment.IdeaId, comment.Content);
 
                     return Ok();
                 }
@@ -111,13 +111,13 @@ namespace ProjectCMS.Controllers
             return Ok(new {message = "Comment does not exist." });
         }
 
-        private async Task NewCommentNofity(int idUser, int idIdea)
+        private async Task NewCommentNofity(int idUser, int idIdea, string content)
         {
             var sender = await _dbContext._users.FindAsync(idUser);
             var ownerIdea = (await _dbContext._idea.FindAsync(idIdea)).UserId;
             var owerEmail = (await _dbContext._users.FindAsync(ownerIdea)).Email;
-
-            _emailService.NewCommentNotify(sender.UserName, owerEmail);
+            var ideaName = (await _dbContext._idea.FindAsync(idIdea)).Name;
+            _emailService.NewCommentNotify(sender.UserName, owerEmail, ideaName, content);
 
             return;
         }

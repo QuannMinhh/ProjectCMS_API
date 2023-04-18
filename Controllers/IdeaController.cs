@@ -62,13 +62,13 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return Ok(await ideas.ToListAsync());
+                    return Ok(await ideas.OrderByDescending(s => s.AddedDate).ToListAsync());
             }
                 if (ideas.Any())
                 {
-                    return Ok(await ideas.ToListAsync());
+                    return Ok(await ideas.OrderByDescending(s => s.AddedDate).ToListAsync());
                 }
-                return Ok(await ideas.ToListAsync()); ;
+                return Ok(await ideas.OrderByDescending(s => s.AddedDate).ToListAsync()); ;
         }
 
         [HttpGet("byDetail/{id}")]
