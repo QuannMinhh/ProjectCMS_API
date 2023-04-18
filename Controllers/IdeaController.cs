@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Scripting.Utils;
 using ProjectCMS.Data;
 using ProjectCMS.Models;
 using ProjectCMS.Services;
 using ProjectCMS.ViewModels;
+using System;
 
 namespace ProjectCMS.Controllers
 {
@@ -37,6 +39,7 @@ namespace ProjectCMS.Controllers
                             Id = i.Id,
                             Name = i.Name,
                             Content = i.Content,
+                            Anonymous = i.IsAnonymous,
                             AddedDate = i.AddedDate,
                             Vote = i.Vote,
                             Viewed= i.Viewed,
@@ -47,6 +50,7 @@ namespace ProjectCMS.Controllers
                             UserName = u.UserName,
                             Avatar = u.Avatar,
                             DepartmentName = dep.Name
+
                         };
             //user Name 
             // user avatar
@@ -78,13 +82,16 @@ namespace ProjectCMS.Controllers
                         where idea.Id == id 
                         select new
                         {
-                            IdeaId = idea.Id,
-                            IdeaName = idea.Name,
-                            IdeaContent = idea.Content,
-                            IdeaAddedDate = idea.AddedDate,
-                            IdeaVote = idea.Vote,
-                            IdeaViewed = idea.Viewed,
+                            Id = idea.Id,
+                            Name = idea.Name,
+                            Content = idea.Content,
+                            Anonymous = idea.IsAnonymous,
+                            AddedDate = idea.AddedDate,
+                            Vote = idea.Vote,
+                            Viewed = idea.Viewed,
                             IdeaFile = idea.IdeaFile,
+                            EvId = idea.EvId,
+                            CateId = idea.CateId,
                             UserName = user.UserName,
                             Avatar = user.Avatar,
                             EventName = evt.Name,
@@ -113,13 +120,16 @@ namespace ProjectCMS.Controllers
                          where idea.UserId == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -134,7 +144,7 @@ namespace ProjectCMS.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> GetByEvent([FromRoute] int id)
         {
-            var byUser = from idea in _dbContext._idea
+            var byEvent = from idea in _dbContext._idea
                          join user in _dbContext._users on idea.UserId equals user.UserId
                          join cate in _dbContext._categories on idea.EvId equals cate.Id
                          join evt in _dbContext._events on idea.EvId equals evt.Id
@@ -142,13 +152,16 @@ namespace ProjectCMS.Controllers
                          where idea.EvId == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -157,7 +170,7 @@ namespace ProjectCMS.Controllers
                              CategoryName = cate.Name,
                              DepartmentName = dep.Name
                          };
-            return Ok(await byUser.ToListAsync());
+            return Ok(await byEvent.ToListAsync());
         }
 
         [HttpGet("countByUser/{id}")]
@@ -168,10 +181,11 @@ namespace ProjectCMS.Controllers
             return Ok(byUser.Count());
         }
         [HttpGet("byDepartment/{id}")]
+        //[AllowAnonymous]
         [Route("{id:int}")]
         public async Task<IActionResult> GetByDepartment([FromRoute] int id)
         {
-            var byUser = from idea in _dbContext._idea
+            var byDep = from idea in _dbContext._idea
                          join user in _dbContext._users on idea.UserId equals user.UserId
                          join cate in _dbContext._categories on idea.EvId equals cate.Id
                          join evt in _dbContext._events on idea.EvId equals evt.Id
@@ -179,13 +193,16 @@ namespace ProjectCMS.Controllers
                          where user.DepartmentID == id
                          select new
                          {
-                             IdeaId = idea.Id,
-                             IdeaName = idea.Name,
-                             IdeaContent = idea.Content,
-                             IdeaAddedDate = idea.AddedDate,
-                             IdeaVote = idea.Vote,
-                             IdeaViewed = idea.Viewed,
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
                              IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
                              UserName = user.UserName,
                              Avatar = user.Avatar,
                              EventName = evt.Name,
@@ -194,7 +211,39 @@ namespace ProjectCMS.Controllers
                              CategoryName = cate.Name,
                              DepartmentName = dep.Name
                          };
-            return Ok(await byUser.ToListAsync());
+            return Ok(await byDep.ToListAsync());
+        }
+        [HttpGet("byCategory/{id}")]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetByCate([FromRoute] int id)
+        {
+            var byCate = from idea in _dbContext._idea
+                         join user in _dbContext._users on idea.UserId equals user.UserId
+                         join cate in _dbContext._categories on idea.EvId equals cate.Id
+                         join evt in _dbContext._events on idea.EvId equals evt.Id
+                         join dep in _dbContext._departments on user.DepartmentID equals dep.DepId
+                         where idea.CateId == id
+                         select new
+                         {
+                             Id = idea.Id,
+                             Name = idea.Name,
+                             Content = idea.Content,
+                             Anonymous = idea.IsAnonymous,
+                             AddedDate = idea.AddedDate,
+                             Vote = idea.Vote,
+                             Viewed = idea.Viewed,
+                             IdeaFile = idea.IdeaFile,
+                             EvId = idea.EvId,
+                             CateId = idea.CateId,
+                             UserName = user.UserName,
+                             Avatar = user.Avatar,
+                             EventName = evt.Name,
+                             EventFirstClosure = evt.First_Closure,
+                             EventLastClosure = evt.Last_Closure,
+                             CategoryName = cate.Name,
+                             DepartmentName = dep.Name
+                         };
+            return Ok(await byCate.ToListAsync());
         }
 
         [HttpGet("sort")]
@@ -202,6 +251,7 @@ namespace ProjectCMS.Controllers
         {
             try
             {
+                //thêm người đăng + avatar
                 var ideas = from i in _dbContext._idea
                             join u in _dbContext._users on i.UserId equals u.UserId
                             join dep in _dbContext._departments on u.DepartmentID equals dep.DepId
@@ -211,6 +261,7 @@ namespace ProjectCMS.Controllers
                                 Id = i.Id,
                                 Name = i.Name,
                                 Content = i.Content,
+                                Anonymous = i.IsAnonymous,
                                 AddedDate = i.AddedDate,
                                 Vote = i.Vote,
                                 Viewed = i.Viewed,
@@ -271,7 +322,7 @@ namespace ProjectCMS.Controllers
 
                 if (idea.IdeaFile != null)
                 {
-                    fileName = submiter.UserName + "_" + DateTime.Now.ToString("yyyyMMddHHmmssfff") + "_" + idea.IdeaFile.FileName;
+                    fileName = submiter.UserName + "_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_" + idea.IdeaFile.FileName;
                     await SaveFile(fileName, submiter.UserName, idea.IdeaFile);
                 }
 
@@ -328,8 +379,23 @@ namespace ProjectCMS.Controllers
 
             return NotFound();
         }
+        [HttpGet("download/{filename}")]
+        [Route("filename:string")]
 
+        public async Task<IActionResult> DownloadFile(string filename)
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), _env.WebRootPath + "\\Idea\\", filename);
+            if (!System.IO.File.Exists(filePath))
+            {
+                return BadRequest();
+            }
+            var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
 
+            return new FileStreamResult(fileStream, "application/pdf")
+            {
+                FileDownloadName = "idea.pdf"
+            };
+        }
         private async Task<bool> SaveFile(string fileName, string username, IFormFile file)
         {
             

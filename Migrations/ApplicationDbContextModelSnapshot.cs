@@ -388,7 +388,7 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2023, 3, 20, 23, 39, 35, 658, DateTimeKind.Local).AddTicks(8508),
+                            AddedDate = new DateTime(2023, 4, 1, 13, 19, 6, 503, DateTimeKind.Local).AddTicks(9282),
                             Content = "This is content of this category",
                             Name = "Information technology"
                         });
@@ -466,9 +466,6 @@ namespace ProjectCMS.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -484,8 +481,6 @@ namespace ProjectCMS.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("_events");
                 });
@@ -513,6 +508,9 @@ namespace ProjectCMS.Migrations
 
                     b.Property<string>("IdeaFile")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAnonymous")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -641,19 +639,19 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             UserId = 1,
-                            AddedDate = new DateTime(2023, 3, 20, 23, 39, 35, 658, DateTimeKind.Local).AddTicks(9567),
+                            AddedDate = new DateTime(2023, 4, 1, 13, 19, 6, 504, DateTimeKind.Local).AddTicks(257),
                             Address = "Ha Noi",
-                            Avatar = "Image",
+                            Avatar = "/images/Avatar.jpg",
                             DepartmentID = 2,
                             DoB = new DateTime(2000, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "hoanghip108@gmail.com",
-                            PasswordHash = new byte[] { 211, 167, 15, 117, 215, 114, 220, 226, 161, 237, 87, 162, 242, 94, 68, 92, 34, 164, 177, 37, 212, 66, 242, 223, 214, 194, 87, 172, 58, 177, 115, 91, 245, 208, 108, 59, 248, 80, 16, 108, 134, 13, 54, 16, 92, 36, 0, 84, 37, 140, 200, 190, 245, 77, 112, 68, 4, 162, 40, 90, 54, 95, 163, 113 },
-                            PasswordSalt = new byte[] { 80, 68, 12, 169, 122, 42, 210, 62, 96, 8, 52, 29, 44, 253, 148, 243, 211, 4, 148, 165, 159, 129, 249, 187, 155, 109, 154, 198, 187, 254, 221, 145, 146, 72, 147, 209, 147, 230, 92, 247, 76, 155, 171, 252, 61, 238, 25, 145, 17, 116, 150, 43, 71, 53, 150, 89, 252, 159, 229, 118, 240, 200, 33, 75, 164, 74, 93, 106, 196, 158, 153, 48, 45, 251, 90, 121, 168, 255, 156, 89, 39, 126, 187, 241, 92, 83, 142, 30, 33, 158, 87, 74, 216, 253, 27, 254, 7, 103, 126, 250, 88, 215, 16, 3, 68, 162, 172, 78, 159, 74, 123, 181, 227, 229, 151, 226, 210, 112, 62, 61, 144, 140, 140, 152, 85, 239, 145, 124 },
+                            Email = "duongtdgch17587@fpt.edu.vn",
+                            PasswordHash = new byte[] { 197, 56, 216, 118, 32, 64, 61, 242, 234, 217, 176, 11, 6, 91, 253, 122, 82, 229, 221, 255, 46, 39, 120, 106, 89, 139, 227, 138, 79, 229, 194, 242, 105, 27, 26, 27, 2, 51, 223, 179, 172, 66, 7, 0, 183, 6, 87, 216, 26, 110, 133, 116, 72, 209, 80, 244, 56, 139, 153, 238, 164, 253, 73, 247 },
+                            PasswordSalt = new byte[] { 205, 192, 8, 182, 55, 80, 156, 199, 251, 188, 169, 198, 124, 141, 242, 124, 248, 74, 111, 55, 154, 148, 178, 178, 73, 110, 30, 160, 98, 144, 160, 6, 47, 150, 43, 131, 99, 9, 140, 216, 33, 225, 203, 210, 80, 253, 231, 114, 200, 220, 86, 214, 58, 24, 149, 98, 67, 188, 163, 151, 179, 214, 203, 66, 100, 45, 249, 254, 4, 25, 161, 188, 2, 191, 17, 119, 166, 2, 185, 241, 199, 129, 24, 64, 201, 145, 31, 149, 210, 2, 181, 38, 21, 191, 172, 248, 214, 230, 212, 100, 7, 117, 44, 214, 23, 6, 28, 228, 181, 132, 30, 81, 216, 214, 237, 157, 142, 132, 221, 145, 250, 31, 78, 155, 94, 179, 188, 7 },
                             Phone = "0333804202",
                             RefreshToken = "",
                             Role = "Admin",
                             Status = "Enable",
-                            UserName = "admin1"
+                            UserName = "admin"
                         });
                 });
 
@@ -726,13 +724,6 @@ namespace ProjectCMS.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ProjectCMS.Models.Event", b =>
-                {
-                    b.HasOne("ProjectCMS.Models.Category", null)
-                        .WithMany("Events")
-                        .HasForeignKey("CategoryId");
-                });
-
             modelBuilder.Entity("ProjectCMS.Models.Idea", b =>
                 {
                     b.HasOne("ProjectCMS.Models.Category", "Category")
@@ -788,8 +779,6 @@ namespace ProjectCMS.Migrations
 
             modelBuilder.Entity("ProjectCMS.Models.Category", b =>
                 {
-                    b.Navigation("Events");
-
                     b.Navigation("Ideas");
                 });
 
