@@ -1,0 +1,244 @@
+/* Form login */
+.modal_form {
+    position: fixed;
+    width: 50%;
+    height: 70%;
+    top: 15%;
+    left: 25%;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.8)!important;
+    background-color: #ffffff !important;
+    border-radius: 1%;
+    overflow: auto;
+    color: black;
+}
+.modal_form_right{
+    animation-duration: 2s;
+}
+.modal_form_left{
+    animation-duration: 2s;
+}
+
+/* Form image  https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg*/
+.modal_image {
+    background: url('') no-repeat left center /cover !important;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    position: absolute;
+    left: 0;
+    margin: 2rem 0 0 1rem;
+    height: 80%;
+    width: 50%;
+    display: block;
+}
+
+/* Switch button */
+.switch_button_container{
+    position: absolute;
+    right: 0;
+    z-index: 2000;
+    border: none;
+    margin: 10px;
+}
+
+.switch_button{
+    border: none;
+    background-color: #6c757d;
+    cursor: pointer;
+    padding: 7px 10px;
+    color: #adb5bd;
+}
+
+.btn_forgot{
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.btn_login{
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.active{
+    background-color: #58d3e4;
+    color:white;
+}
+
+/* Login field */
+.form-container {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+/* .form-field > input{
+    padding: 8px 60px 8px 1px;
+
+    background: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #fff;
+} */
+
+input::placeholder{
+    color: #f5f5f5;
+} 
+
+/* .form-field > label{
+    display: flex;
+} */
+
+.submit-button {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    margin-top: 25px;
+}
+
+.submit-button:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* Form forgot */
+.form-forgot{
+    position: absolute;
+    left: 0;
+}
+
+.forgot-form-body{
+    width: 80%;
+}
+
+.forgot-form-body .form-header{
+    position: absolute;
+    top: 15%;
+}
+.forgot-form-body .field-name{
+    position: absolute;
+    top: 35%;
+}
+
+
+/* Form login */
+.form-login{
+    position: absolute;
+    right: 0;
+}
+
+.login-form-body .form-header{
+    position: absolute;
+    top: 15%;
+}
+
+.login-form-body .field-name{
+    position: absolute;
+    top: 30%;
+}
+
+.login-form-body .field-password{
+    margin-top: 100px;
+}
+
+
+/* animation */
+@keyframes right {
+    0%   {left:0px;}
+    100% {left:50%;}
+}
+@keyframes left {
+    0%   {left:50%;}
+    100% {left:0px;}
+}
+@keyframes opaqueRight {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes opaqueLeft {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes appearRight {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes appearLeft{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+
+/* Responsive */
+/* Mobile */
+@media only screen and (min-width: 374px) and (max-width: 799px){
+    .modal_form {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        overflow: auto;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.8)!important;
+    }
+    .modal_image_container .modal_image{
+        display: none;
+    }
+    .App {
+        text-align: left;
+    }
+    .form-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    .modal_form{
+        overflow: hidden;
+    }
+    
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px){
+    .modal_form{
+        overflow: hidden;
+    }
+    .App {
+        text-align: unset;
+    }
+}
+/* Tablet */
+@media only screen and (min-width: 800px) and (max-width: 1023px){
+    .form-field > input{
+        padding: 8px 8px 8px 1px;
+        margin-top: 8px;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        border-bottom: 2px solid #fff;
+    }
+    .modal_form{
+        overflow:hidden;
+    }
+    .modal_image_container .modal_image{
+        object-fit: cover;
+    }
+}
+
+
+
+

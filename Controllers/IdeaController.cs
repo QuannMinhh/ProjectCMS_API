@@ -62,13 +62,13 @@ namespace ProjectCMS.Controllers
                     {
                         return Ok(await ideas.ToListAsync());
                     }
-                    return Ok(new { message = "No Idea Found!" });
+                    return Ok(await ideas.ToListAsync());
             }
                 if (ideas.Any())
                 {
                     return Ok(await ideas.ToListAsync());
                 }
-                return Ok(new { message = "No Idea Found!" }); ;
+                return Ok(await ideas.ToListAsync()); ;
         }
 
         [HttpGet("byDetail/{id}")]
@@ -386,6 +386,7 @@ namespace ProjectCMS.Controllers
             return NotFound();
         }
         [HttpGet("download/{filename}")]
+        [AllowAnonymous]
         [Route("filename:string")]
 
         public async Task<IActionResult> DownloadFile(string filename)

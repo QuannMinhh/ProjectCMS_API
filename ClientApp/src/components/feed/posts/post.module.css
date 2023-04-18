@@ -1,0 +1,36 @@
+.like_cmt{
+    justify-content: space-evenly;
+}
+
+.button_name {
+    background-color: white;
+    width: 100%;
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    padding: 0 2em;
+    border-radius: 0.3em;
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  
+  .button_name:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #bbc0c7;
+    transform: translateY(-0.1em);
+    background-color: #f0f2f5;
+    color: red;
+  }
+  
+  .button_name:active {
+    box-shadow: inset 0px 0.1em 0.6em #bbc0c7;
+    transform: translateY(0em);
+  }
+
+button{
+    background: none;
+    border: none;
+    color: grey
+}
