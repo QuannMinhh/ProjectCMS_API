@@ -34,6 +34,8 @@ namespace ProjectCMS.Services
         public  int ExportTablesToCSV(string query,string tableName)
         {
             string[] tablesToSkip = { };
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","csv", tableName + ".csv");
+
             using var connection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
             connection.Open();
             //string query = "select UserId,UserName,Email,Phone,DoB,Address,AddedDate,Role,Status,_departments.Name from _users Join _departments on _users.DepartmentID = _departments.DepId";
@@ -45,7 +47,7 @@ namespace ProjectCMS.Services
             dataTable.Load(reader);
 
             // Write the results to a CSV file
-            using var writer = new StreamWriter(tableName+".csv");
+            using var writer = new StreamWriter(filePath);
             var header = string.Join(",", dataTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName));
             writer.WriteLine(header);
 

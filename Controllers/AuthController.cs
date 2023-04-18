@@ -136,7 +136,8 @@ namespace ProjectCMS.Controllers
             int Idea = new FileService(_env, _configuration).ExportTablesToCSV(query[1], tableName[1]);
             int Comment = new FileService(_env, _configuration).ExportTablesToCSV(query[2], tableName[2]);
 
-            return Ok(1);
+            return Ok();
+            
         }
         [HttpPost("CreateAccount"),Authorize(Roles ="Admin")]
         public async Task<IActionResult> CreateAccount(UserDTO usr)

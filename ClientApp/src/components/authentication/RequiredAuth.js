@@ -57,7 +57,7 @@ function RequiredAuth({ children, dataUser }) {
       "/editProfile",
       "/DashBoard",
     ],
-      QAC: ["/", "/NewsFeed", "/profile", "/editProfile", "/DetailIdea",],
+    QAC: ["/", "/NewsFeed", "/profile", "/editProfile","/DetailIdea"],
     Staff: [
       "/",
       "/profile",
@@ -67,7 +67,6 @@ function RequiredAuth({ children, dataUser }) {
       "/NewsFeed",
       "/DetailIdea",
       "/MyIdea",
-
     ],
   };
   if (roleAuthorization in authorizedRoutes) {
