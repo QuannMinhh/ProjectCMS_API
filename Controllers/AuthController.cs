@@ -259,7 +259,7 @@ namespace ProjectCMS.Controllers
                     }
                 }    
             }
-            return BadRequest();
+            return BadRequest("please confirm your password");
         }
         [HttpPut]
         [Route("{usr}")]
