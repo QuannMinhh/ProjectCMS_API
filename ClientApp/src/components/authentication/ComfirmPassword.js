@@ -21,7 +21,6 @@ function ComfirmPassword({ handleClose, userName, token }) {
     })
       .then((res) => {
         if (!res.ok) {
-          console.log("if");
           throw res;
         }
         return res.text();

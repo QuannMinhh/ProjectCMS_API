@@ -8,7 +8,6 @@ import ChangePassword from "../../components/authentication/ChangePassword"
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
-  console.log(setDataUser)
   const [fileAvatarInDb, setFileAvatarInDb] = useState(dataUser.avatar);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +34,6 @@ function EditProfile({ dataUser, token, setDataUser }) {
     e.preventDefault();
 
     const fileAvaFormat = fileAvatarInDb.substring(8);
-    console.log(fileAvaFormat);
 
     const formEdit = new FormData();
     formEdit.append("password", currentPassword);
@@ -87,9 +85,9 @@ function EditProfile({ dataUser, token, setDataUser }) {
   return (
     <>
     <div className="editProfile">
-      <div className="container-xl px-4 mt-4">
+      <div className="container-xl px-4">
         <div className="row">
-          <div className="col-xl-4">
+          <div className="col-xl-4 mt-4">
             <div
               className="card mb-4 mb-xl-0"
               style={{ boxShadow: "0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)" }}
@@ -118,7 +116,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
               </div>
             </div>
           </div>
-          <div className="col-xl-8">
+          <div className="col-xl-8 mt-4">
             <div
               className="card"
               style={{

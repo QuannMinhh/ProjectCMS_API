@@ -7,7 +7,6 @@ function NoOfIdea({ token }) {
   const [noOfIdea, setNoOfIdea] = useState();
 
   const user = useContext(UserContext);
-  console.log(user);
   const userId = user.userId;
   useEffect(() => {
     fetch(apiCountIdeaByUser + "/" + userId, {

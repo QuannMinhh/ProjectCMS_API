@@ -46,7 +46,7 @@ function DashBoard({ token }) {
       .then((number) => {
         setNumberOf(number);
       })
-      .catch(() => console.log("Hoc toan ngu"));
+      .catch(() => setNumberOf(0));
   }, [token]);
 
   //Stacked bar chart
@@ -61,7 +61,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setIdeaPerYear(data);
       })
-      .catch(() => console.log("chet ở idea per year"));
+      .catch(() => setIdeaPerYear([]));
   }, [token]);
 
   useEffect(() => {
@@ -101,7 +101,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setIdeaPerCate(data);
       })
-      .catch(() => console.log("api ideaPerCate"));
+      .catch(() => setIdeaPerCate([]));
   }, [token]);
 
   useEffect(() => {
@@ -137,7 +137,7 @@ function DashBoard({ token }) {
       .then((data) => {
         setContributor(data);
       })
-      .catch(() => console.log("api ideaPerCate"));
+      .catch(() => setContributor([]));
   }, [token]);
 
   useEffect(() => {
@@ -179,9 +179,9 @@ function DashBoard({ token }) {
 
   return (
     <div id="dashBoard">
-      <div className={`${Style.dash_board} container-fluid mt-5 `}>
+      <div className={`${Style.dash_board} container-fluid  `}>
+        <button onClick={handleDownloadCSV} className="btn btn-success mb-4 mt-4">DownloadCSV</button>
         <div className="row">
-          <button onClick={handleDownloadCSV}>DownloadCSV</button>
           <div className="col-3">
             <div className="mb-3">
               <DashCountUser numberOf={numberOf} />

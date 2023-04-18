@@ -5,10 +5,7 @@ function Home() {
   return (
     <div className={Style.header}>
       <div className={Style.header_content}>
-        <div className={Style.header_content_inner}>
-          {/* <h1>Dramatically Idea</h1>
-                    <Link to="/NewsFeed" class="btn btn-primary btn-lg">New Feed</Link> */}
-        </div>
+        <div className={Style.header_content_inner}></div>
       </div>
     </div>
   );
