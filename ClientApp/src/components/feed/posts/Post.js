@@ -10,9 +10,7 @@ function Post({ dataIdea }) {
   const navigate = useNavigate();
 
   //paginate
-  console.log(dataIdea.length)
   const [currenItems, setCurrentItems] = useState([]);
-  console.log(currenItems)
   const [pageCount, setPageCount] = useState(0);
   const [itemOffSet, setItemOffSet] = useState(0);
   const itemPerPage = 10;
@@ -23,7 +21,6 @@ function Post({ dataIdea }) {
   }, [itemOffSet, itemPerPage, dataIdea]);
   function handlePageClick(e) {
     const newOffSet = (e.selected * itemPerPage) % dataIdea.length;
-    console.log(newOffSet)
     setItemOffSet(newOffSet);
   }
 
