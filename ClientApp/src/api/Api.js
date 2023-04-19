@@ -1,6 +1,5 @@
-//export const server = "https://localhost:7069/";
-//export const server = "https://localhost:44371/";
-export const server = "https://fgwprojectcms.com/";
+export const server = "https://localhost:7069/";
+// export const server = "https://fgwprojectcms.com/";
 
 export const apiCategory = `${server}api/category`;
 
@@ -37,8 +36,7 @@ export const apiInteract = `${server}api/interactions`;
 
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;
-export const apiDownloadCSV = `${server}api/auth/Download/csv`;
-export const apiExportCSV = `${server}api/auth/DownloadCSV`;
+export const apiDownloadCSV = `${server}api/auth/DownloadCSV`;
 
 //apiDashboard
 export const apiCount = `${server}api/dashboard/Count`;

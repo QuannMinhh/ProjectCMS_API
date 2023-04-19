@@ -12,7 +12,7 @@ function UserProfile({ token }) {
   const user = useContext(UserContext);
   return (
     <>
-      <div id="userProfile">
+      <section id="userProfile">
         <div className="container-fluid">
           <div className="row">
             <div className="textHeader">
@@ -74,7 +74,7 @@ function UserProfile({ token }) {
             {user.role === "Staff" ? <MyIdea token={token} /> : <MyExp />}
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
