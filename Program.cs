@@ -45,11 +45,15 @@ builder.Services.AddCors(
            .AllowAnyMethod();
         });
     }
-    );
+);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<EmailService>(provider =>
+{
+    var config =  provider.GetRequiredService<IConfiguration>();
+    return new EmailService(config);
+});
 builder.Services.AddSignalR(options =>
 {
     options.EnableDetailedErrors = true;
