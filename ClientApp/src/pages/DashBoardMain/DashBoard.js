@@ -171,18 +171,12 @@ function DashBoard({ token }) {
     }
   }, [contributor]);
 
-    const ExportCSV = () => {
-        const currentHref = window.location.href;
-        window.location.href = window.location.href.replace(
-            window.location.href,
-            apiExportCSV
-        );
-        window.location.href = window.location.href.replace(
-            window.location.href,
-            currentHref
-        );
-    };
-
+  const ExportCSV = () => {
+    window.location.href = window.location.href.replace(
+      window.location.href,
+      apiExportCSV
+    );
+  };
   const DownloadCSV = () => {
     window.location.href = window.location.href.replace(
       window.location.href,
@@ -194,8 +188,8 @@ function DashBoard({ token }) {
     <div id="dashBoard">
       <div className={`${Style.dash_board} container-fluid  `}>
         {/* <div className="mb-4 "> */}
-          <button onClick={ExportCSV} className="btn btn-success mb-4 mt-4">ExportCSV</button>
-          <button onClick={DownloadCSV} className="btn btn-primary mb-4 mt-4">DownloadCSV</button>
+          <button onClick={ExportCSV} class="btn btn-success mb-4 mt-4">ExportCSV</button>
+          <button onClick={DownloadCSV} class="btn btn-primary mb-4 mt-4">DownloadCSV</button>
         {/* </div> */}
         <div className="row">
           <div className="col-3">
