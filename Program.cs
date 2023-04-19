@@ -37,12 +37,12 @@ builder.Services.AddCors(
     {
         option.AddPolicy("AllowAll", builder =>
         {
-            //builder.WithOrigins("https://fwgprojectcms.com")
+            builder.WithOrigins("https://fwgprojectcms.com")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+            // builder.AllowAnyOrigin()
             //.AllowAnyHeader()
             //.AllowAnyMethod();
-            builder.AllowAnyOrigin()
-           .AllowAnyHeader()
-           .AllowAnyMethod();
         });
     }
 );
