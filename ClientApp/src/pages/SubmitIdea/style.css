@@ -236,118 +236,131 @@
    }
 
 /*createIdea responsive mobile*/
-@media screen and (max-width:1080px){
-  .userProfile_header h1{
-    margin-left: 10%;
-  }
+@media screen and (max-width:480px) {
+    .userProfile h1 {
+        margin-left: 10%;
+        width:100%;
+    }
 
-  section{
-    margin-left: -12%;
-    width: 92%;
-  }
-  
-  div .card.mb-4{
-    margin-left: -40px;
-    width: 200%;
-  }
+    #userProfile h1{
+        width: 80%;
+    }
 
-  div.col-lg-5 .card.mb-4{
-    margin-left: -86px;
-  }
+    section.userProfile{
+        margin-left: 0px;
+        width: 100%;
+    }
 
-  .userProfile_header{
-    margin-left: -40px;
-  }
+    section.userProfile .container {
+        margin-left: 50px;
+    }
 
-  textarea{
-    height: 5rem;
-  }
-
-  /*upload file*/
-  div.form{
-    margin-left: -20px;
-    width: 300px;
-    height:80px; 
-  }
-
-  p.form-paragraph{
-    display: none;
-  }
-
-  span.form-title{
-    display: inline;
-    font-size: 20px;
-  }
-
-  span.drop-title{
-    display: none;
-  }
-
-  span.form-title{
-    display: none;
-  }
-
-  .or{
-    display: none;
-  }
-
-  label.drop-container{
-    width: 100%;
-    margin: -30px 0 0 0px;
-  }
-
-  /*edit profile*/
-  div.card-body.text-center{
-    margin-left: 1px;
-  }
-
-  div.card-body.text-center img{
-    margin-left: -60px;
-  }
+    /*your idea*/
+    div.col-lg-7 .card.mb-4 {
+        margin-left: -40px;
+        width: 200%;
+    }
 
 
-  span.front.text{
-    width:150px;
-  }
 
-  .btnSubmitIdea span.front.text{
-    width: 120px;
-  }
+    /*avatar upload*/
+    div .card.mb-4 {
+        margin-left: 0px;
+        width: 100%;
+    }
 
-  .btnCancelIdea span.front.text{
-    width: 120px;
-  }
+    div.col-lg-5 .card.mb-4 {
+        margin-left: -40px;
+        width: 200%;
+    }
 
-  .btnSubmitCancel span.edge{
-    width: 120px;
-  }
+    .userProfile_header {
+        margin-left: -40px;
+    }
 
-  .btnSubmitCancel span.shadow{
-    width: 120px;
-  }
+    textarea {
+        height: 5rem;
+    }
 
-  .justify-content-between {
-    justify-content: flex-start;
-  }
+    /*upload file*/
+    div.form {
+        margin-left: -10px;
+        width: 200px;
+        height: 60px;
+    }
 
-  .btnSubmitCancel{
-      margin-top: -10%;
-      margin-left: -40%;
-  }
+    p.form-paragraph {
+        display: none;
+    }
 
-  h1{
-    margin-left: 0px;
-    width: 500px;
-  }
+    span.form-title {
+        display: inline;
+        font-size: 20px;
+    }
 
-  div.d-flex.align-items-center span input{
-    margin-left: -100px;
-  }
+    span.drop-title {
+        display: none;
+    }
 
+    span.form-title {
+        display: none;
+    }
+
+    .or {
+        display: none;
+    }
+
+    label.drop-container {
+        width: 180%;
+        margin: -33px 0 0 -20px;
+    }
+
+    /*edit profile*/
+    div.card-body.text-center {
+        margin-left: 1px;
+    }
+
+        div.card-body.text-center img {
+            margin-left: -60px;
+        }
+
+
+    span.front.text {
+        width: 150px;
+    }
+
+    .btnSubmitIdea span.front.text {
+        width: 120px;
+    }
+
+    .btnCancelIdea span.front.text {
+        width: 120px;
+    }
+
+    .btnSubmitCancel span.edge {
+        width: 120px;
+    }
+
+    .btnSubmitCancel span.shadow {
+        width: 120px;
+    }
+
+    .justify-content-between {
+        justify-content: flex-start;
+    }
+
+    .btnSubmitCancel {
+        margin-top: 10px;
+        margin-left: 40px;
+    }
+
+    h1 {
+        margin-left: 0px;
+        width: 500px;
+    }
+
+    div.d-flex.align-items-center span input {
+        margin-left: -100px;
+    }
 }
 
-@media  screen and (max-width:1921px){
-  .App {
-    height: 100vh;
-  }
-}

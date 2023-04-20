@@ -20,10 +20,30 @@
         margin-right: -95px;
     }
 
+    #NewFeedBackG .card-body {
+        width: 120%;
+        margin-left: -30px;
+    }
+
+    .detailIdea .card {
+        width: 134%;
+        margin-left: -50px;
+        margin-top:-10px;
+    }
+
+
+
+    /*
     div.DetailIdea_Card__Fvyvy.card{
         width: 130%;
         margin: 0px 0px 0px -45px;
     }
+
+    div.newsFeed_card__P7\+le {
+        width: 120%;
+        margin-left: -30px;
+    }*/
+    
     
 
 

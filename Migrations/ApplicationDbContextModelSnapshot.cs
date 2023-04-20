@@ -597,287 +597,287 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             Id = 1,
-                            AddedDate = new DateTime(2020, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 1 for event 2020",
-                            UserId = 7,
+                            UserId = 17,
                             Viewed = 14,
-                            Vote = -8
+                            Vote = 19
                         },
                         new
                         {
                             Id = 2,
-                            AddedDate = new DateTime(2020, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2020, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 2 for event 2020",
-                            UserId = 22,
-                            Viewed = 13,
-                            Vote = -5
+                            UserId = 7,
+                            Viewed = 6,
+                            Vote = 6
                         },
                         new
                         {
                             Id = 3,
-                            AddedDate = new DateTime(2020, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2020, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 3 for event 2020",
-                            UserId = 18,
-                            Viewed = 9,
+                            UserId = 9,
+                            Viewed = 8,
                             Vote = 7
                         },
                         new
                         {
                             Id = 4,
-                            AddedDate = new DateTime(2020, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 4 for event 2020",
-                            UserId = 22,
-                            Viewed = 13,
-                            Vote = -2
+                            UserId = 24,
+                            Viewed = 3,
+                            Vote = 24
                         },
                         new
                         {
                             Id = 5,
-                            AddedDate = new DateTime(2020, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2020, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 5 for event 2020",
-                            UserId = 5,
-                            Viewed = 14,
-                            Vote = 13
+                            UserId = 21,
+                            Viewed = 7,
+                            Vote = -3
                         },
                         new
                         {
                             Id = 6,
-                            AddedDate = new DateTime(2020, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 6 for event 2020",
-                            UserId = 6,
-                            Viewed = 6,
-                            Vote = -10
+                            UserId = 7,
+                            Viewed = 4,
+                            Vote = 19
                         },
                         new
                         {
                             Id = 7,
-                            AddedDate = new DateTime(2020, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2020, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 7 for event 2020",
-                            UserId = 4,
-                            Viewed = 5,
-                            Vote = -8
+                            UserId = 13,
+                            Viewed = 4,
+                            Vote = 14
                         },
                         new
                         {
                             Id = 8,
-                            AddedDate = new DateTime(2020, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2020, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 8 for event 2020",
-                            UserId = 10,
-                            Viewed = 14,
-                            Vote = 17
+                            UserId = 19,
+                            Viewed = 13,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 9,
-                            AddedDate = new DateTime(2020, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 9 for event 2020",
-                            UserId = 16,
-                            Viewed = 7,
-                            Vote = -10
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AddedDate = new DateTime(2020, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 10 for event 2020",
-                            UserId = 7,
-                            Viewed = 6,
-                            Vote = 6
+                            Name = "Idea 9 for event 2020",
+                            UserId = 22,
+                            Viewed = 1,
+                            Vote = 13
                         },
                         new
                         {
-                            Id = 11,
-                            AddedDate = new DateTime(2020, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 11 for event 2020",
-                            UserId = 12,
-                            Viewed = 8,
-                            Vote = 18
-                        },
-                        new
-                        {
-                            Id = 12,
-                            AddedDate = new DateTime(2020, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 10,
+                            AddedDate = new DateTime(2020, 8, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 10 for event 2020",
+                            UserId = 24,
+                            Viewed = 2,
+                            Vote = -10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AddedDate = new DateTime(2020, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 11 for event 2020",
+                            UserId = 8,
+                            Viewed = 1,
+                            Vote = -9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AddedDate = new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 12 for event 2020",
-                            UserId = 18,
-                            Viewed = 5,
-                            Vote = 10
+                            UserId = 24,
+                            Viewed = 7,
+                            Vote = 12
                         },
                         new
                         {
                             Id = 13,
-                            AddedDate = new DateTime(2020, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 13 for event 2020",
-                            UserId = 8,
-                            Viewed = 9,
-                            Vote = -1
+                            UserId = 5,
+                            Viewed = 10,
+                            Vote = 21
                         },
                         new
                         {
                             Id = 14,
-                            AddedDate = new DateTime(2020, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2020, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 14 for event 2020",
-                            UserId = 13,
-                            Viewed = 6,
-                            Vote = 3
+                            UserId = 14,
+                            Viewed = 11,
+                            Vote = -6
                         },
                         new
                         {
                             Id = 15,
-                            AddedDate = new DateTime(2020, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 15 for event 2020",
-                            UserId = 18,
-                            Viewed = 2,
-                            Vote = 24
-                        },
-                        new
-                        {
-                            Id = 16,
-                            AddedDate = new DateTime(2020, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 16 for event 2020",
-                            UserId = 9,
-                            Viewed = 2,
-                            Vote = 13
-                        },
-                        new
-                        {
-                            Id = 17,
-                            AddedDate = new DateTime(2020, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 17 for event 2020",
-                            UserId = 23,
-                            Viewed = 2,
+                            UserId = 5,
+                            Viewed = 3,
                             Vote = 6
                         },
                         new
                         {
-                            Id = 18,
-                            AddedDate = new DateTime(2020, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 16,
+                            AddedDate = new DateTime(2020, 11, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 16 for event 2020",
+                            UserId = 11,
+                            Viewed = 14,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AddedDate = new DateTime(2020, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 17 for event 2020",
+                            UserId = 10,
+                            Viewed = 4,
+                            Vote = 1
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AddedDate = new DateTime(2020, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 18 for event 2020",
-                            UserId = 9,
-                            Viewed = 12,
-                            Vote = 29
+                            UserId = 16,
+                            Viewed = 13,
+                            Vote = -7
                         },
                         new
                         {
                             Id = 19,
-                            AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2020, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 19 for event 2020",
-                            UserId = 18,
-                            Viewed = 13,
-                            Vote = 17
+                            UserId = 10,
+                            Viewed = 5,
+                            Vote = -6
                         },
                         new
                         {
                             Id = 20,
-                            AddedDate = new DateTime(2020, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2020, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 20 for event 2020",
-                            UserId = 4,
-                            Viewed = 9,
-                            Vote = 12
+                            UserId = 10,
+                            Viewed = 7,
+                            Vote = -1
                         },
                         new
                         {
                             Id = 21,
-                            AddedDate = new DateTime(2020, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
@@ -885,125 +885,125 @@ namespace ProjectCMS.Migrations
                             IsAnonymous = false,
                             Name = "Idea 21 for event 2020",
                             UserId = 18,
-                            Viewed = 1,
-                            Vote = 12
+                            Viewed = 14,
+                            Vote = 14
                         },
                         new
                         {
                             Id = 22,
-                            AddedDate = new DateTime(2020, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 22 for event 2020",
-                            UserId = 16,
-                            Viewed = 8,
-                            Vote = 25
-                        },
-                        new
-                        {
-                            Id = 23,
-                            AddedDate = new DateTime(2020, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 1,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 23 for event 2020",
-                            UserId = 19,
-                            Viewed = 9,
-                            Vote = -2
-                        },
-                        new
-                        {
-                            Id = 24,
-                            AddedDate = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 24 for event 2020",
-                            UserId = 19,
+                            Name = "Idea 22 for event 2020",
+                            UserId = 23,
+                            Viewed = 11,
+                            Vote = 17
+                        },
+                        new
+                        {
+                            Id = 23,
+                            AddedDate = new DateTime(2020, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 23 for event 2020",
+                            UserId = 20,
                             Viewed = 5,
-                            Vote = -2
+                            Vote = 17
+                        },
+                        new
+                        {
+                            Id = 24,
+                            AddedDate = new DateTime(2020, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 1,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 24 for event 2020",
+                            UserId = 17,
+                            Viewed = 5,
+                            Vote = -4
                         },
                         new
                         {
                             Id = 25,
-                            AddedDate = new DateTime(2020, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 25 for event 2020",
-                            UserId = 6,
-                            Viewed = 8,
-                            Vote = 12
+                            UserId = 15,
+                            Viewed = 5,
+                            Vote = 28
                         },
                         new
                         {
                             Id = 26,
-                            AddedDate = new DateTime(2020, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 26 for event 2020",
-                            UserId = 24,
-                            Viewed = 6,
-                            Vote = 24
+                            UserId = 4,
+                            Viewed = 2,
+                            Vote = 6
                         },
                         new
                         {
                             Id = 27,
-                            AddedDate = new DateTime(2020, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 27 for event 2020",
-                            UserId = 18,
-                            Viewed = 1,
-                            Vote = 14
+                            UserId = 19,
+                            Viewed = 4,
+                            Vote = 26
                         },
                         new
                         {
                             Id = 28,
-                            AddedDate = new DateTime(2020, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 28 for event 2020",
-                            UserId = 21,
-                            Viewed = 11,
-                            Vote = 27
+                            UserId = 18,
+                            Viewed = 13,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 29,
-                            AddedDate = new DateTime(2020, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2020, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 29 for event 2020",
-                            UserId = 12,
-                            Viewed = 4,
-                            Vote = 13
+                            UserId = 23,
+                            Viewed = 10,
+                            Vote = 23
                         },
                         new
                         {
                             Id = 30,
-                            AddedDate = new DateTime(2020, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 1,
@@ -1011,2141 +1011,2141 @@ namespace ProjectCMS.Migrations
                             IsAnonymous = false,
                             Name = "Idea 30 for event 2020",
                             UserId = 15,
-                            Viewed = 4,
-                            Vote = -4
+                            Viewed = 7,
+                            Vote = 10
                         },
                         new
                         {
                             Id = 31,
-                            AddedDate = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 31 for event 2021",
                             UserId = 10,
-                            Viewed = 14,
-                            Vote = 21
+                            Viewed = 7,
+                            Vote = 0
                         },
                         new
                         {
                             Id = 32,
-                            AddedDate = new DateTime(2021, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2021, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 32 for event 2021",
-                            UserId = 8,
-                            Viewed = 4,
-                            Vote = 0
+                            UserId = 19,
+                            Viewed = 7,
+                            Vote = 1
                         },
                         new
                         {
                             Id = 33,
-                            AddedDate = new DateTime(2021, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 33 for event 2021",
-                            UserId = 10,
-                            Viewed = 14,
-                            Vote = 23
-                        },
-                        new
-                        {
-                            Id = 34,
-                            AddedDate = new DateTime(2021, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 34 for event 2021",
-                            UserId = 8,
-                            Viewed = 2,
-                            Vote = -2
-                        },
-                        new
-                        {
-                            Id = 35,
-                            AddedDate = new DateTime(2021, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 33 for event 2021",
+                            UserId = 15,
+                            Viewed = 4,
+                            Vote = 13
+                        },
+                        new
+                        {
+                            Id = 34,
+                            AddedDate = new DateTime(2021, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 34 for event 2021",
+                            UserId = 4,
+                            Viewed = 1,
+                            Vote = 15
+                        },
+                        new
+                        {
+                            Id = 35,
+                            AddedDate = new DateTime(2021, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 35 for event 2021",
-                            UserId = 18,
-                            Viewed = 13,
-                            Vote = -8
+                            UserId = 12,
+                            Viewed = 7,
+                            Vote = 27
                         },
                         new
                         {
                             Id = 36,
-                            AddedDate = new DateTime(2021, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2021, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 36 for event 2021",
-                            UserId = 16,
-                            Viewed = 14,
-                            Vote = 13
+                            UserId = 9,
+                            Viewed = 1,
+                            Vote = 21
                         },
                         new
                         {
                             Id = 37,
-                            AddedDate = new DateTime(2021, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 37 for event 2021",
-                            UserId = 14,
-                            Viewed = 1,
-                            Vote = 3
+                            UserId = 24,
+                            Viewed = 7,
+                            Vote = 2
                         },
                         new
                         {
                             Id = 38,
-                            AddedDate = new DateTime(2021, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 38 for event 2021",
-                            UserId = 19,
-                            Viewed = 1,
-                            Vote = 8
+                            UserId = 4,
+                            Viewed = 3,
+                            Vote = 17
                         },
                         new
                         {
                             Id = 39,
-                            AddedDate = new DateTime(2021, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 39 for event 2021",
-                            UserId = 6,
-                            Viewed = 3,
-                            Vote = -7
+                            UserId = 24,
+                            Viewed = 6,
+                            Vote = 15
                         },
                         new
                         {
                             Id = 40,
-                            AddedDate = new DateTime(2021, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 40 for event 2021",
-                            UserId = 22,
-                            Viewed = 1,
-                            Vote = 25
+                            UserId = 6,
+                            Viewed = 14,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 41,
-                            AddedDate = new DateTime(2021, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 41 for event 2021",
-                            UserId = 23,
+                            UserId = 17,
                             Viewed = 9,
-                            Vote = 19
+                            Vote = 3
                         },
                         new
                         {
                             Id = 42,
-                            AddedDate = new DateTime(2021, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2021, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 42 for event 2021",
-                            UserId = 12,
-                            Viewed = 5,
-                            Vote = 11
+                            UserId = 9,
+                            Viewed = 1,
+                            Vote = 16
                         },
                         new
                         {
                             Id = 43,
-                            AddedDate = new DateTime(2021, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 43 for event 2021",
-                            UserId = 21,
-                            Viewed = 13,
-                            Vote = 20
+                            UserId = 11,
+                            Viewed = 3,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 44,
-                            AddedDate = new DateTime(2021, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 44 for event 2021",
-                            UserId = 6,
-                            Viewed = 3,
-                            Vote = 20
-                        },
-                        new
-                        {
-                            Id = 45,
-                            AddedDate = new DateTime(2021, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 45 for event 2021",
-                            UserId = 19,
-                            Viewed = 13,
-                            Vote = 11
-                        },
-                        new
-                        {
-                            Id = 46,
-                            AddedDate = new DateTime(2021, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 46 for event 2021",
-                            UserId = 5,
-                            Viewed = 1,
-                            Vote = 3
-                        },
-                        new
-                        {
-                            Id = 47,
-                            AddedDate = new DateTime(2021, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 2,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 47 for event 2021",
-                            UserId = 23,
-                            Viewed = 14,
-                            Vote = 8
-                        },
-                        new
-                        {
-                            Id = 48,
-                            AddedDate = new DateTime(2021, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 48 for event 2021",
-                            UserId = 21,
+                            Name = "Idea 44 for event 2021",
+                            UserId = 23,
+                            Viewed = 2,
+                            Vote = 1
+                        },
+                        new
+                        {
+                            Id = 45,
+                            AddedDate = new DateTime(2021, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 45 for event 2021",
+                            UserId = 22,
                             Viewed = 3,
-                            Vote = 6
+                            Vote = -7
+                        },
+                        new
+                        {
+                            Id = 46,
+                            AddedDate = new DateTime(2021, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 46 for event 2021",
+                            UserId = 20,
+                            Viewed = 1,
+                            Vote = 15
+                        },
+                        new
+                        {
+                            Id = 47,
+                            AddedDate = new DateTime(2021, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 47 for event 2021",
+                            UserId = 7,
+                            Viewed = 6,
+                            Vote = -4
+                        },
+                        new
+                        {
+                            Id = 48,
+                            AddedDate = new DateTime(2021, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 2,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 48 for event 2021",
+                            UserId = 14,
+                            Viewed = 1,
+                            Vote = 26
                         },
                         new
                         {
                             Id = 49,
-                            AddedDate = new DateTime(2021, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 49 for event 2021",
-                            UserId = 14,
-                            Viewed = 4,
-                            Vote = -3
+                            UserId = 20,
+                            Viewed = 9,
+                            Vote = 29
                         },
                         new
                         {
                             Id = 50,
-                            AddedDate = new DateTime(2021, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 50 for event 2021",
-                            UserId = 7,
-                            Viewed = 8,
-                            Vote = 30
+                            UserId = 4,
+                            Viewed = 3,
+                            Vote = 24
                         },
                         new
                         {
                             Id = 51,
-                            AddedDate = new DateTime(2021, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 51 for event 2021",
-                            UserId = 17,
-                            Viewed = 3,
-                            Vote = 30
+                            UserId = 7,
+                            Viewed = 1,
+                            Vote = 9
                         },
                         new
                         {
                             Id = 52,
-                            AddedDate = new DateTime(2021, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2021, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 52 for event 2021",
-                            UserId = 12,
-                            Viewed = 4,
-                            Vote = 18
+                            UserId = 21,
+                            Viewed = 7,
+                            Vote = 25
                         },
                         new
                         {
                             Id = 53,
-                            AddedDate = new DateTime(2021, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 53 for event 2021",
-                            UserId = 10,
-                            Viewed = 2,
-                            Vote = 29
+                            UserId = 11,
+                            Viewed = 3,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 54,
-                            AddedDate = new DateTime(2021, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 3, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 54 for event 2021",
-                            UserId = 14,
-                            Viewed = 12,
-                            Vote = 3
+                            UserId = 17,
+                            Viewed = 5,
+                            Vote = 20
                         },
                         new
                         {
                             Id = 55,
-                            AddedDate = new DateTime(2021, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 55 for event 2021",
-                            UserId = 7,
-                            Viewed = 5,
-                            Vote = 14
+                            UserId = 5,
+                            Viewed = 1,
+                            Vote = 17
                         },
                         new
                         {
                             Id = 56,
-                            AddedDate = new DateTime(2021, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 56 for event 2021",
-                            UserId = 19,
-                            Viewed = 8,
-                            Vote = 20
+                            UserId = 24,
+                            Viewed = 14,
+                            Vote = 27
                         },
                         new
                         {
                             Id = 57,
-                            AddedDate = new DateTime(2021, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 57 for event 2021",
-                            UserId = 7,
-                            Viewed = 13,
-                            Vote = 5
+                            UserId = 16,
+                            Viewed = 4,
+                            Vote = 9
                         },
                         new
                         {
                             Id = 58,
-                            AddedDate = new DateTime(2021, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 58 for event 2021",
-                            UserId = 20,
-                            Viewed = 13,
-                            Vote = 18
+                            UserId = 11,
+                            Viewed = 4,
+                            Vote = 12
                         },
                         new
                         {
                             Id = 59,
-                            AddedDate = new DateTime(2021, 12, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 59 for event 2021",
-                            UserId = 19,
-                            Viewed = 13,
-                            Vote = 0
+                            UserId = 7,
+                            Viewed = 9,
+                            Vote = 2
                         },
                         new
                         {
                             Id = 60,
-                            AddedDate = new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2021, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 60 for event 2021",
-                            UserId = 10,
-                            Viewed = 10,
-                            Vote = 14
+                            UserId = 14,
+                            Viewed = 2,
+                            Vote = 21
                         },
                         new
                         {
                             Id = 61,
-                            AddedDate = new DateTime(2021, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2021, 8, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 61 for event 2021",
-                            UserId = 11,
-                            Viewed = 9,
-                            Vote = 5
+                            UserId = 24,
+                            Viewed = 10,
+                            Vote = 8
                         },
                         new
                         {
                             Id = 62,
-                            AddedDate = new DateTime(2021, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 62 for event 2021",
-                            UserId = 12,
-                            Viewed = 12,
-                            Vote = -9
+                            UserId = 14,
+                            Viewed = 3,
+                            Vote = 5
                         },
                         new
                         {
                             Id = 63,
-                            AddedDate = new DateTime(2021, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 63 for event 2021",
-                            UserId = 12,
-                            Viewed = 5,
-                            Vote = -4
+                            UserId = 4,
+                            Viewed = 8,
+                            Vote = 14
                         },
                         new
                         {
                             Id = 64,
-                            AddedDate = new DateTime(2021, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 64 for event 2021",
-                            UserId = 9,
-                            Viewed = 9,
-                            Vote = -8
+                            UserId = 6,
+                            Viewed = 12,
+                            Vote = -9
                         },
                         new
                         {
                             Id = 65,
-                            AddedDate = new DateTime(2021, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2021, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 65 for event 2021",
-                            UserId = 15,
-                            Viewed = 5,
-                            Vote = -5
+                            UserId = 8,
+                            Viewed = 12,
+                            Vote = 9
                         },
                         new
                         {
                             Id = 66,
-                            AddedDate = new DateTime(2021, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2021, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 66 for event 2021",
-                            UserId = 21,
-                            Viewed = 6,
-                            Vote = 24
+                            UserId = 13,
+                            Viewed = 5,
+                            Vote = 14
                         },
                         new
                         {
                             Id = 67,
-                            AddedDate = new DateTime(2021, 8, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2021, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 67 for event 2021",
-                            UserId = 9,
-                            Viewed = 5,
-                            Vote = 0
+                            UserId = 11,
+                            Viewed = 14,
+                            Vote = 29
                         },
                         new
                         {
                             Id = 68,
-                            AddedDate = new DateTime(2021, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2021, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 68 for event 2021",
-                            UserId = 14,
-                            Viewed = 10,
-                            Vote = 14
+                            UserId = 11,
+                            Viewed = 14,
+                            Vote = -4
                         },
                         new
                         {
                             Id = 69,
-                            AddedDate = new DateTime(2021, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2021, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 69 for event 2021",
-                            UserId = 16,
-                            Viewed = 1,
-                            Vote = 24
+                            UserId = 9,
+                            Viewed = 3,
+                            Vote = 3
                         },
                         new
                         {
                             Id = 70,
-                            AddedDate = new DateTime(2021, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2021, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 2,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 70 for event 2021",
-                            UserId = 11,
-                            Viewed = 7,
-                            Vote = -4
+                            UserId = 24,
+                            Viewed = 11,
+                            Vote = -3
                         },
                         new
                         {
                             Id = 71,
-                            AddedDate = new DateTime(2022, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 71 for event 2022",
-                            UserId = 8,
-                            Viewed = 13,
-                            Vote = 19
+                            UserId = 15,
+                            Viewed = 1,
+                            Vote = 12
                         },
                         new
                         {
                             Id = 72,
-                            AddedDate = new DateTime(2022, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 72 for event 2022",
-                            UserId = 5,
-                            Viewed = 12,
-                            Vote = 1
+                            UserId = 19,
+                            Viewed = 8,
+                            Vote = 18
                         },
                         new
                         {
                             Id = 73,
-                            AddedDate = new DateTime(2022, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 73 for event 2022",
-                            UserId = 9,
-                            Viewed = 6,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 74,
-                            AddedDate = new DateTime(2022, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 74 for event 2022",
-                            UserId = 18,
-                            Viewed = 11,
-                            Vote = -9
-                        },
-                        new
-                        {
-                            Id = 75,
-                            AddedDate = new DateTime(2022, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 75 for event 2022",
+                            Name = "Idea 73 for event 2022",
+                            UserId = 20,
+                            Viewed = 9,
+                            Vote = 7
+                        },
+                        new
+                        {
+                            Id = 74,
+                            AddedDate = new DateTime(2022, 11, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 74 for event 2022",
                             UserId = 21,
-                            Viewed = 2,
-                            Vote = 9
+                            Viewed = 8,
+                            Vote = -3
+                        },
+                        new
+                        {
+                            Id = 75,
+                            AddedDate = new DateTime(2022, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 75 for event 2022",
+                            UserId = 20,
+                            Viewed = 6,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 76,
-                            AddedDate = new DateTime(2022, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 76 for event 2022",
-                            UserId = 21,
-                            Viewed = 2,
-                            Vote = -8
+                            UserId = 11,
+                            Viewed = 9,
+                            Vote = -3
                         },
                         new
                         {
                             Id = 77,
-                            AddedDate = new DateTime(2022, 11, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 77 for event 2022",
-                            UserId = 8,
-                            Viewed = 8,
-                            Vote = 13
+                            UserId = 15,
+                            Viewed = 2,
+                            Vote = -7
                         },
                         new
                         {
                             Id = 78,
-                            AddedDate = new DateTime(2022, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 78 for event 2022",
-                            UserId = 6,
-                            Viewed = 14,
-                            Vote = 0
+                            UserId = 8,
+                            Viewed = 9,
+                            Vote = 26
                         },
                         new
                         {
                             Id = 79,
-                            AddedDate = new DateTime(2022, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 79 for event 2022",
-                            UserId = 22,
-                            Viewed = 12,
-                            Vote = -4
+                            UserId = 14,
+                            Viewed = 7,
+                            Vote = 4
                         },
                         new
                         {
                             Id = 80,
-                            AddedDate = new DateTime(2022, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 9, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 80 for event 2022",
-                            UserId = 5,
-                            Viewed = 8,
-                            Vote = -8
+                            UserId = 10,
+                            Viewed = 11,
+                            Vote = 3
                         },
                         new
                         {
                             Id = 81,
-                            AddedDate = new DateTime(2022, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 81 for event 2022",
-                            UserId = 24,
-                            Viewed = 11,
-                            Vote = -10
+                            UserId = 6,
+                            Viewed = 5,
+                            Vote = -4
                         },
                         new
                         {
                             Id = 82,
-                            AddedDate = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 82 for event 2022",
-                            UserId = 24,
-                            Viewed = 11,
-                            Vote = 5
+                            UserId = 19,
+                            Viewed = 4,
+                            Vote = 13
                         },
                         new
                         {
                             Id = 83,
-                            AddedDate = new DateTime(2022, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2022, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 83 for event 2022",
-                            UserId = 7,
-                            Viewed = 7,
-                            Vote = 14
+                            UserId = 21,
+                            Viewed = 6,
+                            Vote = 29
                         },
                         new
                         {
                             Id = 84,
-                            AddedDate = new DateTime(2022, 9, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 84 for event 2022",
-                            UserId = 17,
-                            Viewed = 6,
-                            Vote = -7
+                            UserId = 11,
+                            Viewed = 14,
+                            Vote = 21
                         },
                         new
                         {
                             Id = 85,
-                            AddedDate = new DateTime(2022, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 85 for event 2022",
-                            UserId = 10,
-                            Viewed = 9,
-                            Vote = -4
+                            UserId = 11,
+                            Viewed = 2,
+                            Vote = -6
                         },
                         new
                         {
                             Id = 86,
-                            AddedDate = new DateTime(2022, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 86 for event 2022",
-                            UserId = 13,
-                            Viewed = 4,
-                            Vote = 21
+                            UserId = 11,
+                            Viewed = 8,
+                            Vote = 25
                         },
                         new
                         {
                             Id = 87,
-                            AddedDate = new DateTime(2022, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 87 for event 2022",
-                            UserId = 5,
-                            Viewed = 11,
-                            Vote = 2
+                            UserId = 17,
+                            Viewed = 9,
+                            Vote = -9
                         },
                         new
                         {
                             Id = 88,
-                            AddedDate = new DateTime(2022, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2022, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 88 for event 2022",
-                            UserId = 20,
-                            Viewed = 14,
-                            Vote = 2
+                            UserId = 18,
+                            Viewed = 5,
+                            Vote = 23
                         },
                         new
                         {
                             Id = 89,
-                            AddedDate = new DateTime(2022, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2022, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 89 for event 2022",
-                            UserId = 9,
-                            Viewed = 10,
-                            Vote = 4
+                            UserId = 19,
+                            Viewed = 2,
+                            Vote = 27
                         },
                         new
                         {
                             Id = 90,
-                            AddedDate = new DateTime(2022, 12, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 90 for event 2022",
-                            UserId = 7,
-                            Viewed = 8,
-                            Vote = -1
+                            UserId = 17,
+                            Viewed = 10,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 91,
-                            AddedDate = new DateTime(2022, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2022, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 91 for event 2022",
-                            UserId = 9,
-                            Viewed = 14,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 92,
-                            AddedDate = new DateTime(2022, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 92 for event 2022",
-                            UserId = 24,
-                            Viewed = 4,
-                            Vote = -10
-                        },
-                        new
-                        {
-                            Id = 93,
-                            AddedDate = new DateTime(2022, 7, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 93 for event 2022",
-                            UserId = 13,
-                            Viewed = 8,
-                            Vote = 14
-                        },
-                        new
-                        {
-                            Id = 94,
-                            AddedDate = new DateTime(2022, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 94 for event 2022",
-                            UserId = 24,
-                            Viewed = 12,
-                            Vote = 1
-                        },
-                        new
-                        {
-                            Id = 95,
-                            AddedDate = new DateTime(2022, 8, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 95 for event 2022",
-                            UserId = 21,
-                            Viewed = 13,
-                            Vote = 23
-                        },
-                        new
-                        {
-                            Id = 96,
-                            AddedDate = new DateTime(2022, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 96 for event 2022",
-                            UserId = 16,
-                            Viewed = 6,
-                            Vote = 2
-                        },
-                        new
-                        {
-                            Id = 97,
-                            AddedDate = new DateTime(2022, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 97 for event 2022",
-                            UserId = 13,
-                            Viewed = 8,
+                            UserId = 22,
+                            Viewed = 3,
                             Vote = 25
                         },
                         new
                         {
-                            Id = 98,
-                            AddedDate = new DateTime(2022, 12, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 98 for event 2022",
-                            UserId = 18,
-                            Viewed = 8,
-                            Vote = 30
-                        },
-                        new
-                        {
-                            Id = 99,
-                            AddedDate = new DateTime(2022, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 99 for event 2022",
-                            UserId = 6,
-                            Viewed = 7,
-                            Vote = 20
-                        },
-                        new
-                        {
-                            Id = 100,
-                            AddedDate = new DateTime(2022, 12, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 100 for event 2022",
-                            UserId = 11,
-                            Viewed = 1,
-                            Vote = 6
-                        },
-                        new
-                        {
-                            Id = 101,
-                            AddedDate = new DateTime(2022, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 101 for event 2022",
-                            UserId = 10,
-                            Viewed = 12,
-                            Vote = 4
-                        },
-                        new
-                        {
-                            Id = 102,
-                            AddedDate = new DateTime(2022, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 102 for event 2022",
-                            UserId = 18,
-                            Viewed = 11,
-                            Vote = 22
-                        },
-                        new
-                        {
-                            Id = 103,
-                            AddedDate = new DateTime(2022, 12, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 103 for event 2022",
-                            UserId = 11,
-                            Viewed = 14,
-                            Vote = 4
-                        },
-                        new
-                        {
-                            Id = 104,
-                            AddedDate = new DateTime(2022, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 104 for event 2022",
-                            UserId = 15,
-                            Viewed = 12,
-                            Vote = 9
-                        },
-                        new
-                        {
-                            Id = 105,
-                            AddedDate = new DateTime(2022, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 105 for event 2022",
-                            UserId = 16,
-                            Viewed = 12,
-                            Vote = 6
-                        },
-                        new
-                        {
-                            Id = 106,
-                            AddedDate = new DateTime(2022, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 106 for event 2022",
-                            UserId = 16,
-                            Viewed = 4,
-                            Vote = 5
-                        },
-                        new
-                        {
-                            Id = 107,
-                            AddedDate = new DateTime(2022, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 107 for event 2022",
-                            UserId = 24,
-                            Viewed = 1,
-                            Vote = 26
-                        },
-                        new
-                        {
-                            Id = 108,
-                            AddedDate = new DateTime(2022, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 108 for event 2022",
-                            UserId = 17,
-                            Viewed = 12,
-                            Vote = -6
-                        },
-                        new
-                        {
-                            Id = 109,
-                            AddedDate = new DateTime(2022, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 109 for event 2022",
-                            UserId = 10,
-                            Viewed = 13,
-                            Vote = 6
-                        },
-                        new
-                        {
-                            Id = 110,
-                            AddedDate = new DateTime(2022, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 110 for event 2022",
-                            UserId = 6,
-                            Viewed = 1,
-                            Vote = 13
-                        },
-                        new
-                        {
-                            Id = 111,
-                            AddedDate = new DateTime(2022, 9, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 111 for event 2022",
-                            UserId = 22,
-                            Viewed = 13,
-                            Vote = 1
-                        },
-                        new
-                        {
-                            Id = 112,
-                            AddedDate = new DateTime(2022, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 112 for event 2022",
-                            UserId = 16,
-                            Viewed = 8,
-                            Vote = -1
-                        },
-                        new
-                        {
-                            Id = 113,
-                            AddedDate = new DateTime(2022, 8, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 113 for event 2022",
-                            UserId = 15,
-                            Viewed = 4,
-                            Vote = 26
-                        },
-                        new
-                        {
-                            Id = 114,
-                            AddedDate = new DateTime(2022, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 114 for event 2022",
-                            UserId = 21,
-                            Viewed = 6,
-                            Vote = 11
-                        },
-                        new
-                        {
-                            Id = 115,
-                            AddedDate = new DateTime(2022, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 115 for event 2022",
-                            UserId = 11,
-                            Viewed = 5,
-                            Vote = 4
-                        },
-                        new
-                        {
-                            Id = 116,
-                            AddedDate = new DateTime(2022, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 116 for event 2022",
-                            UserId = 8,
-                            Viewed = 8,
-                            Vote = 27
-                        },
-                        new
-                        {
-                            Id = 117,
-                            AddedDate = new DateTime(2022, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 117 for event 2022",
-                            UserId = 7,
-                            Viewed = 6,
-                            Vote = 16
-                        },
-                        new
-                        {
-                            Id = 118,
-                            AddedDate = new DateTime(2022, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 118 for event 2022",
-                            UserId = 5,
-                            Viewed = 14,
-                            Vote = 4
-                        },
-                        new
-                        {
-                            Id = 119,
-                            AddedDate = new DateTime(2022, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 119 for event 2022",
-                            UserId = 22,
-                            Viewed = 2,
-                            Vote = 1
-                        },
-                        new
-                        {
-                            Id = 120,
-                            AddedDate = new DateTime(2022, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 120 for event 2022",
-                            UserId = 14,
-                            Viewed = 13,
-                            Vote = 20
-                        },
-                        new
-                        {
-                            Id = 121,
-                            AddedDate = new DateTime(2022, 7, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 121 for event 2022",
-                            UserId = 17,
-                            Viewed = 2,
-                            Vote = -8
-                        },
-                        new
-                        {
-                            Id = 122,
-                            AddedDate = new DateTime(2022, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 122 for event 2022",
-                            UserId = 16,
-                            Viewed = 3,
-                            Vote = 2
-                        },
-                        new
-                        {
-                            Id = 123,
-                            AddedDate = new DateTime(2022, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 123 for event 2022",
-                            UserId = 11,
-                            Viewed = 6,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 124,
-                            AddedDate = new DateTime(2022, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 124 for event 2022",
-                            UserId = 19,
-                            Viewed = 7,
-                            Vote = -5
-                        },
-                        new
-                        {
-                            Id = 125,
-                            AddedDate = new DateTime(2022, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 125 for event 2022",
-                            UserId = 17,
-                            Viewed = 6,
-                            Vote = 6
-                        },
-                        new
-                        {
-                            Id = 126,
-                            AddedDate = new DateTime(2022, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 126 for event 2022",
-                            UserId = 10,
-                            Viewed = 14,
-                            Vote = 26
-                        },
-                        new
-                        {
-                            Id = 127,
-                            AddedDate = new DateTime(2022, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 127 for event 2022",
-                            UserId = 10,
-                            Viewed = 13,
-                            Vote = 6
-                        },
-                        new
-                        {
-                            Id = 128,
-                            AddedDate = new DateTime(2022, 12, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 128 for event 2022",
-                            UserId = 24,
-                            Viewed = 9,
-                            Vote = 21
-                        },
-                        new
-                        {
-                            Id = 129,
-                            AddedDate = new DateTime(2022, 11, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 129 for event 2022",
-                            UserId = 6,
-                            Viewed = 7,
-                            Vote = 23
-                        },
-                        new
-                        {
-                            Id = 130,
-                            AddedDate = new DateTime(2022, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 130 for event 2022",
-                            UserId = 19,
-                            Viewed = 8,
-                            Vote = -1
-                        },
-                        new
-                        {
-                            Id = 131,
-                            AddedDate = new DateTime(2022, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 131 for event 2022",
-                            UserId = 11,
-                            Viewed = 1,
-                            Vote = 27
-                        },
-                        new
-                        {
-                            Id = 132,
-                            AddedDate = new DateTime(2022, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 132 for event 2022",
-                            UserId = 24,
-                            Viewed = 6,
-                            Vote = 16
-                        },
-                        new
-                        {
-                            Id = 133,
-                            AddedDate = new DateTime(2022, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 133 for event 2022",
-                            UserId = 10,
-                            Viewed = 8,
-                            Vote = 5
-                        },
-                        new
-                        {
-                            Id = 134,
+                            Id = 92,
                             AddedDate = new DateTime(2022, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 134 for event 2022",
-                            UserId = 12,
-                            Viewed = 10,
-                            Vote = 13
+                            Name = "Idea 92 for event 2022",
+                            UserId = 22,
+                            Viewed = 12,
+                            Vote = 8
                         },
                         new
                         {
-                            Id = 135,
-                            AddedDate = new DateTime(2022, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 135 for event 2022",
-                            UserId = 13,
-                            Viewed = 14,
-                            Vote = 29
-                        },
-                        new
-                        {
-                            Id = 136,
-                            AddedDate = new DateTime(2022, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 136 for event 2022",
-                            UserId = 24,
-                            Viewed = 6,
-                            Vote = -3
-                        },
-                        new
-                        {
-                            Id = 137,
-                            AddedDate = new DateTime(2022, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 93,
+                            AddedDate = new DateTime(2022, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 137 for event 2022",
+                            Name = "Idea 93 for event 2022",
+                            UserId = 21,
+                            Viewed = 2,
+                            Vote = 27
+                        },
+                        new
+                        {
+                            Id = 94,
+                            AddedDate = new DateTime(2022, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 94 for event 2022",
+                            UserId = 8,
+                            Viewed = 11,
+                            Vote = 9
+                        },
+                        new
+                        {
+                            Id = 95,
+                            AddedDate = new DateTime(2022, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 95 for event 2022",
+                            UserId = 5,
+                            Viewed = 7,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 96,
+                            AddedDate = new DateTime(2022, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 96 for event 2022",
+                            UserId = 18,
+                            Viewed = 8,
+                            Vote = 0
+                        },
+                        new
+                        {
+                            Id = 97,
+                            AddedDate = new DateTime(2022, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 97 for event 2022",
+                            UserId = 11,
+                            Viewed = 5,
+                            Vote = 12
+                        },
+                        new
+                        {
+                            Id = 98,
+                            AddedDate = new DateTime(2022, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 98 for event 2022",
+                            UserId = 12,
+                            Viewed = 14,
+                            Vote = 9
+                        },
+                        new
+                        {
+                            Id = 99,
+                            AddedDate = new DateTime(2022, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 99 for event 2022",
+                            UserId = 9,
+                            Viewed = 14,
+                            Vote = 28
+                        },
+                        new
+                        {
+                            Id = 100,
+                            AddedDate = new DateTime(2022, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 100 for event 2022",
+                            UserId = 18,
+                            Viewed = 6,
+                            Vote = 3
+                        },
+                        new
+                        {
+                            Id = 101,
+                            AddedDate = new DateTime(2022, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 101 for event 2022",
+                            UserId = 6,
+                            Viewed = 10,
+                            Vote = 16
+                        },
+                        new
+                        {
+                            Id = 102,
+                            AddedDate = new DateTime(2022, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 102 for event 2022",
+                            UserId = 21,
+                            Viewed = 7,
+                            Vote = 17
+                        },
+                        new
+                        {
+                            Id = 103,
+                            AddedDate = new DateTime(2022, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 103 for event 2022",
+                            UserId = 17,
+                            Viewed = 7,
+                            Vote = -5
+                        },
+                        new
+                        {
+                            Id = 104,
+                            AddedDate = new DateTime(2022, 7, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 104 for event 2022",
+                            UserId = 13,
+                            Viewed = 14,
+                            Vote = 10
+                        },
+                        new
+                        {
+                            Id = 105,
+                            AddedDate = new DateTime(2022, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 105 for event 2022",
+                            UserId = 6,
+                            Viewed = 11,
+                            Vote = 16
+                        },
+                        new
+                        {
+                            Id = 106,
+                            AddedDate = new DateTime(2022, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 106 for event 2022",
+                            UserId = 24,
+                            Viewed = 9,
+                            Vote = 29
+                        },
+                        new
+                        {
+                            Id = 107,
+                            AddedDate = new DateTime(2022, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 107 for event 2022",
+                            UserId = 4,
+                            Viewed = 7,
+                            Vote = -6
+                        },
+                        new
+                        {
+                            Id = 108,
+                            AddedDate = new DateTime(2022, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 108 for event 2022",
                             UserId = 22,
+                            Viewed = 5,
+                            Vote = 29
+                        },
+                        new
+                        {
+                            Id = 109,
+                            AddedDate = new DateTime(2022, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 109 for event 2022",
+                            UserId = 22,
+                            Viewed = 7,
+                            Vote = 10
+                        },
+                        new
+                        {
+                            Id = 110,
+                            AddedDate = new DateTime(2022, 10, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 110 for event 2022",
+                            UserId = 7,
+                            Viewed = 9,
+                            Vote = 15
+                        },
+                        new
+                        {
+                            Id = 111,
+                            AddedDate = new DateTime(2022, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 111 for event 2022",
+                            UserId = 19,
+                            Viewed = 9,
+                            Vote = 21
+                        },
+                        new
+                        {
+                            Id = 112,
+                            AddedDate = new DateTime(2022, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 112 for event 2022",
+                            UserId = 10,
+                            Viewed = 3,
+                            Vote = 15
+                        },
+                        new
+                        {
+                            Id = 113,
+                            AddedDate = new DateTime(2022, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 113 for event 2022",
+                            UserId = 5,
                             Viewed = 12,
+                            Vote = 9
+                        },
+                        new
+                        {
+                            Id = 114,
+                            AddedDate = new DateTime(2022, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 114 for event 2022",
+                            UserId = 13,
+                            Viewed = 3,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 115,
+                            AddedDate = new DateTime(2022, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 115 for event 2022",
+                            UserId = 7,
+                            Viewed = 1,
+                            Vote = -1
+                        },
+                        new
+                        {
+                            Id = 116,
+                            AddedDate = new DateTime(2022, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 116 for event 2022",
+                            UserId = 9,
+                            Viewed = 7,
+                            Vote = 5
+                        },
+                        new
+                        {
+                            Id = 117,
+                            AddedDate = new DateTime(2022, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 117 for event 2022",
+                            UserId = 9,
+                            Viewed = 3,
+                            Vote = 12
+                        },
+                        new
+                        {
+                            Id = 118,
+                            AddedDate = new DateTime(2022, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 118 for event 2022",
+                            UserId = 7,
+                            Viewed = 4,
+                            Vote = 13
+                        },
+                        new
+                        {
+                            Id = 119,
+                            AddedDate = new DateTime(2022, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 119 for event 2022",
+                            UserId = 10,
+                            Viewed = 4,
                             Vote = 26
                         },
                         new
                         {
+                            Id = 120,
+                            AddedDate = new DateTime(2022, 9, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 120 for event 2022",
+                            UserId = 14,
+                            Viewed = 8,
+                            Vote = 1
+                        },
+                        new
+                        {
+                            Id = 121,
+                            AddedDate = new DateTime(2022, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 121 for event 2022",
+                            UserId = 13,
+                            Viewed = 14,
+                            Vote = -5
+                        },
+                        new
+                        {
+                            Id = 122,
+                            AddedDate = new DateTime(2022, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 122 for event 2022",
+                            UserId = 17,
+                            Viewed = 6,
+                            Vote = 1
+                        },
+                        new
+                        {
+                            Id = 123,
+                            AddedDate = new DateTime(2022, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 123 for event 2022",
+                            UserId = 7,
+                            Viewed = 12,
+                            Vote = 2
+                        },
+                        new
+                        {
+                            Id = 124,
+                            AddedDate = new DateTime(2022, 12, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 124 for event 2022",
+                            UserId = 16,
+                            Viewed = 11,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 125,
+                            AddedDate = new DateTime(2022, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 125 for event 2022",
+                            UserId = 24,
+                            Viewed = 6,
+                            Vote = -8
+                        },
+                        new
+                        {
+                            Id = 126,
+                            AddedDate = new DateTime(2022, 12, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 126 for event 2022",
+                            UserId = 11,
+                            Viewed = 1,
+                            Vote = 30
+                        },
+                        new
+                        {
+                            Id = 127,
+                            AddedDate = new DateTime(2022, 7, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 127 for event 2022",
+                            UserId = 14,
+                            Viewed = 4,
+                            Vote = 17
+                        },
+                        new
+                        {
+                            Id = 128,
+                            AddedDate = new DateTime(2022, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 128 for event 2022",
+                            UserId = 16,
+                            Viewed = 5,
+                            Vote = 11
+                        },
+                        new
+                        {
+                            Id = 129,
+                            AddedDate = new DateTime(2022, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 129 for event 2022",
+                            UserId = 13,
+                            Viewed = 11,
+                            Vote = 20
+                        },
+                        new
+                        {
+                            Id = 130,
+                            AddedDate = new DateTime(2022, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 130 for event 2022",
+                            UserId = 17,
+                            Viewed = 13,
+                            Vote = 25
+                        },
+                        new
+                        {
+                            Id = 131,
+                            AddedDate = new DateTime(2022, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 131 for event 2022",
+                            UserId = 5,
+                            Viewed = 11,
+                            Vote = 4
+                        },
+                        new
+                        {
+                            Id = 132,
+                            AddedDate = new DateTime(2022, 8, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 132 for event 2022",
+                            UserId = 14,
+                            Viewed = 12,
+                            Vote = 19
+                        },
+                        new
+                        {
+                            Id = 133,
+                            AddedDate = new DateTime(2022, 9, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 133 for event 2022",
+                            UserId = 22,
+                            Viewed = 5,
+                            Vote = 14
+                        },
+                        new
+                        {
+                            Id = 134,
+                            AddedDate = new DateTime(2022, 10, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 134 for event 2022",
+                            UserId = 10,
+                            Viewed = 9,
+                            Vote = 27
+                        },
+                        new
+                        {
+                            Id = 135,
+                            AddedDate = new DateTime(2022, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 135 for event 2022",
+                            UserId = 9,
+                            Viewed = 3,
+                            Vote = 23
+                        },
+                        new
+                        {
+                            Id = 136,
+                            AddedDate = new DateTime(2022, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 136 for event 2022",
+                            UserId = 9,
+                            Viewed = 13,
+                            Vote = -10
+                        },
+                        new
+                        {
+                            Id = 137,
+                            AddedDate = new DateTime(2022, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 137 for event 2022",
+                            UserId = 23,
+                            Viewed = 7,
+                            Vote = 24
+                        },
+                        new
+                        {
                             Id = 138,
-                            AddedDate = new DateTime(2022, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 138 for event 2022",
-                            UserId = 13,
-                            Viewed = 14,
-                            Vote = 7
+                            UserId = 6,
+                            Viewed = 11,
+                            Vote = 6
                         },
                         new
                         {
                             Id = 139,
-                            AddedDate = new DateTime(2022, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 8, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 139 for event 2022",
-                            UserId = 24,
-                            Viewed = 1,
-                            Vote = -5
+                            UserId = 10,
+                            Viewed = 2,
+                            Vote = 3
                         },
                         new
                         {
                             Id = 140,
-                            AddedDate = new DateTime(2022, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 140 for event 2022",
-                            UserId = 24,
-                            Viewed = 9,
-                            Vote = 12
+                            UserId = 6,
+                            Viewed = 3,
+                            Vote = 1
                         },
                         new
                         {
                             Id = 141,
-                            AddedDate = new DateTime(2022, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 141 for event 2022",
-                            UserId = 9,
-                            Viewed = 13,
-                            Vote = -8
+                            UserId = 19,
+                            Viewed = 10,
+                            Vote = 18
                         },
                         new
                         {
                             Id = 142,
-                            AddedDate = new DateTime(2022, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 10, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 142 for event 2022",
-                            UserId = 11,
-                            Viewed = 2,
-                            Vote = -1
+                            UserId = 7,
+                            Viewed = 3,
+                            Vote = -5
                         },
                         new
                         {
                             Id = 143,
-                            AddedDate = new DateTime(2022, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 143 for event 2022",
-                            UserId = 22,
-                            Viewed = 11,
-                            Vote = -3
+                            UserId = 15,
+                            Viewed = 12,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 144,
-                            AddedDate = new DateTime(2022, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2022, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 144 for event 2022",
-                            UserId = 12,
+                            UserId = 22,
                             Viewed = 13,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 145,
-                            AddedDate = new DateTime(2022, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 145 for event 2022",
-                            UserId = 23,
-                            Viewed = 4,
-                            Vote = 10
-                        },
-                        new
-                        {
-                            Id = 146,
-                            AddedDate = new DateTime(2022, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 146 for event 2022",
-                            UserId = 16,
-                            Viewed = 2,
                             Vote = -9
                         },
                         new
                         {
-                            Id = 147,
-                            AddedDate = new DateTime(2022, 11, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 147 for event 2022",
-                            UserId = 6,
-                            Viewed = 9,
-                            Vote = 7
-                        },
-                        new
-                        {
-                            Id = 148,
-                            AddedDate = new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 148 for event 2022",
-                            UserId = 16,
-                            Viewed = 2,
-                            Vote = 12
-                        },
-                        new
-                        {
-                            Id = 149,
-                            AddedDate = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 149 for event 2022",
-                            UserId = 12,
-                            Viewed = 10,
-                            Vote = 22
-                        },
-                        new
-                        {
-                            Id = 150,
-                            AddedDate = new DateTime(2022, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 150 for event 2022",
-                            UserId = 19,
-                            Viewed = 12,
-                            Vote = 18
-                        },
-                        new
-                        {
-                            Id = 151,
-                            AddedDate = new DateTime(2022, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 145,
+                            AddedDate = new DateTime(2022, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 145 for event 2022",
+                            UserId = 22,
+                            Viewed = 7,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 146,
+                            AddedDate = new DateTime(2022, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 146 for event 2022",
+                            UserId = 9,
+                            Viewed = 6,
+                            Vote = 16
+                        },
+                        new
+                        {
+                            Id = 147,
+                            AddedDate = new DateTime(2022, 7, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 147 for event 2022",
+                            UserId = 19,
+                            Viewed = 2,
+                            Vote = 25
+                        },
+                        new
+                        {
+                            Id = 148,
+                            AddedDate = new DateTime(2022, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 148 for event 2022",
+                            UserId = 20,
+                            Viewed = 12,
+                            Vote = 23
+                        },
+                        new
+                        {
+                            Id = 149,
+                            AddedDate = new DateTime(2022, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 149 for event 2022",
+                            UserId = 10,
+                            Viewed = 9,
+                            Vote = -10
+                        },
+                        new
+                        {
+                            Id = 150,
+                            AddedDate = new DateTime(2022, 10, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 150 for event 2022",
+                            UserId = 16,
+                            Viewed = 12,
+                            Vote = 3
+                        },
+                        new
+                        {
+                            Id = 151,
+                            AddedDate = new DateTime(2022, 4, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 151 for event 2022",
-                            UserId = 4,
-                            Viewed = 5,
-                            Vote = -8
+                            UserId = 15,
+                            Viewed = 11,
+                            Vote = -1
                         },
                         new
                         {
                             Id = 152,
-                            AddedDate = new DateTime(2022, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 152 for event 2022",
-                            UserId = 24,
+                            UserId = 10,
                             Viewed = 11,
-                            Vote = 18
+                            Vote = -7
                         },
                         new
                         {
                             Id = 153,
-                            AddedDate = new DateTime(2022, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 153 for event 2022",
-                            UserId = 9,
-                            Viewed = 8,
-                            Vote = -3
+                            UserId = 19,
+                            Viewed = 4,
+                            Vote = 2
                         },
                         new
                         {
                             Id = 154,
-                            AddedDate = new DateTime(2022, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 154 for event 2022",
-                            UserId = 23,
-                            Viewed = 9,
-                            Vote = 16
+                            UserId = 22,
+                            Viewed = 7,
+                            Vote = 24
                         },
                         new
                         {
                             Id = 155,
-                            AddedDate = new DateTime(2022, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 155 for event 2022",
-                            UserId = 11,
-                            Viewed = 8,
-                            Vote = 15
+                            UserId = 13,
+                            Viewed = 9,
+                            Vote = 16
                         },
                         new
                         {
                             Id = 156,
-                            AddedDate = new DateTime(2022, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 156 for event 2022",
-                            UserId = 21,
-                            Viewed = 2,
-                            Vote = -3
-                        },
-                        new
-                        {
-                            Id = 157,
-                            AddedDate = new DateTime(2022, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 157 for event 2022",
-                            UserId = 9,
-                            Viewed = 13,
-                            Vote = 22
-                        },
-                        new
-                        {
-                            Id = 158,
-                            AddedDate = new DateTime(2022, 11, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 158 for event 2022",
-                            UserId = 8,
-                            Viewed = 8,
-                            Vote = 23
-                        },
-                        new
-                        {
-                            Id = 159,
-                            AddedDate = new DateTime(2022, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 156 for event 2022",
+                            UserId = 20,
+                            Viewed = 9,
+                            Vote = -1
+                        },
+                        new
+                        {
+                            Id = 157,
+                            AddedDate = new DateTime(2022, 10, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 157 for event 2022",
+                            UserId = 19,
+                            Viewed = 3,
+                            Vote = 13
+                        },
+                        new
+                        {
+                            Id = 158,
+                            AddedDate = new DateTime(2022, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 158 for event 2022",
+                            UserId = 15,
+                            Viewed = 2,
+                            Vote = -7
+                        },
+                        new
+                        {
+                            Id = 159,
+                            AddedDate = new DateTime(2022, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 159 for event 2022",
-                            UserId = 6,
-                            Viewed = 13,
-                            Vote = 15
+                            UserId = 13,
+                            Viewed = 6,
+                            Vote = 8
                         },
                         new
                         {
                             Id = 160,
-                            AddedDate = new DateTime(2022, 7, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 10, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 160 for event 2022",
-                            UserId = 20,
+                            UserId = 19,
                             Viewed = 11,
-                            Vote = 9
+                            Vote = -9
                         },
                         new
                         {
                             Id = 161,
-                            AddedDate = new DateTime(2022, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 161 for event 2022",
-                            UserId = 19,
-                            Viewed = 12,
-                            Vote = -7
-                        },
-                        new
-                        {
-                            Id = 162,
-                            AddedDate = new DateTime(2022, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 162 for event 2022",
-                            UserId = 10,
-                            Viewed = 3,
-                            Vote = 2
-                        },
-                        new
-                        {
-                            Id = 163,
-                            AddedDate = new DateTime(2022, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 163 for event 2022",
-                            UserId = 10,
-                            Viewed = 10,
-                            Vote = 26
-                        },
-                        new
-                        {
-                            Id = 164,
-                            AddedDate = new DateTime(2022, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 3,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 164 for event 2022",
-                            UserId = 20,
-                            Viewed = 9,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 165,
-                            AddedDate = new DateTime(2022, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 161 for event 2022",
+                            UserId = 20,
+                            Viewed = 8,
+                            Vote = -1
+                        },
+                        new
+                        {
+                            Id = 162,
+                            AddedDate = new DateTime(2022, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 162 for event 2022",
+                            UserId = 4,
+                            Viewed = 11,
+                            Vote = 30
+                        },
+                        new
+                        {
+                            Id = 163,
+                            AddedDate = new DateTime(2022, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 163 for event 2022",
+                            UserId = 11,
+                            Viewed = 3,
+                            Vote = -8
+                        },
+                        new
+                        {
+                            Id = 164,
+                            AddedDate = new DateTime(2022, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 164 for event 2022",
+                            UserId = 17,
+                            Viewed = 6,
+                            Vote = -7
+                        },
+                        new
+                        {
+                            Id = 165,
+                            AddedDate = new DateTime(2022, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 3,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 165 for event 2022",
-                            UserId = 16,
-                            Viewed = 12,
-                            Vote = 15
+                            UserId = 11,
+                            Viewed = 2,
+                            Vote = 9
                         },
                         new
                         {
                             Id = 166,
-                            AddedDate = new DateTime(2022, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2022, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 166 for event 2022",
-                            UserId = 9,
-                            Viewed = 5,
-                            Vote = 1
+                            UserId = 23,
+                            Viewed = 2,
+                            Vote = -9
                         },
                         new
                         {
                             Id = 167,
-                            AddedDate = new DateTime(2022, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2022, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 167 for event 2022",
-                            UserId = 17,
-                            Viewed = 2,
-                            Vote = 18
+                            UserId = 16,
+                            Viewed = 14,
+                            Vote = -2
                         },
                         new
                         {
                             Id = 168,
-                            AddedDate = new DateTime(2022, 7, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2022, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 168 for event 2022",
-                            UserId = 22,
-                            Viewed = 3,
-                            Vote = 8
+                            UserId = 15,
+                            Viewed = 2,
+                            Vote = 27
                         },
                         new
                         {
                             Id = 169,
-                            AddedDate = new DateTime(2022, 7, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2022, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 169 for event 2022",
-                            UserId = 9,
-                            Viewed = 2,
-                            Vote = 12
+                            UserId = 21,
+                            Viewed = 10,
+                            Vote = -1
                         },
                         new
                         {
                             Id = 170,
-                            AddedDate = new DateTime(2022, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2022, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 3,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 170 for event 2022",
-                            UserId = 7,
+                            UserId = 13,
                             Viewed = 7,
-                            Vote = 13
+                            Vote = 22
                         },
                         new
                         {
                             Id = 171,
-                            AddedDate = new DateTime(2023, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 171 for event 2023",
-                            UserId = 23,
-                            Viewed = 10,
-                            Vote = 9
-                        },
-                        new
-                        {
-                            Id = 172,
-                            AddedDate = new DateTime(2023, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 172 for event 2023",
-                            UserId = 13,
-                            Viewed = 12,
-                            Vote = 5
-                        },
-                        new
-                        {
-                            Id = 173,
-                            AddedDate = new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 173 for event 2023",
-                            UserId = 16,
-                            Viewed = 8,
-                            Vote = 23
-                        },
-                        new
-                        {
-                            Id = 174,
-                            AddedDate = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 171 for event 2023",
+                            UserId = 9,
+                            Viewed = 8,
+                            Vote = 9
+                        },
+                        new
+                        {
+                            Id = 172,
+                            AddedDate = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 172 for event 2023",
+                            UserId = 6,
+                            Viewed = 7,
+                            Vote = 20
+                        },
+                        new
+                        {
+                            Id = 173,
+                            AddedDate = new DateTime(2023, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 173 for event 2023",
+                            UserId = 7,
+                            Viewed = 4,
+                            Vote = 18
+                        },
+                        new
+                        {
+                            Id = 174,
+                            AddedDate = new DateTime(2023, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 174 for event 2023",
-                            UserId = 12,
-                            Viewed = 2,
-                            Vote = 1
+                            UserId = 17,
+                            Viewed = 9,
+                            Vote = 16
                         },
                         new
                         {
                             Id = 175,
-                            AddedDate = new DateTime(2023, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 175 for event 2023",
                             UserId = 22,
-                            Viewed = 11,
-                            Vote = 22
+                            Viewed = 10,
+                            Vote = 9
                         },
                         new
                         {
                             Id = 176,
-                            AddedDate = new DateTime(2023, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 176 for event 2023",
-                            UserId = 15,
-                            Viewed = 5,
-                            Vote = 1
+                            UserId = 12,
+                            Viewed = 1,
+                            Vote = 19
                         },
                         new
                         {
                             Id = 177,
-                            AddedDate = new DateTime(2023, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2023, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 177 for event 2023",
-                            UserId = 10,
-                            Viewed = 2,
-                            Vote = -3
+                            UserId = 17,
+                            Viewed = 1,
+                            Vote = 26
                         },
                         new
                         {
                             Id = 178,
-                            AddedDate = new DateTime(2023, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 178 for event 2023",
-                            UserId = 10,
-                            Viewed = 3,
-                            Vote = -1
+                            UserId = 13,
+                            Viewed = 2,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 179,
-                            AddedDate = new DateTime(2023, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2023, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 179 for event 2023",
-                            UserId = 8,
-                            Viewed = 8,
-                            Vote = -5
+                            UserId = 7,
+                            Viewed = 2,
+                            Vote = 3
                         },
                         new
                         {
                             Id = 180,
-                            AddedDate = new DateTime(2023, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 180 for event 2023",
-                            UserId = 6,
-                            Viewed = 1,
-                            Vote = 14
+                            UserId = 23,
+                            Viewed = 11,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 181,
-                            AddedDate = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 181 for event 2023",
-                            UserId = 11,
-                            Viewed = 13,
-                            Vote = 12
-                        },
-                        new
-                        {
-                            Id = 182,
-                            AddedDate = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 181 for event 2023",
+                            UserId = 23,
+                            Viewed = 12,
+                            Vote = -1
+                        },
+                        new
+                        {
+                            Id = 182,
+                            AddedDate = new DateTime(2023, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 182 for event 2023",
-                            UserId = 16,
-                            Viewed = 7,
-                            Vote = 20
+                            UserId = 23,
+                            Viewed = 9,
+                            Vote = 30
                         },
                         new
                         {
                             Id = 183,
-                            AddedDate = new DateTime(2023, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
@@ -3153,181 +3153,181 @@ namespace ProjectCMS.Migrations
                             IsAnonymous = false,
                             Name = "Idea 183 for event 2023",
                             UserId = 7,
-                            Viewed = 12,
-                            Vote = 23
+                            Viewed = 1,
+                            Vote = 16
                         },
                         new
                         {
                             Id = 184,
+                            AddedDate = new DateTime(2023, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 184 for event 2023",
+                            UserId = 16,
+                            Viewed = 14,
+                            Vote = 20
+                        },
+                        new
+                        {
+                            Id = 185,
+                            AddedDate = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 185 for event 2023",
+                            UserId = 8,
+                            Viewed = 11,
+                            Vote = 24
+                        },
+                        new
+                        {
+                            Id = 186,
+                            AddedDate = new DateTime(2023, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 186 for event 2023",
+                            UserId = 11,
+                            Viewed = 11,
+                            Vote = 2
+                        },
+                        new
+                        {
+                            Id = 187,
+                            AddedDate = new DateTime(2023, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 187 for event 2023",
+                            UserId = 19,
+                            Viewed = 7,
+                            Vote = 22
+                        },
+                        new
+                        {
+                            Id = 188,
+                            AddedDate = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 188 for event 2023",
+                            UserId = 18,
+                            Viewed = 4,
+                            Vote = 18
+                        },
+                        new
+                        {
+                            Id = 189,
+                            AddedDate = new DateTime(2023, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 189 for event 2023",
+                            UserId = 23,
+                            Viewed = 2,
+                            Vote = 1
+                        },
+                        new
+                        {
+                            Id = 190,
+                            AddedDate = new DateTime(2023, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 190 for event 2023",
+                            UserId = 7,
+                            Viewed = 11,
+                            Vote = -6
+                        },
+                        new
+                        {
+                            Id = 191,
+                            AddedDate = new DateTime(2023, 3, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 191 for event 2023",
+                            UserId = 19,
+                            Viewed = 2,
+                            Vote = -5
+                        },
+                        new
+                        {
+                            Id = 192,
+                            AddedDate = new DateTime(2023, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 192 for event 2023",
+                            UserId = 18,
+                            Viewed = 3,
+                            Vote = 7
+                        },
+                        new
+                        {
+                            Id = 193,
                             AddedDate = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 184 for event 2023",
-                            UserId = 17,
-                            Viewed = 9,
-                            Vote = 13
-                        },
-                        new
-                        {
-                            Id = 185,
-                            AddedDate = new DateTime(2023, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 185 for event 2023",
-                            UserId = 7,
-                            Viewed = 3,
-                            Vote = -10
-                        },
-                        new
-                        {
-                            Id = 186,
-                            AddedDate = new DateTime(2023, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 186 for event 2023",
-                            UserId = 18,
-                            Viewed = 5,
-                            Vote = 28
-                        },
-                        new
-                        {
-                            Id = 187,
-                            AddedDate = new DateTime(2023, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 187 for event 2023",
-                            UserId = 7,
-                            Viewed = 1,
-                            Vote = 24
-                        },
-                        new
-                        {
-                            Id = 188,
-                            AddedDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 188 for event 2023",
-                            UserId = 15,
-                            Viewed = 11,
-                            Vote = 26
-                        },
-                        new
-                        {
-                            Id = 189,
-                            AddedDate = new DateTime(2023, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 189 for event 2023",
-                            UserId = 16,
-                            Viewed = 9,
-                            Vote = 18
-                        },
-                        new
-                        {
-                            Id = 190,
-                            AddedDate = new DateTime(2023, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 190 for event 2023",
-                            UserId = 18,
-                            Viewed = 6,
-                            Vote = -6
-                        },
-                        new
-                        {
-                            Id = 191,
-                            AddedDate = new DateTime(2023, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 191 for event 2023",
-                            UserId = 7,
-                            Viewed = 6,
-                            Vote = 8
-                        },
-                        new
-                        {
-                            Id = 192,
-                            AddedDate = new DateTime(2023, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 192 for event 2023",
-                            UserId = 19,
-                            Viewed = 13,
-                            Vote = 5
-                        },
-                        new
-                        {
-                            Id = 193,
-                            AddedDate = new DateTime(2023, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
                             Name = "Idea 193 for event 2023",
-                            UserId = 12,
-                            Viewed = 5,
-                            Vote = -7
+                            UserId = 6,
+                            Viewed = 6,
+                            Vote = 3
                         },
                         new
                         {
                             Id = 194,
-                            AddedDate = new DateTime(2023, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 194 for event 2023",
-                            UserId = 7,
-                            Viewed = 1,
-                            Vote = 13
+                            UserId = 17,
+                            Viewed = 5,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 195,
-                            AddedDate = new DateTime(2023, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 195 for event 2023",
-                            UserId = 6,
+                            UserId = 14,
                             Viewed = 14,
-                            Vote = 8
+                            Vote = -10
                         },
                         new
                         {
                             Id = 196,
-                            AddedDate = new DateTime(2023, 2, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
@@ -3335,484 +3335,484 @@ namespace ProjectCMS.Migrations
                             IsAnonymous = false,
                             Name = "Idea 196 for event 2023",
                             UserId = 18,
-                            Viewed = 4,
-                            Vote = 11
+                            Viewed = 9,
+                            Vote = -6
                         },
                         new
                         {
                             Id = 197,
-                            AddedDate = new DateTime(2023, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 197 for event 2023",
-                            UserId = 13,
-                            Viewed = 3,
-                            Vote = -6
-                        },
-                        new
-                        {
-                            Id = 198,
-                            AddedDate = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 198 for event 2023",
-                            UserId = 23,
-                            Viewed = 4,
-                            Vote = 10
-                        },
-                        new
-                        {
-                            Id = 199,
-                            AddedDate = new DateTime(2023, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 199 for event 2023",
-                            UserId = 19,
-                            Viewed = 1,
-                            Vote = 4
-                        },
-                        new
-                        {
-                            Id = 200,
-                            AddedDate = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 200 for event 2023",
-                            UserId = 12,
-                            Viewed = 2,
-                            Vote = 16
-                        },
-                        new
-                        {
-                            Id = 201,
-                            AddedDate = new DateTime(2023, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 201 for event 2023",
-                            UserId = 12,
-                            Viewed = 7,
-                            Vote = 1
-                        },
-                        new
-                        {
-                            Id = 202,
-                            AddedDate = new DateTime(2023, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 202 for event 2023",
-                            UserId = 22,
-                            Viewed = 14,
-                            Vote = 14
-                        },
-                        new
-                        {
-                            Id = 203,
-                            AddedDate = new DateTime(2023, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 203 for event 2023",
-                            UserId = 5,
-                            Viewed = 11,
-                            Vote = -6
-                        },
-                        new
-                        {
-                            Id = 204,
-                            AddedDate = new DateTime(2023, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 204 for event 2023",
-                            UserId = 12,
-                            Viewed = 13,
-                            Vote = 19
-                        },
-                        new
-                        {
-                            Id = 205,
-                            AddedDate = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 205 for event 2023",
-                            UserId = 23,
-                            Viewed = 3,
-                            Vote = 27
+                            Name = "Idea 197 for event 2023",
+                            UserId = 4,
+                            Viewed = 2,
+                            Vote = -3
                         },
                         new
                         {
-                            Id = 206,
+                            Id = 198,
                             AddedDate = new DateTime(2023, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 206 for event 2023",
-                            UserId = 6,
-                            Viewed = 3,
-                            Vote = 5
+                            Name = "Idea 198 for event 2023",
+                            UserId = 21,
+                            Viewed = 11,
+                            Vote = 2
                         },
                         new
                         {
-                            Id = 207,
-                            AddedDate = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            Id = 199,
+                            AddedDate = new DateTime(2023, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 207 for event 2023",
-                            UserId = 11,
-                            Viewed = 8,
-                            Vote = 17
+                            Name = "Idea 199 for event 2023",
+                            UserId = 17,
+                            Viewed = 11,
+                            Vote = 23
                         },
                         new
                         {
-                            Id = 208,
-                            AddedDate = new DateTime(2023, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 200,
+                            AddedDate = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 2,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 208 for event 2023",
-                            UserId = 10,
-                            Viewed = 12,
-                            Vote = 21
+                            Name = "Idea 200 for event 2023",
+                            UserId = 9,
+                            Viewed = 7,
+                            Vote = 13
                         },
                         new
                         {
-                            Id = 209,
-                            AddedDate = new DateTime(2023, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id = 201,
+                            AddedDate = new DateTime(2023, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 201 for event 2023",
+                            UserId = 16,
+                            Viewed = 8,
+                            Vote = -7
+                        },
+                        new
+                        {
+                            Id = 202,
+                            AddedDate = new DateTime(2023, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 202 for event 2023",
+                            UserId = 7,
+                            Viewed = 13,
+                            Vote = 12
+                        },
+                        new
+                        {
+                            Id = 203,
+                            AddedDate = new DateTime(2023, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 203 for event 2023",
+                            UserId = 19,
+                            Viewed = 3,
+                            Vote = -8
+                        },
+                        new
+                        {
+                            Id = 204,
+                            AddedDate = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 204 for event 2023",
+                            UserId = 10,
+                            Viewed = 8,
+                            Vote = 11
+                        },
+                        new
+                        {
+                            Id = 205,
+                            AddedDate = new DateTime(2023, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
-                            Name = "Idea 209 for event 2023",
-                            UserId = 20,
-                            Viewed = 1,
-                            Vote = 2
+                            Name = "Idea 205 for event 2023",
+                            UserId = 11,
+                            Viewed = 3,
+                            Vote = 9
                         },
                         new
                         {
-                            Id = 210,
+                            Id = 206,
+                            AddedDate = new DateTime(2023, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 206 for event 2023",
+                            UserId = 22,
+                            Viewed = 13,
+                            Vote = 17
+                        },
+                        new
+                        {
+                            Id = 207,
+                            AddedDate = new DateTime(2023, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 207 for event 2023",
+                            UserId = 14,
+                            Viewed = 5,
+                            Vote = 8
+                        },
+                        new
+                        {
+                            Id = 208,
+                            AddedDate = new DateTime(2023, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
+                            Name = "Idea 208 for event 2023",
+                            UserId = 22,
+                            Viewed = 5,
+                            Vote = -4
+                        },
+                        new
+                        {
+                            Id = 209,
                             AddedDate = new DateTime(2023, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 209 for event 2023",
+                            UserId = 19,
+                            Viewed = 1,
+                            Vote = 27
+                        },
+                        new
+                        {
+                            Id = 210,
+                            AddedDate = new DateTime(2023, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 210 for event 2023",
-                            UserId = 12,
-                            Viewed = 10,
-                            Vote = 13
+                            UserId = 14,
+                            Viewed = 12,
+                            Vote = 27
                         },
                         new
                         {
                             Id = 211,
-                            AddedDate = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2023, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 211 for event 2023",
-                            UserId = 20,
-                            Viewed = 11,
-                            Vote = 24
+                            UserId = 12,
+                            Viewed = 10,
+                            Vote = 8
                         },
                         new
                         {
                             Id = 212,
-                            AddedDate = new DateTime(2023, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 212 for event 2023",
-                            UserId = 19,
-                            Viewed = 8,
-                            Vote = 0
+                            UserId = 12,
+                            Viewed = 4,
+                            Vote = 22
                         },
                         new
                         {
                             Id = 213,
-                            AddedDate = new DateTime(2023, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 213 for event 2023",
-                            UserId = 22,
-                            Viewed = 9,
-                            Vote = -9
+                            UserId = 12,
+                            Viewed = 2,
+                            Vote = 17
                         },
                         new
                         {
                             Id = 214,
-                            AddedDate = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 214 for event 2023",
-                            UserId = 4,
-                            Viewed = 7,
+                            UserId = 23,
+                            Viewed = 9,
                             Vote = -3
                         },
                         new
                         {
                             Id = 215,
-                            AddedDate = new DateTime(2023, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 215 for event 2023",
-                            UserId = 4,
-                            Viewed = 1,
-                            Vote = 23
+                            UserId = 11,
+                            Viewed = 2,
+                            Vote = -1
                         },
                         new
                         {
                             Id = 216,
-                            AddedDate = new DateTime(2023, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 1,
+                            AddedDate = new DateTime(2023, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 216 for event 2023",
-                            UserId = 5,
-                            Viewed = 6,
-                            Vote = 18
+                            UserId = 22,
+                            Viewed = 8,
+                            Vote = 1
                         },
                         new
                         {
                             Id = 217,
-                            AddedDate = new DateTime(2023, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 217 for event 2023",
-                            UserId = 17,
-                            Viewed = 11,
-                            Vote = 16
+                            UserId = 5,
+                            Viewed = 14,
+                            Vote = -1
                         },
                         new
                         {
                             Id = 218,
-                            AddedDate = new DateTime(2023, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 218 for event 2023",
-                            UserId = 15,
-                            Viewed = 2,
-                            Vote = 13
+                            UserId = 23,
+                            Viewed = 1,
+                            Vote = 12
                         },
                         new
                         {
                             Id = 219,
-                            AddedDate = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 219 for event 2023",
-                            UserId = 19,
-                            Viewed = 8,
-                            Vote = -4
+                            UserId = 9,
+                            Viewed = 10,
+                            Vote = 7
                         },
                         new
                         {
                             Id = 220,
-                            AddedDate = new DateTime(2023, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
-                            Content = "This is new Idea",
-                            EvId = 4,
-                            IdeaFile = "Bang TN.pdf",
-                            IsAnonymous = false,
-                            Name = "Idea 220 for event 2023",
-                            UserId = 12,
-                            Viewed = 13,
-                            Vote = 0
-                        },
-                        new
-                        {
-                            Id = 221,
-                            AddedDate = new DateTime(2023, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
+                            Name = "Idea 220 for event 2023",
+                            UserId = 22,
+                            Viewed = 13,
+                            Vote = 10
+                        },
+                        new
+                        {
+                            Id = 221,
+                            AddedDate = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 2,
+                            Content = "This is new Idea",
+                            EvId = 4,
+                            IdeaFile = "Bang TN.pdf",
+                            IsAnonymous = false,
                             Name = "Idea 221 for event 2023",
-                            UserId = 8,
-                            Viewed = 12,
-                            Vote = 17
+                            UserId = 16,
+                            Viewed = 7,
+                            Vote = 13
                         },
                         new
                         {
                             Id = 222,
-                            AddedDate = new DateTime(2023, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            AddedDate = new DateTime(2023, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 222 for event 2023",
-                            UserId = 22,
-                            Viewed = 11,
-                            Vote = 4
+                            UserId = 6,
+                            Viewed = 2,
+                            Vote = 1
                         },
                         new
                         {
                             Id = 223,
-                            AddedDate = new DateTime(2023, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2023, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 223 for event 2023",
-                            UserId = 4,
-                            Viewed = 14,
-                            Vote = 19
+                            UserId = 7,
+                            Viewed = 2,
+                            Vote = -5
                         },
                         new
                         {
                             Id = 224,
-                            AddedDate = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 2,
+                            AddedDate = new DateTime(2023, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 224 for event 2023",
-                            UserId = 23,
-                            Viewed = 9,
+                            UserId = 17,
+                            Viewed = 13,
                             Vote = 9
                         },
                         new
                         {
                             Id = 225,
-                            AddedDate = new DateTime(2023, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 225 for event 2023",
-                            UserId = 20,
-                            Viewed = 9,
-                            Vote = -6
+                            UserId = 16,
+                            Viewed = 5,
+                            Vote = 11
                         },
                         new
                         {
                             Id = 226,
-                            AddedDate = new DateTime(2023, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 226 for event 2023",
-                            UserId = 12,
-                            Viewed = 8,
-                            Vote = -2
+                            UserId = 24,
+                            Viewed = 3,
+                            Vote = 29
                         },
                         new
                         {
                             Id = 227,
-                            AddedDate = new DateTime(2023, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2023, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 1,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 227 for event 2023",
-                            UserId = 17,
-                            Viewed = 9,
-                            Vote = 3
+                            UserId = 5,
+                            Viewed = 13,
+                            Vote = -10
                         },
                         new
                         {
                             Id = 228,
-                            AddedDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 3,
+                            AddedDate = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 4,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 228 for event 2023",
-                            UserId = 21,
-                            Viewed = 8,
-                            Vote = -9
+                            UserId = 13,
+                            Viewed = 10,
+                            Vote = 14
                         },
                         new
                         {
                             Id = 229,
-                            AddedDate = new DateTime(2023, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 229 for event 2023",
                             UserId = 22,
-                            Viewed = 3,
-                            Vote = -3
+                            Viewed = 5,
+                            Vote = 20
                         },
                         new
                         {
                             Id = 230,
-                            AddedDate = new DateTime(2023, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CateId = 4,
+                            AddedDate = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CateId = 3,
                             Content = "This is new Idea",
                             EvId = 4,
                             IdeaFile = "Bang TN.pdf",
                             IsAnonymous = false,
                             Name = "Idea 230 for event 2023",
-                            UserId = 6,
-                            Viewed = 6,
-                            Vote = 27
+                            UserId = 14,
+                            Viewed = 11,
+                            Vote = 23
                         });
                 });
 
@@ -3919,14 +3919,14 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             UserId = 1,
-                            AddedDate = new DateTime(2023, 4, 16, 12, 58, 52, 451, DateTimeKind.Local).AddTicks(7115),
+                            AddedDate = new DateTime(2023, 4, 20, 12, 38, 44, 958, DateTimeKind.Local).AddTicks(8024),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
                             DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duongtdgch17587@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0385524965",
                             RefreshToken = "",
                             Role = "Admin",
@@ -3936,14 +3936,14 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             UserId = 2,
-                            AddedDate = new DateTime(2023, 4, 16, 12, 58, 52, 451, DateTimeKind.Local).AddTicks(7142),
+                            AddedDate = new DateTime(2023, 4, 20, 12, 38, 44, 958, DateTimeKind.Local).AddTicks(8078),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
                             DepartmentID = 2,
                             DoB = new DateTime(2000, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duongtdgch17587@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0333804202",
                             RefreshToken = "",
                             Role = "QAM",
@@ -3953,14 +3953,14 @@ namespace ProjectCMS.Migrations
                         new
                         {
                             UserId = 3,
-                            AddedDate = new DateTime(2023, 4, 16, 12, 58, 52, 451, DateTimeKind.Local).AddTicks(7157),
+                            AddedDate = new DateTime(2023, 4, 20, 12, 38, 44, 958, DateTimeKind.Local).AddTicks(8099),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
                             DepartmentID = 2,
                             DoB = new DateTime(2000, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "duongtdgch17587@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0333804202",
                             RefreshToken = "",
                             Role = "QAC",
@@ -3976,8 +3976,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff04@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -3990,11 +3990,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 3,
+                            DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff05@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4010,8 +4010,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff06@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4027,8 +4027,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff07@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4041,11 +4041,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 3,
+                            DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff08@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4058,11 +4058,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 3,
+                            DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff09@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4075,11 +4075,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 1,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff10@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4092,11 +4092,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 1,
+                            DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff11@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4112,8 +4112,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff12@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4129,8 +4129,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff13@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4143,11 +4143,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 3,
+                            DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff14@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4160,11 +4160,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 2,
+                            DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff15@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4177,11 +4177,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 2,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff16@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4194,11 +4194,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 2,
+                            DepartmentID = 1,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff17@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4211,11 +4211,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 3,
+                            DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff18@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4228,11 +4228,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 2,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff19@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4245,11 +4245,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 2,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff20@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4262,11 +4262,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 1,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff21@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4279,11 +4279,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 1,
+                            DepartmentID = 2,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff22@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4296,11 +4296,11 @@ namespace ProjectCMS.Migrations
                             AddedDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Address = "Ha Noi",
                             Avatar = "/images/Avatar.jpg",
-                            DepartmentID = 1,
+                            DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff23@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",
@@ -4316,8 +4316,8 @@ namespace ProjectCMS.Migrations
                             DepartmentID = 3,
                             DoB = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff24@fpt.edu.vn",
-                            PasswordHash = new byte[] { 161, 59, 217, 63, 216, 87, 162, 211, 86, 17, 47, 193, 221, 55, 192, 80, 208, 170, 165, 213, 66, 169, 66, 3, 181, 15, 36, 72, 126, 65, 56, 206, 225, 171, 212, 123, 226, 216, 130, 214, 194, 1, 151, 95, 2, 89, 138, 223, 36, 1, 162, 16, 119, 145, 177, 27, 177, 15, 64, 181, 19, 175, 30, 75 },
-                            PasswordSalt = new byte[] { 49, 60, 177, 104, 56, 51, 164, 31, 186, 144, 215, 56, 20, 58, 251, 25, 0, 32, 38, 85, 82, 30, 40, 198, 98, 28, 20, 42, 19, 142, 215, 63, 222, 17, 160, 135, 44, 72, 162, 106, 186, 148, 58, 103, 159, 247, 7, 111, 166, 4, 208, 50, 172, 156, 93, 110, 53, 73, 151, 221, 203, 105, 169, 18, 193, 12, 186, 105, 212, 184, 207, 113, 19, 43, 181, 97, 243, 240, 204, 96, 138, 246, 158, 171, 232, 138, 206, 29, 121, 77, 57, 200, 207, 187, 54, 239, 38, 130, 14, 180, 238, 224, 15, 120, 73, 76, 116, 196, 20, 75, 206, 212, 3, 208, 11, 104, 171, 28, 33, 27, 229, 13, 26, 118, 47, 140, 28, 170 },
+                            PasswordHash = new byte[] { 92, 122, 139, 61, 211, 99, 245, 174, 28, 122, 93, 161, 179, 248, 122, 207, 103, 146, 129, 47, 137, 187, 126, 6, 45, 206, 105, 197, 234, 79, 98, 227, 39, 166, 120, 49, 212, 48, 118, 98, 203, 205, 94, 62, 172, 228, 62, 153, 64, 10, 36, 189, 237, 181, 116, 207, 77, 92, 105, 246, 154, 104, 201, 97 },
+                            PasswordSalt = new byte[] { 169, 99, 204, 54, 24, 198, 140, 77, 204, 87, 59, 77, 205, 227, 104, 158, 90, 22, 148, 117, 69, 43, 162, 50, 93, 116, 46, 90, 196, 238, 240, 177, 244, 31, 217, 127, 196, 57, 148, 238, 125, 45, 121, 242, 163, 30, 113, 131, 116, 232, 5, 240, 155, 221, 180, 48, 125, 148, 228, 67, 178, 211, 47, 98, 85, 183, 126, 93, 98, 113, 62, 211, 66, 105, 17, 193, 242, 9, 211, 82, 153, 208, 2, 247, 223, 95, 139, 249, 71, 127, 223, 84, 25, 132, 153, 5, 204, 247, 48, 102, 160, 202, 205, 65, 207, 52, 250, 62, 71, 20, 214, 75, 81, 182, 96, 72, 111, 29, 254, 233, 224, 19, 176, 161, 215, 114, 20, 60 },
                             Phone = "0123456789",
                             RefreshToken = "",
                             Role = "Staff",

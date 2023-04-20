@@ -383,31 +383,27 @@ a:not([href]) {
 
 
 
-@media screen and (max-width:1080px){
+@media screen and (max-width:480px) {
 
-    .dropdown.notification-list{
+    .dropdown.notification-list {
         margin-right: -40px;
     }
 
-    .media-body p{
+    .media-body p {
         display: none;
     }
 
-    .topnav-navbar-dark{
+    .topnav-navbar-dark {
         width: 100%;
     }
-    
-    .topnav-navbar .navbar-toggle {
-        margin-left: 50px;
-    }
 
-    span img{
-        width: 200%;
-        margin-left: -50px;
+    .topnav-navbar .navbar-toggle {
+        margin-left: 20px;
     }
 
     .topnav-logo-lg > img {
-        height: 82px;
+        height: 85px;
+        margin-left: -30px;
+        margin-top: -5px;
     }
-    
 }

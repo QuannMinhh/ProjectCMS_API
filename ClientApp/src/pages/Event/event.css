@@ -101,161 +101,171 @@ button.btn.btn-danger.mb-2{
 
 
 /*event responsive mobile*/
-@media screen and (max-width:480px){
-    .media-body h5{
+@media screen and (max-width:480px) {
+    .media-body h5 {
         padding-top: 10px;
     }
 
-    .page-title{
-        margin-left: 80px;
-        width: 70%;
+    h1.page-title{
+        width:90%;
     }
 
-    button.btn.btn-danger.mb-2{
+    button.btn.btn-danger.mb-2 {
         margin-left: -50px;
     }
 
-    div.Exp{
+    div.Exp {
         width: 63%;
         margin: 40px 0 0 60px;
         display: none;
     }
 
     /*Table*/
-    div.myExp_card__fOcsb.card{
-        width:135%; 
+    div.myExp_card__fOcsb.card {
+        width: 135%;
         margin-left: -50px;
-        margin-top:-30px;
+        margin-top: -30px;
         padding-right: 12px;
     }
 
     /*table event*/
-    .tableAdmin table{
-    margin-left: 80px;
+    .tableAdmin .card {
+        margin-left: -54px;
+        margin-top: -40px;
+        width: 136%;
     }
 
-    .tableAdmin table th{
+    .tableAdmin table {
+        margin-left: -8px;
+    }
+
+    .tableAdmin table th {
         font-size: 14px;
     }
 
-    .tableAdmin table td{
-        font-size: 10px;
+    .tableAdmin table td {
+        font-size: 11px;
     }
 
-    
+
 
     /*table account*/
-    .tableAccountList .card-body{
-        width: 110%;
+    .tableAccountList .card {
+        margin-left: -50px;
+        margin-top: -30px;
+        width: 135%;
+    }
+
+    .tableAccountList .card-body {
+        width: 105%;
         margin-left: -20px;
     }
 
-    .tableAccountList table{
+    .tableAccountList table {
         margin-left: -5px;
     }
 
-    .tableAccountList th{
+    .tableAccountList th {
         font-size: 10px;
     }
 
-    .tableAccountList td{
+    .tableAccountList td {
         font-size: 9px;
     }
 
 
 
-    div.col-sm-12{
+    div.col-sm-12 {
         width: 50%;
     }
 
 
-    div.page-title-box{
+    div.page-title-box {
         display: block;
     }
 
-    /*post*/
-    /* div.card-body{
-        margin-left: -90px;
-        width: 125%;
-    } */
 
     /*profile*/
-    div.card.mt-4 div.card-body{
+    div.card.mt-4 div.card-body {
         margin-left: 10px;
         width: 100%;
     }
 
-   
+
 
     /**/
-    div.table-responsive{
-        margin-top:-15px;
+    div.table-responsive {
+        margin-top: -15px;
         margin-left: -12px;
         width: 110%;
     }
 
     /* Event modal*/
-    .modalEvent{
+    .modalEvent {
         margin: 100px 40px 0 5px;
-        width:95%;
-        height:55%; 
+        width: 97%;
+        height: 60%;
     }
 
-    div.createFormEvent{
-        width: 98%;
+    div.createFormEvent {
+        width: 100%;
     }
 
-    .createFormEvent_Header h1{
+    .createFormEvent_Header h1 {
         width: 90%;
     }
 
-    .First-closureDate span{ 
+    .First-closureDate span {
         font-size: 12px;
         margin-left: 5px;
     }
 
-    .First-closureDate input{ 
+    .First-closureDate input {
         width: 55%;
-        margin:0 15px 0 5px;
+        margin: 0 15px 0 5px;
     }
 
-    .Last-closureDate span{
+    .Last-closureDate span {
         margin-left: -115px;
         font-size: 12px;
     }
 
-    .Last-closureDate input{
-        margin-left: -71px;  
+    .Last-closureDate input {
+        margin-left: -71px;
         width: 85%;
     }
 
 
     /*Account modal*/
-    div.account_modalAccount__RAScl{
-        margin-top: 100px;
-        width: 93%;
-        height: 70%;
+    div.account_modalAccount__eNEm2 {
+        margin: 80px 0 0 30px;
+        width: 90%;
+        height: 85%;
+    }
+
+    div.account_modalAccount__eNEm2 h1{
+        margin-bottom: -20px;
+        width: 100%;
     }
 
 
-    div.btnForm{
+    div.btnForm {
         margin-top: 20px;
     }
-    
+
     /*List ideas*/
     .tableListIdea {
         width: 100%;
-        margin: 0px 0 0 1px ;
+        margin: 0px 0 0 1px;
     }
 
-    .tableListIdea .card{
+    .tableListIdea .card {
         width: 137%;
-        margin: 0px 0 0 -55px ;
+        margin: 0px 0 0 -55px;
     }
 
     .tableListIdea table {
         width: 120%;
-        margin: 40px 0 0 80px ;
     }
 
     .tableListIdea th {
@@ -267,20 +277,57 @@ button.btn.btn-danger.mb-2{
     }
 
 
-    /*event idea card*/
-    div.row{
-        display: block;
+    /*category*/
+    .tableCate .card {
+        width: 135%;
+        margin-left: -50px;
+        margin-top: -40px;
     }
 
-    div.col-4{
+    .tableCate h1 {
+        width: 300px;
+    }
+
+    .tableCate .card-body {
+        width: 95%;
+    }
+
+    .tableCate table {
+        margin-left: -5px;
+    }
+
+    .tableCate table th {
+        font-size: 15px;
+    }
+
+    .tableCate table td {
+        font-size: 15px;
+    }
+
+    /*Modal category*/
+    .modalCate h1{
+        width: 100%;
+    }
+
+
+    /*event idea card*/
+    .eventIdea div.row {
+        display: block;
+        padding-top: 10px;
+    }
+
+    div.col-4 {
         width: 100%;
     }
 
 
 
 
+
+
+
 }
 
-.tableListIdea .container-fluid{
+.tableListIdea .container-fluid {
     margin-top: 0px;
 }
