@@ -1,5 +1,5 @@
-export const server = "https://localhost:7069/";
-// export const server = "https://fgwprojectcms.com/";
+export const server = "https://localhost:44371/";
+//export const server = "https://fgwprojectcms.com/";
 
 export const apiCategory = `${server}api/category`;
 
