@@ -8,11 +8,12 @@ html{
   scroll-behavior: smooth;
 }
 
-body{
-  /* background-color: #e1e4ea !important; */
-  background-color: rgb(86, 216, 228, 1)!important;
+body {
+    /* background-color: #e1e4ea !important; */
+   background-color: rgb(86, 216, 228, 1) !important;
+
 }
-.App>.login, .detailIdea, .tableAccountList, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea, .userProfile {
+.App>.login, .detailIdea, .tableAccountList, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea, .userProfile, #userProfile {
   /* position: relative */
   width: 100%;
   height: 100vh;
@@ -22,7 +23,7 @@ body{
   background-size: cover;
 }
 
-@media  screen and (max-width:1921px){
+@media  screen and (max-width:1600px){
   .App>.detailIdea {
       height: 160vh;
   }
@@ -39,28 +40,56 @@ body{
     height: 85vh;
   }
 
+  .App>.tableListIdea{
+    height: 85vh;
+  }
+
+
+    .App > #userProfile {
+        height: 445vh;
+    }
+
 }
-@media  screen and (max-width:845px){
-.App>.editProfile{
-  background:none;
+@media  screen and (max-width:480px){
+  .App>.editProfile {
+      height: 180vh;
+  }
+
+  .App > .userProfile {
+      height: 200vh;
+      background:none;
+   }
+
+  .App >#userProfile {
+      height: 105vh;
+  }
+
+    .App > .eventIdea {
+        height: 100vh;
+    }
 }
 
-.App>.userProfile{
-  background:none;
+@media screen and (max-width:480px) {
+    #dashBoard .row .col-3 {
+        width: 50%;
+        display:grid;
+    }
+
+    #dough_nut {
+        margin-top: 30px;
+    }
+
+    #line_chart {
+        margin-top: 50px;
+    }
+
+    .App > #userProfile {
+        height: 445vh;
+    }
 }
 
-.App>#userProfile{
-  background:none;
-}
-}
-#userProfileStaff {
-    width: 100%;
-    height: 100%;
-    background-image: url('./images/TruongTao.png');
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-}
+
+
 #NewFeedBackG,#dashBoard{
   width: 100%;
   background-image: url('./images/TruongTao.png');

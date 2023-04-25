@@ -21,10 +21,11 @@ function MyIdea({ token }) {
       });
   }, [token, userId]);
 
-  return (
-    <div className="col-lg-7">
-      <Post dataIdea={dataIdea} />
-    </div>
+    return (
+        <div className="col-lg-7">
+            <Post dataIdea={dataIdea} />
+        </div>
+
   );
 }
 export default MyIdea;

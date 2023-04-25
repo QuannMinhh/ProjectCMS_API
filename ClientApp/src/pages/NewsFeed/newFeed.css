@@ -1,6 +1,4 @@
-
-
-@media screen and (max-width:819px){
+@media screen and (max-width:480px){
 
     span{
         margin-left: 20% ;
@@ -16,15 +14,20 @@
         margin-top: 20px;
     }
 
-    .Sort_ant_space_gBcfI{
-        margin-right: -95px;
+
+    div.SortMenu {
+        margin-left: -25px;
+        margin-top: 5px;
     }
 
-    div.DetailIdea_Card__Fvyvy.card{
+    #NewFeedBackG .card-body {
+        width: 120%;
+        margin-left: -30px;
+    }
+
+    .detailIdea .card {
         width: 130%;
-        margin: 0px 0px 0px -45px;
+        margin-left: -50px;
+        margin-top:10px;
     }
-    
-
-
 }

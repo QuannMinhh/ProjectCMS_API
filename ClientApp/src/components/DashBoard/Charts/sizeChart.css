@@ -2,3 +2,10 @@
     width: 100%!important;
     height: 100%!important;
 }
+
+@media screen and (max-width: 480px{
+    #bar_chart, #dough_nut, #line_chart > canvas {
+        width: 150% !important;
+        height: 100% !important;
+    }
+}
