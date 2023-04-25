@@ -127,7 +127,6 @@ button.btn.btn-danger.mb-2{
         margin-top: -30px;
         padding-right: 12px;
     }
-
     /*table event*/
     .tableAdmin .card {
         margin-left: -54px;
@@ -235,7 +234,6 @@ button.btn.btn-danger.mb-2{
         width: 85%;
     }
 
-
     /*Account modal*/
     div.account_modalAccount__eNEm2 {
         margin: 80px 0 0 30px;
@@ -309,7 +307,6 @@ button.btn.btn-danger.mb-2{
         width: 100%;
     }
 
-
     /*event idea card*/
     .eventIdea div.row {
         display: block;
@@ -319,12 +316,6 @@ button.btn.btn-danger.mb-2{
     div.col-4 {
         width: 100%;
     }
-
-
-
-
-
-
 
 }
 

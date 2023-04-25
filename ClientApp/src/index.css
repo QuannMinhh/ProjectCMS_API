@@ -32,7 +32,7 @@ body {
     height: 90vh;
   }
 
-  .App>.userProfile{
+  .App> .userProfile{
     height: 155vh;
   }
 
@@ -48,10 +48,6 @@ body {
     .App > #userProfile {
         height: 445vh;
     }
-
-  
- 
-
 
 }
 @media  screen and (max-width:480px){
@@ -91,6 +87,7 @@ body {
         height: 445vh;
     }
 }
+
 
 
 #NewFeedBackG,#dashBoard{
