@@ -8,11 +8,12 @@ html{
   scroll-behavior: smooth;
 }
 
-body{
-  /* background-color: #e1e4ea !important; */
-  background-color: rgb(86, 216, 228, 1)!important;
+body {
+    /* background-color: #e1e4ea !important; */
+   background-color: rgb(86, 216, 228, 1) !important;
+
 }
-.App>.login, .detailIdea, .tableAccountList, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea, .userProfile {
+.App>.login, .detailIdea, .tableAccountList, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea, .userProfile, #userProfile {
   /* position: relative */
   width: 100%;
   height: 100vh;
@@ -43,11 +44,20 @@ body{
     height: 85vh;
   }
 
+<<<<<<< Updated upstream
 
     .App > #userProfile {
         height: 405vh;
     }
 
+=======
+    .App > #userProfile {
+        height: 445vh;
+    }
+
+  
+ 
+>>>>>>> Stashed changes
 
 }
 @media  screen and (max-width:480px){
@@ -58,14 +68,15 @@ body{
   .App > .userProfile {
       height: 200vh;
       background:none;
-      
    }
 
   .App >#userProfile {
       height: 105vh;
   }
 
-
+    .App > .eventIdea {
+        height: 100vh;
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -80,6 +91,10 @@ body{
 
     #line_chart {
         margin-top: 50px;
+    }
+
+    .App > #userProfile {
+        height: 445vh;
     }
 }
 

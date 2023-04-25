@@ -23,47 +23,47 @@ function UserProfile({ token }) {
               <div className="card mt-4">
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0">User Name</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="text-muted mb-0">{user.userName}</p>
                     </div>
                   </div>
                   <hr />
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0">Email</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="text-muted mb-0">{user.email}</p>
                     </div>
                   </div>
                   <hr />
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0">Phone</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="text-muted mb-0">{user.phone}</p>
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0">Department</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="text-muted mb-0">{user.department}</p>
                     </div>
                   </div>
                   <hr />
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0">Address</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="text-muted mb-0">{user.address}</p>
                     </div>
                   </div>

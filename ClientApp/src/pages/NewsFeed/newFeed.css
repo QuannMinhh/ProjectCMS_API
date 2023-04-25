@@ -1,5 +1,3 @@
-
-
 @media screen and (max-width:480px){
 
     span{
@@ -16,8 +14,10 @@
         margin-top: 20px;
     }
 
-    .Sort_ant_space_gBcfI{
-        margin-right: -95px;
+
+    div.SortMenu {
+        margin-left: -25px;
+        margin-top: 5px;
     }
 
     #NewFeedBackG .card-body {
@@ -26,24 +26,13 @@
     }
 
     .detailIdea .card {
-        width: 134%;
-        margin-left: -50px;
-        margin-top:-10px;
-    }
-
-
-
-    /*
-    div.DetailIdea_Card__Fvyvy.card{
         width: 130%;
-        margin: 0px 0px 0px -45px;
+        margin-left: -50px;
+        margin-top:10px;
     }
 
-    div.newsFeed_card__P7\+le {
-        width: 120%;
-        margin-left: -30px;
-    }*/
-    
+
+
     
 
 
