@@ -108,7 +108,6 @@ namespace ProjectCMS.Controllers
                         vote -= 1;
                     }
                 }
-
                if(interac.Voted == true)
                 {
                     if(interac.Vote == true)
