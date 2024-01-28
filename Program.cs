@@ -37,17 +37,23 @@ builder.Services.AddCors(
     {
         option.AddPolicy("AllowAll", builder =>
         {
-            builder.AllowAnyOrigin();
-            builder.AllowAnyHeader();
-            builder.AllowAnyMethod();
-            //
+            //builder.WithOrigins("https://fwgprojectcms.com")
+            //.AllowAnyHeader()
+            //.AllowAnyMethod();
+            builder.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
         });
     }
-    );
+);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<EmailService>(provider =>
+{
+    var config =  provider.GetRequiredService<IConfiguration>();
+    return new EmailService(config);
+});
 builder.Services.AddSignalR(options =>
 {
     options.EnableDetailedErrors = true;
